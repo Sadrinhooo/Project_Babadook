@@ -8,16 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_StalkerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_StalkerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Diabolus_Rex/diabolus_rex/SkeletalMeshes/diabolus_rex_Anim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Diabolus_Rex/diabolus_rex/SkeletalMeshes/diabolus_rex_Anim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_MainPlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_MainPlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_OtherPlayerCharacter.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Sadra_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra_Test.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/56/U4ZCCU91LQJZU3WEAWWELT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/56/U4ZCCU91LQJZU3WEAWWELT.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/2/84/B43WRKQ6P7J8B6NRMLQTYG.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/2/84/B43WRKQ6P7J8B6NRMLQTYG.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/9Y/DMXZ2PQF19ODMJ8RR3GEOR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/9Y/DMXZ2PQF19ODMJ8RR3GEOR.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/TD/PQ2C11CBVD144ECHS6LAME.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/TD/PQ2C11CBVD144ECHS6LAME.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/A/QQ/IG1HH5ILQUQAUBJKGI66DH.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/A/QQ/IG1HH5ILQUQAUBJKGI66DH.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt_Babadook.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt_Babadook.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +26,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Private/Logging/LogTrace.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/Microsoft/MinimalWindowsApi.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/Misc/AsciiSet.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/StalkerCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/StalkerCharacter.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -35,34 +37,34 @@
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3CITMbz80sqX5p4qj2CJSwPEIDC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "Sadra",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Sadra&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Projekt_Babadook" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
