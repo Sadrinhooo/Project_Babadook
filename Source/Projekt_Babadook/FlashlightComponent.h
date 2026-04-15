@@ -32,5 +32,8 @@ public:
 	
 	UPROPERTY(VisibleAnywhere)
 	USpotLightComponent* LightComponent;
+	
+	UFUNCTION(BlueprintCallable)
+	void SwitchFlashlight();
 		
 };

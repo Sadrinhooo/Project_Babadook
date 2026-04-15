@@ -2,6 +2,8 @@
 
 
 #include "BasePlayerCharacter.h"
+
+#include "ScreenShakeComponent.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -9,6 +11,7 @@ ABasePlayerCharacter::ABasePlayerCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	
 
 }
 
@@ -17,6 +20,14 @@ void ABasePlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Warning, TEXT("%d"), UGameplayStatics::GetNumPlayerControllers(GetWorld()));
+	
+	if (ScreenShakeCompRef)
+	{
+		UScreenShakeComponent* Comp = NewObject<UScreenShakeComponent>(this, ScreenShakeCompRef);
+		if (IsValid(Comp))
+		Comp->RegisterComponent();
+		
+	}
 	
 }
 

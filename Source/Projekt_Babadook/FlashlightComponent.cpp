@@ -38,3 +38,8 @@ void UFlashlightComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
+void UFlashlightComponent::SwitchFlashlight()
+{
+	LightComponent->SetVisibility(!LightComponent->IsVisible());
+}
+

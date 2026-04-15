@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "ScreenShakeComponent.h"
 #include "BasePlayerCharacter.generated.h"
 
 UCLASS()
@@ -25,5 +26,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
+	UPROPERTY(EditDefaultsOnly, Category="ScreenShake")
+	TSubclassOf<UScreenShakeComponent> ScreenShakeCompRef;
 
 };
