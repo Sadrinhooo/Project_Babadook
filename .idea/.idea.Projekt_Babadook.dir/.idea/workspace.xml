@@ -10,11 +10,13 @@
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_MainPlayerCharacter.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/E/D2/MGUY9AC8EL9X4FSPRPVMZ3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_StalkerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_StalkerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/56/U4ZCCU91LQJZU3WEAWWELT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/56/U4ZCCU91LQJZU3WEAWWELT.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ScreenShakeComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ScreenShakeComponent.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +151,7 @@
       <option name="presentableId" value="Default" />
       <updated>1776072047712</updated>
       <workItem from="1776072050660" duration="4541000" />
-      <workItem from="1776237276306" duration="4229000" />
+      <workItem from="1776237276306" duration="10292000" />
     </task>
     <servers />
   </component>

@@ -6,6 +6,8 @@
 #include "Components/SceneComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/SpotLightComponent.h"
+#include "Engine/OverlapResult.h"
+#include "DrawDebugHelpers.h"
 #include "FlashlightComponent.generated.h"
 
 
@@ -33,7 +35,17 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	USpotLightComponent* LightComponent;
 	
+	UPROPERTY(EditAnywhere)
+	float ConeRange = 1000.f;
+	
+	UPROPERTY(EditAnywhere, meta = (ClampMin = "-1", ClampMax = "1"))
+	float ConeThreshold = 0.25f;
+	
+	
 	UFUNCTION(BlueprintCallable)
 	void SwitchFlashlight();
+	
+	UFUNCTION(BlueprintCallable)
+	void PerformConeDetection();
 		
 };

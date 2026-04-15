@@ -34,12 +34,45 @@ void UFlashlightComponent::BeginPlay()
 void UFlashlightComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
+	PerformConeDetection();
 	// ...
 }
 
 void UFlashlightComponent::SwitchFlashlight()
 {
 	LightComponent->SetVisibility(!LightComponent->IsVisible());
+}
+
+void UFlashlightComponent::PerformConeDetection()
+{
+	FVector Origin = GetComponentLocation();
+	FVector Forward = GetForwardVector();
+	
+	TArray<FOverlapResult> Overlaps;
+	FCollisionShape Sphere = FCollisionShape::MakeSphere(ConeRange);
+	
+	bool bHit = GetWorld()->OverlapMultiByChannel(Overlaps, Origin, FQuat::Identity
+		, ECC_GameTraceChannel1, Sphere);
+	
+	if (!bHit) return;
+	
+	for (const FOverlapResult& Overlap : Overlaps)
+	{
+		AActor* HitActor = Overlap.GetActor();
+		if (!HitActor || HitActor == GetOwner()) continue;
+
+		FVector ToTarget = (HitActor->GetActorLocation() - Origin).GetSafeNormal();
+		float Dot = FVector::DotProduct(Forward, ToTarget);
+
+		if (Dot >= ConeThreshold)
+		{
+			// Actor is inside the cone
+			UE_LOG(LogTemp, Warning, TEXT("In cone: %s"), *HitActor->GetName());
+		}
+	}
+	
+	DrawDebugSphere(GetWorld(), Origin, ConeRange, 32, 
+		FColor::Green, false, -1.f, 0, 2.f);
+	
 }
 
