@@ -9,14 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_StalkerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_StalkerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/56/U4ZCCU91LQJZU3WEAWWELT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/8/56/U4ZCCU91LQJZU3WEAWWELT.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ScreenShakeComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ScreenShakeComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projekt_Babadook.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Projekt_Babadook.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +24,9 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/Microsoft/MinimalWindowsApi.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/Misc/AsciiSet.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/ItemActor.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/ItemActor.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/ItemData.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/ScreenShakeComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/ScreenShakeComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/StalkerCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -151,7 +147,7 @@
       <option name="presentableId" value="Default" />
       <updated>1776072047712</updated>
       <workItem from="1776072050660" duration="4541000" />
-      <workItem from="1776237276306" duration="10292000" />
+      <workItem from="1776237276306" duration="10880000" />
     </task>
     <servers />
   </component>
