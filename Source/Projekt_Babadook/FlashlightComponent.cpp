@@ -66,8 +66,7 @@ void UFlashlightComponent::PerformConeDetection()
 
 		if (Dot >= ConeThreshold)
 		{
-			// Actor is inside the cone
-			UE_LOG(LogTemp, Warning, TEXT("In cone: %s"), *HitActor->GetName());
+			// Monster is in light
 		}
 	}
 	
