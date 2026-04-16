@@ -14,4 +14,7 @@ class PROJEKT_BABADOOK_API AWeepingAngelAIController : public AEnemyAIController
 {
 	GENERATED_BODY()
 	
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsInLight;
 };

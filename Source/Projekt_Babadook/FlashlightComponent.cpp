@@ -52,8 +52,14 @@ void UFlashlightComponent::PerformConeDetection()
 	FCollisionShape Sphere = FCollisionShape::MakeSphere(ConeRange);
 	GetWorld()->OverlapMultiByChannel(Overlaps, Origin, FQuat::Identity,
 		ECC_GameTraceChannel1, Sphere);
-	
-	TSet<AActor*> CurrentFrameActors;
+
+	// Reset all controllers from last frame
+	for (AWeepingAngelAIController* Controller : ActorsInCone)
+	{
+		Controller->bIsInLight = false;
+	}
+	ActorsInCone.Empty();
+
 	for (const FOverlapResult& Overlap : Overlaps)
 	{
 		AActor* HitActor = Overlap.GetActor();
@@ -62,29 +68,20 @@ void UFlashlightComponent::PerformConeDetection()
 		FVector ToTarget = (HitActor->GetActorLocation() - Origin).GetSafeNormal();
 		if (FVector::DotProduct(Forward, ToTarget) >= ConeThreshold)
 		{
-			CurrentFrameActors.Add(HitActor);
-		}
-	}
-	
-	for (AActor* Actor : CurrentFrameActors)
-	{
-		if (!ActorsInCone.Contains(Actor))
-		{
-			OnActorEnterCone.Broadcast(Actor);
-		}
-	}
-	
-	for (AActor* Actor : ActorsInCone)
-	{
-		if (!CurrentFrameActors.Contains(Actor))
-		{
-			OnActorExitCone.Broadcast(Actor);
-		}
-	}
-	
-	ActorsInCone = CurrentFrameActors;
+			APawn* Pawn = Cast<APawn>(HitActor);
+			if (!Pawn) continue;
 
-	DrawDebugSphere(GetWorld(), Origin, ConeRange, 32,
+			AWeepingAngelAIController* Controller = Cast<AWeepingAngelAIController>(Pawn->GetController());
+			if (!Controller) continue;
+
+			Controller->bIsInLight = true;
+			ActorsInCone.Add(Controller);
+		}
+	}
+
+	/*
+	 DrawDebugSphere(GetWorld(), Origin, ConeRange, 32,
 		FColor::Green, false, -1.f, 0, 2.f);
+	*/
 }
 

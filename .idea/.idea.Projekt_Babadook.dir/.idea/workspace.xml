@@ -11,9 +11,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_WeepingAngel.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_WeepingAngel.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/2/O1/WA7PRF00U237VPAB4KWSOO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/2/O1/WA7PRF00U237VPAB4KWSOO.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/WeepingAngelAIController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/WeepingAngelAIController.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

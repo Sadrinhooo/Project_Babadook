@@ -8,6 +8,7 @@
 #include "Components/SpotLightComponent.h"
 #include "Engine/OverlapResult.h"
 #include "DrawDebugHelpers.h"
+#include "WeepingAngelAIController.h"
 #include "FlashlightComponent.generated.h"
 
 
@@ -42,7 +43,7 @@ public:
 	float ConeThreshold = 0.25f;
 	
 	UPROPERTY()
-	TSet<AActor*> ActorsInCone;
+	TSet<AWeepingAngelAIController*> ActorsInCone;
 	
 	UFUNCTION(BlueprintCallable)
 	void SwitchFlashlight();
