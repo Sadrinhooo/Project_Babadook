@@ -41,6 +41,8 @@ public:
 	UPROPERTY(EditAnywhere, meta = (ClampMin = "-1", ClampMax = "1"))
 	float ConeThreshold = 0.25f;
 	
+	UPROPERTY()
+	TSet<AActor*> ActorsInCone;
 	
 	UFUNCTION(BlueprintCallable)
 	void SwitchFlashlight();

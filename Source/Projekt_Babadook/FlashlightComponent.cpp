@@ -47,31 +47,44 @@ void UFlashlightComponent::PerformConeDetection()
 {
 	FVector Origin = GetComponentLocation();
 	FVector Forward = GetForwardVector();
-	
+
 	TArray<FOverlapResult> Overlaps;
 	FCollisionShape Sphere = FCollisionShape::MakeSphere(ConeRange);
+	GetWorld()->OverlapMultiByChannel(Overlaps, Origin, FQuat::Identity,
+		ECC_GameTraceChannel1, Sphere);
 	
-	bool bHit = GetWorld()->OverlapMultiByChannel(Overlaps, Origin, FQuat::Identity
-		, ECC_GameTraceChannel1, Sphere);
-	
-	if (!bHit) return;
-	
+	TSet<AActor*> CurrentFrameActors;
 	for (const FOverlapResult& Overlap : Overlaps)
 	{
 		AActor* HitActor = Overlap.GetActor();
 		if (!HitActor || HitActor == GetOwner()) continue;
 
 		FVector ToTarget = (HitActor->GetActorLocation() - Origin).GetSafeNormal();
-		float Dot = FVector::DotProduct(Forward, ToTarget);
-
-		if (Dot >= ConeThreshold)
+		if (FVector::DotProduct(Forward, ToTarget) >= ConeThreshold)
 		{
-			// Monster is in light
+			CurrentFrameActors.Add(HitActor);
 		}
 	}
 	
-	DrawDebugSphere(GetWorld(), Origin, ConeRange, 32, 
-		FColor::Green, false, -1.f, 0, 2.f);
+	for (AActor* Actor : CurrentFrameActors)
+	{
+		if (!ActorsInCone.Contains(Actor))
+		{
+			OnActorEnterCone.Broadcast(Actor);
+		}
+	}
 	
+	for (AActor* Actor : ActorsInCone)
+	{
+		if (!CurrentFrameActors.Contains(Actor))
+		{
+			OnActorExitCone.Broadcast(Actor);
+		}
+	}
+	
+	ActorsInCone = CurrentFrameActors;
+
+	DrawDebugSphere(GetWorld(), Origin, ConeRange, 32,
+		FColor::Green, false, -1.f, 0, 2.f);
 }
 
