@@ -8,9 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_WeepingAngel.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_WeepingAngel.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Gazolina.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Gazolina.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Levels/L_Level-1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/L_Level-1.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
         <option name="PLATFORM" value="Win64" />
         <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Binaries/Win64/UnrealEditor-Win64-DebugGame.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;C:\Users\ghra0853\Documents\GitHub\Project_Babadook\Projekt_Babadook.uproject&quot;" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;C:\Users\saya5436\Documents\GitHub\Project_Babadook\Projekt_Babadook.uproject&quot;" />
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.7" />
         <option name="PASS_PARENT_ENVS" value="1" />
@@ -89,7 +90,7 @@
         <option name="PLATFORM" value="Win64" />
         <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Binaries/Win64/UnrealEditor.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;C:\Users\ghra0853\Documents\GitHub\Project_Babadook\Projekt_Babadook.uproject&quot;" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;C:\Users\saya5436\Documents\GitHub\Project_Babadook\Projekt_Babadook.uproject&quot;" />
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.7" />
         <option name="PASS_PARENT_ENVS" value="1" />
@@ -140,6 +141,7 @@
       <updated>1776072047712</updated>
       <workItem from="1776072050660" duration="4541000" />
       <workItem from="1776157164559" duration="1863000" />
+      <workItem from="1776318820481" duration="1425000" />
     </task>
     <servers />
   </component>
