@@ -53,5 +53,8 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void PerformConeDetection();
+	
+	UFUNCTION(BlueprintCallable)
+	void ForceOff();
 		
 };
