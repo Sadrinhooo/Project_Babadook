@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-//#include "ItemData.h"
+#include "KeyItem.h"
 #include "GameFramework/GameModeBase.h"
 #include "MyGameMode.generated.h"
 
@@ -17,9 +17,9 @@ class PROJEKT_BABADOOK_API AMyGameMode : public AGameModeBase
 	
 public:
 	
-	/*
+	
 	UPROPERTY(BlueprintReadWrite, Category= "Inventory")
-	TArray<UItemData*> SharedInventory;
-	*/
+	TArray<AKeyItem*> SharedInventory;
+	
 	
 };
