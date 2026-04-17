@@ -37,6 +37,9 @@ public:
 	USpotLightComponent* LightComponent;
 	
 	UPROPERTY(EditAnywhere)
+	bool bLightIsOn = true;
+	
+	UPROPERTY(EditAnywhere)
 	float ConeRange = 1000.f;
 	
 	UPROPERTY(EditAnywhere, meta = (ClampMin = "-1", ClampMax = "1"))

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "ScreenShakeComponent.h"
+#include "CameraComponent.generated.h"
 #include "BasePlayerCharacter.generated.h"
 
 UCLASS()
@@ -29,5 +30,11 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, Category="ScreenShake")
 	TSubclassOf<UScreenShakeComponent> ScreenShakeCompRef;
+	
+	UPROPERTY(EditAnywhere, Category="LanternOil")
+	int8 NumberOfOilJars;
+	
+	UPROPERTY(EditAnywhere)
+	UCameraComponent* Camera;
 
 };

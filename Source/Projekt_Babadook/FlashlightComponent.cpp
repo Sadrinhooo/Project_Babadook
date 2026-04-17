@@ -40,7 +40,8 @@ void UFlashlightComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 
 void UFlashlightComponent::SwitchFlashlight()
 {
-	LightComponent->SetVisibility(!LightComponent->IsVisible());
+	bLightIsOn = !bLightIsOn;
+	LightComponent->SetVisibility(bLightIsOn);
 }
 
 void UFlashlightComponent::PerformConeDetection()
@@ -66,7 +67,7 @@ void UFlashlightComponent::PerformConeDetection()
 		if (!HitActor || HitActor == GetOwner()) continue;
 
 		FVector ToTarget = (HitActor->GetActorLocation() - Origin).GetSafeNormal();
-		if (FVector::DotProduct(Forward, ToTarget) >= ConeThreshold)
+		if (FVector::DotProduct(Forward, ToTarget) >= ConeThreshold && bLightIsOn)
 		{
 			APawn* Pawn = Cast<APawn>(HitActor);
 			if (!Pawn) continue;
