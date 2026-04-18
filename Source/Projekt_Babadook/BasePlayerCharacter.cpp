@@ -39,7 +39,6 @@ void ABasePlayerCharacter::Tick(float DeltaTime)
 	LookForInteractable();
 	DecreaseLanternOil(DeltaTime);
 	UE_LOG(LogTemp, Warning, TEXT("%f"), LanternOilAmount);
-
 }
 
 // Called to bind functionality to input

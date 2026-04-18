@@ -4,10 +4,29 @@
 
 #include "CoreMinimal.h"
 #include "Interactable.h"
-#include "MyGameMode.h"
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameplayTags.h"
+#include "Components/BoxComponent.h"
 #include "KeyItem.generated.h"
+
+class AMyGameMode;
+
+USTRUCT(BlueprintType)
+struct FItemData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString ItemName;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSoftObjectPtr<UTexture2D> Icon;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FGameplayTag ItemTag;
+	
+};
 
 UCLASS()
 class PROJEKT_BABADOOK_API AKeyItem : public AActor, public IInteractable
@@ -15,7 +34,7 @@ class PROJEKT_BABADOOK_API AKeyItem : public AActor, public IInteractable
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
+	// Sets default values for this actor's propertiess
 	AKeyItem();
 
 protected:
@@ -25,9 +44,15 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* StaticMesh;
 	
 	UPROPERTY(BlueprintReadWrite)
-	AMyGameMode* GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
+	AMyGameMode* GameMode;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+	FItemData ItemData;
 	
 	//Functions
 	

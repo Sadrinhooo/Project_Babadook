@@ -3,10 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "KeyItem.h"
 #include "GameFramework/GameModeBase.h"
 #include "MyGameMode.generated.h"
 
+struct FItemData;
 /**
  * 
  */
@@ -19,7 +19,7 @@ public:
 	
 	
 	UPROPERTY(BlueprintReadWrite, Category= "Inventory")
-	TArray<AKeyItem*> SharedInventory;
+	TArray<FItemData> SharedInventory;
 	
 	
 };
