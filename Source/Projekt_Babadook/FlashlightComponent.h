@@ -48,6 +48,8 @@ public:
 	UPROPERTY()
 	TSet<AWeepingAngelAIController*> ActorsInCone;
 	
+	//Functions
+	
 	UFUNCTION(BlueprintCallable)
 	void SwitchFlashlight();
 	

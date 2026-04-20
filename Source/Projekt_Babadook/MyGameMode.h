@@ -16,7 +16,10 @@ class PROJEKT_BABADOOK_API AMyGameMode : public AGameModeBase
 	GENERATED_BODY()
 	
 public:
-	
+	AMyGameMode();
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 	
 	UPROPERTY(BlueprintReadWrite, Category= "Inventory")
 	TArray<FItemData> SharedInventory;

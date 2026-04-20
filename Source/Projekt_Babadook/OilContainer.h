@@ -24,5 +24,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Interaction")
+	FString InteractPrompt = "PRESS ""E"" TO REFILL";
+	
 	virtual void Interact(ACharacter* Interactor) override;
+	
+	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 };

@@ -24,4 +24,6 @@ public:
 	virtual void Interact(ACharacter* Interactor) = 0;
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 
+	virtual const FString& GetInteractPrompt(ACharacter* Interactor) = 0;
+
 };

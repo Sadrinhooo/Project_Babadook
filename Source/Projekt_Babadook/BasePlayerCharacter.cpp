@@ -70,6 +70,12 @@ void ABasePlayerCharacter::LookForInteractable()
 	{
 		InteractObjectInSight = nullptr;
 	}
+
+	if (InteractObjectInSight)
+	{
+		const FString Prompt = InteractObjectInSight->GetInteractPrompt(this);
+		UE_LOG(LogTemp, Warning, TEXT("%s"), *Prompt);
+	}
 }
 
 void ABasePlayerCharacter::Interact()

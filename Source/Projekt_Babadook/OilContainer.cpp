@@ -33,3 +33,8 @@ void AOilContainer::Interact(ACharacter* Interactor)
 	Player->LanternOilAmount = Player->MaxLanternOilAmount;
 	
 }
+
+const FString& AOilContainer::GetInteractPrompt(ACharacter* Interactor)
+{
+	return "SIGMA"; //*InteractPrompt;
+}

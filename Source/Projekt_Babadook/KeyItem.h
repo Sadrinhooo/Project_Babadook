@@ -7,7 +7,6 @@
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameplayTags.h"
-#include "Components/BoxComponent.h"
 #include "KeyItem.generated.h"
 
 class AMyGameMode;
@@ -44,6 +43,9 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Interaction")
+	FString InteractPrompt = "PRESS ""E"" TO PICKUP";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* StaticMesh;
@@ -57,4 +59,6 @@ public:
 	//Functions
 	
 	virtual void Interact(ACharacter* Interactor) override;
+	
+	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 };
