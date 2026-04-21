@@ -38,7 +38,6 @@ void ABasePlayerCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	LookForInteractable();
 	DecreaseLanternOil(DeltaTime);
-	UE_LOG(LogTemp, Warning, TEXT("%f"), LanternOilAmount);
 }
 
 // Called to bind functionality to input
@@ -73,6 +72,7 @@ void ABasePlayerCharacter::LookForInteractable()
 
 	if (InteractObjectInSight)
 	{
+		//Fixa den här få at den kommer upp på UI och anpassad för controller oxå
 		const FString Prompt = InteractObjectInSight->GetInteractPrompt(this);
 		UE_LOG(LogTemp, Warning, TEXT("%s"), *Prompt);
 	}

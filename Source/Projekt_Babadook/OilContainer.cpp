@@ -36,5 +36,5 @@ void AOilContainer::Interact(ACharacter* Interactor)
 
 const FString& AOilContainer::GetInteractPrompt(ACharacter* Interactor)
 {
-	return "SIGMA"; //*InteractPrompt;
+	return InteractPrompt;
 }

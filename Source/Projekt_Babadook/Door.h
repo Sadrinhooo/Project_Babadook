@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "Interactable.h"
+#include "KeyItem.h"
 #include "GameFramework/Actor.h"
 #include "Door.generated.h"
 
@@ -26,17 +27,26 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool bIsLocked;
+	bool bIsUnlocked = false;
+
+	UPROPERTY(BlueprintReadWrite)
+	AMyGameMode* GameMode;
 	
-	//Jag tar en array här för nu ifall man behöver flera nycklar ellr whatever dawg
+	UPROPERTY(VisibleAnywhere)
+	int32 KeyIndex = 0; //Used for caching the index of the keyitem in the bombaclat inventory array
+	
+	//Jag kanske tar en array här sen ifall man behöver flera nycklar ellr whatever dawg
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FGameplayTag> RequiredKeyTags;
+	FGameplayTag RequiredKeyTag;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString LockedInteractPrompt = "LOCKED!";
+	FString NoKeyInteractPrompt = "LOCKED!";
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString UnlockedInteractPrompt = "PRESS ""E"" TO UNLOCK";
+	FString WithKeyInteractPrompt = "PRESS ""E"" TO UNLOCK";
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString UnlockedInteractPrompt = "UNLOCKED";
 	
 	
 	
@@ -45,4 +55,7 @@ public:
 	virtual void Interact(ACharacter* Interactor) override;
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
+
+	bool PlayerHasKey(int32& OutIndex);
+	
 };

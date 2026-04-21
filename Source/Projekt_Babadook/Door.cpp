@@ -1,7 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include "Kismet/GameplayStatics.h"
 #include "Door.h"
+
+#include "KeyItem.h"
+#include "MyGameMode.h"
 
 // Sets default values
 ADoor::ADoor()
@@ -15,6 +18,8 @@ ADoor::ADoor()
 void ADoor::BeginPlay()
 {
 	Super::BeginPlay();
+
+	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
 	
 }
 
@@ -22,25 +27,51 @@ void ADoor::BeginPlay()
 void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	UE_LOG(LogTemp, Warning, TEXT("%s"), PlayerHasKey(KeyIndex) ? TEXT("true") : TEXT("false"));
 }
 
 void ADoor::Interact(ACharacter* Interactor)
 {
-	if (bIsLocked)
+	if (!bIsUnlocked)
 	{
-		return LockedInteractPrompt;
-	} else
+		if (PlayerHasKey(KeyIndex))
+		{
+			GameMode->SharedInventory.RemoveAt(KeyIndex);
+			bIsUnlocked = true;
+		}
+	}
+	
+	GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
 }
 
 const FString& ADoor::GetInteractPrompt(ACharacter* Interactor)
 {
-	if (bIsLocked)
+	if (bIsUnlocked) return UnlockedInteractPrompt;
+		
+	if (PlayerHasKey(KeyIndex))
 	{
-		return LockedInteractPrompt;
+		return WithKeyInteractPrompt;
 	} else
 	{
-		return UnlockedInteractPrompt;
+		return NoKeyInteractPrompt;
 	}
 }
+
+bool ADoor::PlayerHasKey(int32& OutIndex)
+{
+	for (int i = 0; i < GameMode->SharedInventory.Num(); i++)
+	{
+		if (GameMode->SharedInventory[i].ItemTag == RequiredKeyTag)
+		{
+			OutIndex = i;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
+
+
 

@@ -4,8 +4,6 @@
 #include "KeyItem.h"
 #include "MyGameMode.h"
 
-#include "Misc/MapErrors.h"
-
 // Sets default values
 AKeyItem::AKeyItem()
 {
@@ -43,6 +41,6 @@ void AKeyItem::Interact(ACharacter* Interactor)
 
 const FString& AKeyItem::GetInteractPrompt(ACharacter* Interactor)
 {
-	return "SIGMA"; //*InteractPrompt;
+	return InteractPrompt;
 }
 
