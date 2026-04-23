@@ -9,14 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_TestKey.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_TestKey.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sadra_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra_Test.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/KeyItem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/KeyItem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/OilContainer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/OilContainer.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +154,8 @@
       <workItem from="1776409202748" duration="25614000" />
       <workItem from="1776668060453" duration="11000" />
       <workItem from="1776675905644" duration="3647000" />
-      <workItem from="1776754614110" duration="4847000" />
+      <workItem from="1776754614110" duration="6636000" />
+      <workItem from="1776927516032" duration="504000" />
     </task>
     <servers />
   </component>
