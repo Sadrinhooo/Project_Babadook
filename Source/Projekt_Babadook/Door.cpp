@@ -27,7 +27,6 @@ void ADoor::BeginPlay()
 void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	UE_LOG(LogTemp, Warning, TEXT("%s"), PlayerHasKey(KeyIndex) ? TEXT("true") : TEXT("false"));
 }
 
 void ADoor::Interact(ACharacter* Interactor)

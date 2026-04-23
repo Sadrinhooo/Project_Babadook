@@ -9,6 +9,16 @@
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/BP_Shape1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/BP_Shape1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/BP_Shape2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/BP_Shape2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/Shape1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/Shape1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/Shape2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/Shape2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/2/DF/S12RGACLQSNFUUXVT5ACH5.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/4/7N/S0GBE6OW4VZYLVHOQPY547.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/5/H2/Q3H97Z4ID3W04CZXK5KZ0X.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/5/H2/Q3H97Z4ID3W04CZXK5KZ0X.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +32,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Engine/Brush.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Private/Brush.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/FaceHuggerAIController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/Interactable.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/KeyItem.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/KeyItem.h" root0="FORCE_HIGHLIGHTING" />
@@ -155,7 +168,7 @@
       <workItem from="1776668060453" duration="11000" />
       <workItem from="1776675905644" duration="3647000" />
       <workItem from="1776754614110" duration="6636000" />
-      <workItem from="1776927516032" duration="504000" />
+      <workItem from="1776927516032" duration="8568000" />
     </task>
     <servers />
   </component>
