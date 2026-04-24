@@ -10,15 +10,12 @@
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/BP_Shape1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/BP_Shape1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/BP_Shape2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/BP_Shape2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/Shape1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/Shape1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/Shape2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/Shape2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/2/DF/S12RGACLQSNFUUXVT5ACH5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/4/7N/S0GBE6OW4VZYLVHOQPY547.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/5/H2/Q3H97Z4ID3W04CZXK5KZ0X.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/5/H2/Q3H97Z4ID3W04CZXK5KZ0X.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/0/PX/ITMPEK47AASGVSOY575196.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/0/PX/ITMPEK47AASGVSOY575196.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/6/A9/96Z4Z2AVIE09M3WHLN1RQH.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/6/A9/96Z4Z2AVIE09M3WHLN1RQH.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +166,7 @@
       <workItem from="1776675905644" duration="3647000" />
       <workItem from="1776754614110" duration="6636000" />
       <workItem from="1776927516032" duration="8568000" />
+      <workItem from="1777016615134" duration="5656000" />
     </task>
     <servers />
   </component>

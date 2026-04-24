@@ -67,6 +67,13 @@ void ABasePlayerCharacter::LookForInteractable()
 		InteractObjectInSight = Cast<IInteractable>(Hit.GetActor());
 	}else
 	{
+		if (AActor* Actor = Cast<AActor>(InteractObjectInSight))
+		{
+			/*if (UMeshComponent* MeshComp = Actor->GetComponentByClass<UMeshComponent>())
+			{
+				MeshComp->SetOverlayMaterial(nullptr);
+			}*/
+		}
 		InteractObjectInSight = nullptr;
 	}
 
@@ -74,6 +81,13 @@ void ABasePlayerCharacter::LookForInteractable()
 	{
 		//Fixa den här få at den kommer upp på UI och anpassad för controller oxå
 		const FString Prompt = InteractObjectInSight->GetInteractPrompt(this);
+		if (AActor* Actor = Cast<AActor>(InteractObjectInSight))
+		{/*
+			if (UMeshComponent* MeshComp = Actor->GetComponentByClass<UMeshComponent>())
+			{
+				MeshComp->SetOverlayMaterial(InteractableObjectOverlay);
+			}*/
+		}
 		UE_LOG(LogTemp, Warning, TEXT("%s"), *Prompt);
 	}
 }

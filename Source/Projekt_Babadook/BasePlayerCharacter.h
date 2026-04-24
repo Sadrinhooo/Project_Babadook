@@ -50,6 +50,12 @@ public:
 	
 	IInteractable* InteractObjectInSight;  //Den här borde cacha den objektet som är nu/sist inom interaction range
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UMaterialInterface* InteractableObjectOverlay;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UMaterialInterface* EmptyObjectOverlay;
+	
 	//Functions
 	
 	UFUNCTION(BlueprintCallable)
