@@ -40,6 +40,15 @@ void UFlashlightComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
+void UFlashlightComponent::Activate(bool bReset)
+{
+	Super::Activate(bReset);
+}
+
+void UFlashlightComponent::Deactivate(bool bReset)
+{
+}
+
 void UFlashlightComponent::SwitchFlashlight()
 {
 	ABasePlayerCharacter* Player = Cast<ABasePlayerCharacter>(GetOwner());
