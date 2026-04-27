@@ -26,7 +26,7 @@ UFlashlightComponent::UFlashlightComponent()
 void UFlashlightComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
+	ActivateFlashlight();
 	// ...
 	
 }
@@ -40,13 +40,16 @@ void UFlashlightComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
-void UFlashlightComponent::Activate(bool bReset)
+void UFlashlightComponent::ActivateFlashlight()
 {
-	Super::Activate(bReset);
+	SetComponentTickEnabled(true);
+	SetActive(true);
 }
 
-void UFlashlightComponent::Deactivate(bool bReset)
+void UFlashlightComponent::DeactivateFlashlight()
 {
+	SetComponentTickEnabled(false);
+	SetActive(false);
 }
 
 void UFlashlightComponent::SwitchFlashlight()

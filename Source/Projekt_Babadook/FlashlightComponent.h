@@ -50,9 +50,9 @@ public:
 	
 	//Functions
 	
-	void Activate(bool bReset) override;
+	void ActivateFlashlight();
 	
-	void Deactivate(bool bReset);
+	void DeactivateFlashlight();
 	
 	UFUNCTION(BlueprintCallable)
 	void SwitchFlashlight();
