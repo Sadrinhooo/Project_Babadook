@@ -2,6 +2,7 @@
 
 
 #include "FlashlightComponent.h"
+#include "BasePlayerCharacter.h"
 
 // Sets default values for this component's properties
 UFlashlightComponent::UFlashlightComponent()
@@ -38,11 +39,32 @@ void UFlashlightComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
+void UFlashlightComponent::Activate(bool bReset)
+{
+	Super::Activate(bReset);
+}
+
+void UFlashlightComponent::Deactivate(bool bReset)
+{
+}
+
 void UFlashlightComponent::SwitchFlashlight()
 {
+	ABasePlayerCharacter* Player = Cast<ABasePlayerCharacter>(GetOwner());
+	if (!Player) return;
+	
+	if (!bLightIsOn && Player->LanternOilAmount <= 0.f) return;
+
 	bLightIsOn = !bLightIsOn;
 	LightComponent->SetVisibility(bLightIsOn);
 }
+
+void UFlashlightComponent::ForceOff()
+{
+	bLightIsOn = false;
+	LightComponent->SetVisibility(false);
+}
+
 
 //Gazelle Ändrade härifrån 
 void UFlashlightComponent::PerformConeDetection()
