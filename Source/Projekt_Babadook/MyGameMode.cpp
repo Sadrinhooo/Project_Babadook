@@ -3,3 +3,22 @@
 
 #include "MyGameMode.h"
 
+#include "KeyItem.h"
+
+AMyGameMode::AMyGameMode()
+{
+	PrimaryActorTick.bCanEverTick = true;
+}
+
+// Called every frame
+void AMyGameMode::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	for (const FItemData& item : SharedInventory)
+	{
+		UE_LOG(LogTemp, Display, TEXT("%s"), *item.ItemName);
+	}
+}
+
+#include "KeyItem.h"

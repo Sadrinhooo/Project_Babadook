@@ -3,10 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-//#include "ItemData.h"
 #include "GameFramework/GameModeBase.h"
 #include "MyGameMode.generated.h"
 
+struct FItemData;
 /**
  * 
  */
@@ -16,10 +16,13 @@ class PROJEKT_BABADOOK_API AMyGameMode : public AGameModeBase
 	GENERATED_BODY()
 	
 public:
+	AMyGameMode();
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 	
-	/*
 	UPROPERTY(BlueprintReadWrite, Category= "Inventory")
-	TArray<UItemData*> SharedInventory;
-	*/
+	TArray<FItemData> SharedInventory;
+	
 	
 };

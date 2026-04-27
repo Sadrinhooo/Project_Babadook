@@ -48,10 +48,19 @@ public:
 	UPROPERTY()
 	TSet<AWeepingAngelAIController*> ActorsInCone;
 	
+	//Functions
+	
+	void Activate(bool bReset) override;
+	
+	void Deactivate(bool bReset);
+	
 	UFUNCTION(BlueprintCallable)
 	void SwitchFlashlight();
 	
 	UFUNCTION(BlueprintCallable)
 	void PerformConeDetection();
+	
+	UFUNCTION(BlueprintCallable)
+	void ForceOff();
 		
 };
