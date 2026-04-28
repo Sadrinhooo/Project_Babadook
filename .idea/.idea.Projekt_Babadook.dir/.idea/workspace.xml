@@ -8,15 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/FaceHuggerStates.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_ScreenShakeComponent.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_QTE.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Actions/IA_QTE.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/IMC_Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IMC_Test.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sadra_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra_Test.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/A/M2/4E3R425XASZB83QSH9B5CQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Sadra_Test/A/M2/4E3R425XASZB83QSH9B5CQ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/FlashlightComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/PossessionComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/PossessionComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/PossessionComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/PossessionComponent.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

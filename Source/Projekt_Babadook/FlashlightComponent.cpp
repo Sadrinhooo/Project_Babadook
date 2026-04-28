@@ -42,18 +42,22 @@ void UFlashlightComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 
 void UFlashlightComponent::ActivateFlashlight()
 {
+	bPlayerIsPossessed = false;
 	SetComponentTickEnabled(true);
 	SetActive(true);
 }
 
 void UFlashlightComponent::DeactivateFlashlight()
 {
+	bPlayerIsPossessed = true;
 	SetComponentTickEnabled(false);
 	SetActive(false);
 }
 
 void UFlashlightComponent::SwitchFlashlight()
 {
+	if (bPlayerIsPossessed) return;
+	
 	ABasePlayerCharacter* Player = Cast<ABasePlayerCharacter>(GetOwner());
 	if (!Player) return;
 	

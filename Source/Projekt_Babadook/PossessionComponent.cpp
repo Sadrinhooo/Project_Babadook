@@ -20,6 +20,7 @@ void UPossessionComponent::BeginPlay()
 {
 	Super::BeginPlay();
 	PlayerFlashlightComponent = GetOwner()->FindComponentByClass<UFlashlightComponent>();
+	PlayerController = Cast<APlayerController>(GetOwner()->GetInstigatorController());
 	PlayerFlashlightComponent->DeactivateFlashlight();
 	// ...
 }
@@ -38,17 +39,6 @@ void UPossessionComponent::PossessPlayer()
 {
 
 	if (PlayerFlashlightComponent) PlayerFlashlightComponent->DeactivateFlashlight();
-	ActivatePossession();
-}
-
-void UPossessionComponent::DispossessPlayer()
-{
-	PlayerFlashlightComponent->ActivateFlashlight();
-	DeactivatePossession();
-}
-
-void UPossessionComponent::ActivatePossession()
-{
 	SetComponentTickEnabled(true);
 	SetActive(true);
 	PickNewDirection();
@@ -58,14 +48,18 @@ void UPossessionComponent::ActivatePossession()
 		&UPossessionComponent::PickNewDirection,
 		DirectionChangeInterval,
 		true);
+	PlayerController->ClientStartCameraShake(CameraShakeObject, ScreenShakeIntensity);
 }
 
-void UPossessionComponent::DeactivatePossession()
+void UPossessionComponent::DispossessPlayer()
 {
+	PlayerFlashlightComponent->ActivateFlashlight();
 	SetComponentTickEnabled(false);
 	SetActive(false);
 	GetWorld()->GetTimerManager().ClearTimer(DirectionTimer);
 }
+
+
 
 void UPossessionComponent::PickNewDirection()
 {
@@ -74,4 +68,10 @@ void UPossessionComponent::PickNewDirection()
 	CurrentDirection = FVector(XAxis, YAxis, 0.f);
 	CurrentDirection.Normalize();
 }
+
+void UPossessionComponent::Mash()
+{
+	MashCount++;
+}
+
 //bomboclat

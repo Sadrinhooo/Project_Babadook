@@ -32,7 +32,22 @@ public:
 	float DirectionChangeInterval = 0.8f;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int MashCount = 0;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int MashThreshehold = 10;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UFlashlightComponent* PlayerFlashlightComponent;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	APlayerController* PlayerController;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UCameraShakeBase> CameraShakeObject;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float ScreenShakeIntensity = 5.f;
 	
 	FVector CurrentDirection;
 	FTimerHandle DirectionTimer;
@@ -45,10 +60,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DispossessPlayer();
 	
-	void ActivatePossession();
-	
-	void DeactivatePossession();
-	
 	void PickNewDirection();
+	
+	UFUNCTION(BlueprintCallable)
+	void Mash();
 		
 };
