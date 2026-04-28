@@ -2,6 +2,7 @@
 
 
 #include "FlashlightComponent.h"
+#include "BasePlayerCharacter.h"
 
 // Sets default values for this component's properties
 UFlashlightComponent::UFlashlightComponent()
@@ -38,40 +39,88 @@ void UFlashlightComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
-void UFlashlightComponent::SwitchFlashlight()
+void UFlashlightComponent::Activate(bool bReset)
 {
-	LightComponent->SetVisibility(!LightComponent->IsVisible());
+	Super::Activate(bReset);
 }
 
+void UFlashlightComponent::Deactivate(bool bReset)
+{
+}
+
+void UFlashlightComponent::SwitchFlashlight()
+{
+	ABasePlayerCharacter* Player = Cast<ABasePlayerCharacter>(GetOwner());
+	if (!Player) return;
+	
+	if (!bLightIsOn && Player->LanternOilAmount <= 0.f) return;
+
+	bLightIsOn = !bLightIsOn;
+	LightComponent->SetVisibility(bLightIsOn);
+}
+
+void UFlashlightComponent::ForceOff()
+{
+	bLightIsOn = false;
+	LightComponent->SetVisibility(false);
+}
+
+
+//Gazelle Ändrade härifrån 
 void UFlashlightComponent::PerformConeDetection()
 {
-	FVector Origin = GetComponentLocation();
-	FVector Forward = GetForwardVector();
-	
+	// position and direction from the lamp
+	const FVector Origin = GetComponentLocation();
+	const FVector Forward = GetForwardVector();
+
 	TArray<FOverlapResult> Overlaps;
-	FCollisionShape Sphere = FCollisionShape::MakeSphere(ConeRange);
+	const FCollisionShape Sphere = FCollisionShape::MakeSphere(ConeRange);
 	
-	bool bHit = GetWorld()->OverlapMultiByChannel(Overlaps, Origin, FQuat::Identity
-		, ECC_GameTraceChannel1, Sphere);
-	
-	if (!bHit) return;
-	
+	GetWorld()->OverlapMultiByChannel(Overlaps, Origin, FQuat::Identity,
+		ECC_GameTraceChannel1, Sphere);
+
+	// Reset all controllers from last frame
+	for (AWeepingAngelAIController* Controller : ActorsInCone)
+	{
+		if (!Controller) continue;
+		
+		Controller->bIsInLight = false;
+	}
+	ActorsInCone.Empty();
+
+	//Go thru all overlaps and put bIsInLight = true for then enemies in cone
 	for (const FOverlapResult& Overlap : Overlaps)
 	{
 		AActor* HitActor = Overlap.GetActor();
-		if (!HitActor || HitActor == GetOwner()) continue;
-
-		FVector ToTarget = (HitActor->GetActorLocation() - Origin).GetSafeNormal();
-		float Dot = FVector::DotProduct(Forward, ToTarget);
-
-		if (Dot >= ConeThreshold)
+		if (!HitActor || HitActor == GetOwner())
 		{
-			// Monster is in light
+				continue;
 		}
+
+		//Vector from lamp to target
+		const FVector ToTarget = (HitActor->GetActorLocation() - Origin).GetSafeNormal();
+		
+		const float Dot = FVector::DotProduct(Forward, ToTarget);
+		
+		//Only if the lamp is on and inside the cone
+		if (Dot >= ConeThreshold && bLightIsOn)
+		{
+			APawn* Pawn = Cast<APawn>(HitActor);
+			if (!Pawn) continue;
+			
+			AWeepingAngelAIController* Controller = Cast<AWeepingAngelAIController>(Pawn->GetController());
+			if (!Controller) continue;
+			
+			UE_LOG(LogTemp, Warning, TEXT("Flashlight sees: %s"), *Controller->GetName());
+			Controller->bIsInLight = true;
+			ActorsInCone.Add(Controller);
+		}
+		
 	}
-	
-	DrawDebugSphere(GetWorld(), Origin, ConeRange, 32, 
+
+	/*
+	 DrawDebugSphere(GetWorld(), Origin, ConeRange, 32,
 		FColor::Green, false, -1.f, 0, 2.f);
-	
+	*/
 }
 

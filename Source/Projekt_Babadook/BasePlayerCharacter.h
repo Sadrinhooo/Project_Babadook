@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "ScreenShakeComponent.h"
+#include "Camera/CameraComponent.h"
+#include "Interactable.h"
+#include "FlashlightComponent.h"
 #include "BasePlayerCharacter.generated.h"
 
 UCLASS()
@@ -29,5 +32,36 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, Category="ScreenShake")
 	TSubclassOf<UScreenShakeComponent> ScreenShakeCompRef;
+	
+	UPROPERTY(EditAnywhere, Category="LanternOil")
+	float MaxLanternOilAmount = 100;
+	
+	UPROPERTY(EditAnywhere, Category="LanternOil")
+	float LanternOilAmount = MaxLanternOilAmount;
+	
+	UPROPERTY(EditAnywhere, Category="LanternOil")
+	float LanternOilDecreaseRate;
+	
+	UPROPERTY(EditAnywhere)
+	UCameraComponent* Camera;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float InteractRange = 100;
+	
+	IInteractable* InteractObjectInSight;  //Den här borde cacha den objektet som är nu/sist inom interaction range
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UMaterialInterface* InteractableObjectOverlay;
+	
+	//Functions
+	
+	UFUNCTION(BlueprintCallable)
+	void LookForInteractable();
+	
+	UFUNCTION(BlueprintCallable)
+	void Interact();
+	
+	UFUNCTION(BlueprintCallable)
+	void DecreaseLanternOil(float DeltaTime) ;
 
 };
