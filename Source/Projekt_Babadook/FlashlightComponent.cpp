@@ -49,6 +49,7 @@ void UFlashlightComponent::ActivateFlashlight()
 
 void UFlashlightComponent::DeactivateFlashlight()
 {
+	ForceOff();
 	bPlayerIsPossessed = true;
 	SetComponentTickEnabled(false);
 	SetActive(false);

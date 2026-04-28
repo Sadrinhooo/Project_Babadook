@@ -63,8 +63,8 @@ void UPossessionComponent::DispossessPlayer()
 
 void UPossessionComponent::PickNewDirection()
 {
-	float XAxis = FMath::FRandRange(0, 10.0f);
-	float YAxis = FMath::FRandRange(0, 10.0f);
+	float XAxis = FMath::FRandRange(-1.f, 1.f);
+	float YAxis = FMath::FRandRange(-1.f, 1.f);
 	CurrentDirection = FVector(XAxis, YAxis, 0.f);
 	CurrentDirection.Normalize();
 }
