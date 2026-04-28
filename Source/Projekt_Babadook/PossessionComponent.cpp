@@ -21,7 +21,7 @@ void UPossessionComponent::BeginPlay()
 	Super::BeginPlay();
 	PlayerFlashlightComponent = GetOwner()->FindComponentByClass<UFlashlightComponent>();
 	PlayerController = Cast<APlayerController>(GetOwner()->GetInstigatorController());
-	PlayerFlashlightComponent->DeactivateFlashlight();
+	DispossessPlayer();
 	// ...
 }
 
