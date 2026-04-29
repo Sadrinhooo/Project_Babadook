@@ -7,19 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_MyGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_MyGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_WeepingAngel.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_WeepingAngel.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_WeepingAngelAIController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_WeepingAngelAIController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Gazolina.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Gazolina.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_QTE.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Actions/IA_QTE.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/IMC_Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IMC_Test.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Levels/L_Church.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/L_Church.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sadra_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra_Test.umap" afterDir="false" />
-    </list>
+    <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +57,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;Uproject.Projekt_Babadook.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;MergeTest&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Sadra&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -88,7 +76,7 @@
         <option name="PLATFORM" value="Win64" />
         <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Binaries/Win64/UnrealEditor-Win64-DebugGame.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;C:\Users\ghra0853\Documents\GitHub\Project_Babadook\Projekt_Babadook.uproject&quot;" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;C:\Users\saya5436\Documents\GitHub\Project_Babadook\Projekt_Babadook.uproject&quot;" />
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.7" />
         <option name="PASS_PARENT_ENVS" value="1" />
@@ -114,7 +102,7 @@
         <option name="PLATFORM" value="Win64" />
         <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Binaries/Win64/UnrealEditor.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;C:\Users\ghra0853\Documents\GitHub\Project_Babadook\Projekt_Babadook.uproject&quot;" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;C:\Users\saya5436\Documents\GitHub\Project_Babadook\Projekt_Babadook.uproject&quot;" />
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.7" />
         <option name="PASS_PARENT_ENVS" value="1" />
@@ -177,7 +165,6 @@
       <workItem from="1777280233061" duration="1692000" />
       <workItem from="1777295319968" duration="11776000" />
       <workItem from="1777445902060" duration="437000" />
-      <workItem from="1777491014246" duration="380000" />
     </task>
     <servers />
   </component>
