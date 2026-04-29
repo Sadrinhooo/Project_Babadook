@@ -57,5 +57,7 @@ public:
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 
 	bool PlayerHasKey(int32& OutIndex);
-	
+
+	UFUNCTION(BlueprintImplementableEvent, Category="MyEvents")
+	void PlayVFX();	
 };
