@@ -35,7 +35,7 @@ void ADoor::Interact(ACharacter* Interactor)
 	{
 		if (PlayerHasKey(KeyIndex))
 		{
-			GameMode->SharedInventory.RemoveAt(KeyIndex);
+			//GameMode->SharedInventory.RemoveAt(KeyIndex);
 			bIsUnlocked = true;
 		}
 	}
