@@ -9,11 +9,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP_MyGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_MyGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Levels/Yasna-SplitScreen.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Yasna-SplitScreen.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/PossessionComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/PossessionComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_QTE.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Actions/IA_QTE.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/IMC_Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IMC_Test.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Sadra_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra_Test.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +65,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;Uproject.Projekt_Babadook.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;MergeTest&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Sadra&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
