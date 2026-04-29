@@ -49,6 +49,6 @@ public:
 	float VisionRange = 3000.f;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Vision")
-	float VisionDotThreshold = 0.5f; 
+	float VisionDotThreshold = -0.7f; 
 
 };

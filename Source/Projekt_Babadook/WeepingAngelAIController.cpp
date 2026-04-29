@@ -54,9 +54,7 @@ void AWeepingAngelAIController::Tick(float DeltaTime)
 		if (CurrentTargetActor)
 		{
 			// Update the last known target location while a target is visible/valid
-			BlackboardComponent->SetValueAsVector(
-				TEXT("LastKnownTargetLocation"),
-				CurrentTargetActor->GetActorLocation());
+			BlackboardComponent->SetValueAsVector(TEXT("LastKnownTargetLocation"),CurrentTargetActor->GetActorLocation());
 		}
 	}
 
