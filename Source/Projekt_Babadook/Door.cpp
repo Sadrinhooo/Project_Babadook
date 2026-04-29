@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Kismet/GameplayStatics.h"
 #include "Door.h"
+#include "Kismet/GameplayStatics.h"
 
 #include "KeyItem.h"
 #include "MyGameMode.h"
