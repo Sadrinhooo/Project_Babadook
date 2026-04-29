@@ -20,7 +20,7 @@ void UPossessionComponent::BeginPlay()
 {
 	Super::BeginPlay();
 	PlayerFlashlightComponent = GetOwner()->FindComponentByClass<UFlashlightComponent>();
-	PlayerController = Cast<APlayerController>(GetOwner()->GetInstigatorController());
+	PickNewDirection();
 	DispossessPlayer();
 	// ...
 }
@@ -38,6 +38,7 @@ void UPossessionComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 void UPossessionComponent::PossessPlayer()
 {
 
+	PlayerController = Cast<APlayerController>(Cast<APawn>(GetOwner())->GetController());
 	if (PlayerFlashlightComponent) PlayerFlashlightComponent->DeactivateFlashlight();
 	SetComponentTickEnabled(true);
 	SetActive(true);
@@ -48,7 +49,8 @@ void UPossessionComponent::PossessPlayer()
 		&UPossessionComponent::PickNewDirection,
 		DirectionChangeInterval,
 		true);
-	PlayerController->ClientStartCameraShake(CameraShakeObject, ScreenShakeIntensity);
+	if (PlayerController) PlayerController->ClientStartCameraShake(CameraShakeObject, ScreenShakeIntensity);
+	else UE_LOG(LogTemp, Warning, TEXT("PC IS NULL"))
 }
 
 void UPossessionComponent::DispossessPlayer()

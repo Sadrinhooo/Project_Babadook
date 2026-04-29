@@ -9,8 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_FaceHugger.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_MyGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_MyGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Levels/Yasna-SplitScreen.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Yasna-SplitScreen.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sadra_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra_Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/PossessionComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/PossessionComponent.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
