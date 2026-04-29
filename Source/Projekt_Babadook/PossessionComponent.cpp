@@ -2,6 +2,7 @@
 
 
 #include "PossessionComponent.h"
+#include "GameFramework/Character.h"
 
 // Sets default values for this component's properties
 UPossessionComponent::UPossessionComponent()
@@ -18,9 +19,10 @@ UPossessionComponent::UPossessionComponent()
 void UPossessionComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
+	PlayerFlashlightComponent = GetOwner()->FindComponentByClass<UFlashlightComponent>();
+	PlayerController = Cast<APlayerController>(GetOwner()->GetInstigatorController());
+	DispossessPlayer();
 	// ...
-	
 }
 
 
@@ -28,7 +30,48 @@ void UPossessionComponent::BeginPlay()
 void UPossessionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	Cast<ACharacter>(GetOwner())->AddMovementInput(CurrentDirection, PossessionStrength);
 
 	// ...
 }
 
+void UPossessionComponent::PossessPlayer()
+{
+
+	if (PlayerFlashlightComponent) PlayerFlashlightComponent->DeactivateFlashlight();
+	SetComponentTickEnabled(true);
+	SetActive(true);
+	PickNewDirection();
+	GetWorld()->GetTimerManager().SetTimer(
+		DirectionTimer,
+		this,
+		&UPossessionComponent::PickNewDirection,
+		DirectionChangeInterval,
+		true);
+	PlayerController->ClientStartCameraShake(CameraShakeObject, ScreenShakeIntensity);
+}
+
+void UPossessionComponent::DispossessPlayer()
+{
+	PlayerFlashlightComponent->ActivateFlashlight();
+	SetComponentTickEnabled(false);
+	SetActive(false);
+	GetWorld()->GetTimerManager().ClearTimer(DirectionTimer);
+}
+
+
+
+void UPossessionComponent::PickNewDirection()
+{
+	float XAxis = FMath::FRandRange(-1.f, 1.f);
+	float YAxis = FMath::FRandRange(-1.f, 1.f);
+	CurrentDirection = FVector(XAxis, YAxis, 0.f);
+	CurrentDirection.Normalize();
+}
+
+void UPossessionComponent::Mash()
+{
+	MashCount++;
+}
+
+//bomboclat

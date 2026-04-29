@@ -25,7 +25,7 @@ UFlashlightComponent::UFlashlightComponent()
 void UFlashlightComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
+	ActivateFlashlight();
 	// ...
 	
 }
@@ -39,17 +39,25 @@ void UFlashlightComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
-void UFlashlightComponent::Activate(bool bReset)
+void UFlashlightComponent::ActivateFlashlight()
 {
-	Super::Activate(bReset);
+	bPlayerIsPossessed = false;
+	SetComponentTickEnabled(true);
+	SetActive(true);
 }
 
-void UFlashlightComponent::Deactivate(bool bReset)
+void UFlashlightComponent::DeactivateFlashlight()
 {
+	ForceOff();
+	bPlayerIsPossessed = true;
+	SetComponentTickEnabled(false);
+	SetActive(false);
 }
 
 void UFlashlightComponent::SwitchFlashlight()
 {
+	if (bPlayerIsPossessed) return;
+	
 	ABasePlayerCharacter* Player = Cast<ABasePlayerCharacter>(GetOwner());
 	if (!Player) return;
 	

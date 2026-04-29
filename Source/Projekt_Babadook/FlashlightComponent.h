@@ -40,6 +40,9 @@ public:
 	bool bLightIsOn = true;
 	
 	UPROPERTY(EditAnywhere)
+	bool bPlayerIsPossessed;
+	
+	UPROPERTY(EditAnywhere)
 	float ConeRange = 1000.f;
 	
 	UPROPERTY(EditAnywhere, meta = (ClampMin = "-1", ClampMax = "1"))
@@ -50,9 +53,9 @@ public:
 	
 	//Functions
 	
-	void Activate(bool bReset) override;
+	void ActivateFlashlight();
 	
-	void Deactivate(bool bReset);
+	void DeactivateFlashlight();
 	
 	UFUNCTION(BlueprintCallable)
 	void SwitchFlashlight();
