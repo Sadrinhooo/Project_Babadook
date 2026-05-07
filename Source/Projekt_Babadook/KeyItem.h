@@ -18,9 +18,12 @@ struct FItemData
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString ItemName;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Description;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<UTexture2D> Icon;
+	UTexture2D* Icon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FGameplayTag ItemTag;

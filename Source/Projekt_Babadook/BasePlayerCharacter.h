@@ -64,4 +64,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DecreaseLanternOil(float DeltaTime) ;
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void ShowInventoryTutorial();
+	
+	private:
+	bool HasInteracted = false;
+
 };

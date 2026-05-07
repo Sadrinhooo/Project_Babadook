@@ -94,7 +94,15 @@ void ABasePlayerCharacter::LookForInteractable()
 
 void ABasePlayerCharacter::Interact()
 {
-	if (InteractObjectInSight) InteractObjectInSight->Interact(this);
+	if (InteractObjectInSight)
+	{
+		InteractObjectInSight->Interact(this);
+		if (!HasInteracted)
+		{
+			ShowInventoryTutorial();
+			HasInteracted = true;
+		}
+	};
 }
 
 void ABasePlayerCharacter::DecreaseLanternOil(float DeltaTime)
