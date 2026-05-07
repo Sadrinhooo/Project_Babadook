@@ -34,7 +34,7 @@ public:
 	TSubclassOf<UScreenShakeComponent> ScreenShakeCompRef;
 	
 	UPROPERTY(EditAnywhere, Category="LanternOil")
-	float MaxLanternOilAmount = 100;
+	float MaxLanternOilAmount = 1000;
 	
 	UPROPERTY(EditAnywhere, Category="LanternOil")
 	float LanternOilAmount = MaxLanternOilAmount;
