@@ -17,6 +17,9 @@ class PROJEKT_BABADOOK_API ADoor : public AActor, public IInteractable
 public:	
 	// Sets default values for this actor's properties
 	ADoor();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
+	void PlaySFX();
 
 protected:
 	// Called when the game starts or when spawned

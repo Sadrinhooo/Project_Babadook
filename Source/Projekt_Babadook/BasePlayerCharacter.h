@@ -33,10 +33,10 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category="ScreenShake")
 	TSubclassOf<UScreenShakeComponent> ScreenShakeCompRef;
 	
-	UPROPERTY(EditAnywhere, Category="LanternOil")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="LanternOil")
 	float MaxLanternOilAmount = 100;
 	
-	UPROPERTY(EditAnywhere, Category="LanternOil")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="LanternOil")
 	float LanternOilAmount = MaxLanternOilAmount;
 	
 	UPROPERTY(EditAnywhere, Category="LanternOil")
