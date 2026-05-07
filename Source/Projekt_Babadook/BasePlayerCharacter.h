@@ -66,6 +66,12 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void ShowInventoryTutorial();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ShowInteractPrompt(const FString& Prompt);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ClearInteractPrompt();
 	
 	private:
 	bool HasInteracted = false;

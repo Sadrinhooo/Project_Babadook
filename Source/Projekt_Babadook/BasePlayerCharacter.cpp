@@ -80,7 +80,7 @@ void ABasePlayerCharacter::LookForInteractable()
 	if (InteractObjectInSight)
 	{
 		//Fixa den här få at den kommer upp på UI och anpassad för controller oxå
-		const FString Prompt = InteractObjectInSight->GetInteractPrompt(this);
+		FString Prompt = InteractObjectInSight->GetInteractPrompt(this);
 		if (AActor* Actor = Cast<AActor>(InteractObjectInSight))
 		{
 			if (UMeshComponent* MeshComp = Actor->GetComponentByClass<UMeshComponent>())
@@ -89,6 +89,10 @@ void ABasePlayerCharacter::LookForInteractable()
 			}
 		}
 		UE_LOG(LogTemp, Warning, TEXT("%s"), *Prompt);
+		ShowInteractPrompt(Prompt);
+	}else
+	{
+		ClearInteractPrompt();
 	}
 }
 
