@@ -96,7 +96,7 @@ void UFlashlightComponent::PerformConeDetection()
 	}
 	ActorsInCone.Empty();
 
-	//Go thru all overlaps and put bIsInLight = true for then enemies in cone
+	//Go thru all overlaps and put bIsInLight = true for the enemies in cone
 	for (const FOverlapResult& Overlap : Overlaps)
 	{
 		AActor* HitActor = Overlap.GetActor();
