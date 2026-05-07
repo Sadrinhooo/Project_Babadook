@@ -37,6 +37,7 @@ void ADoor::Interact(ACharacter* Interactor)
 		{
 			//GameMode->SharedInventory.RemoveAt(KeyIndex);
 			bIsUnlocked = true;
+			ADoor::PlaySFX();	
 		}
 	}
 	
