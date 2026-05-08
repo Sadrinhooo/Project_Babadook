@@ -34,10 +34,10 @@ public:
 	TSubclassOf<UScreenShakeComponent> ScreenShakeCompRef;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="LanternOil")
-	float MaxLanternOilAmount = 100;
+	float MaxLanternOilAmount = 400;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="LanternOil")
-	float LanternOilAmount = MaxLanternOilAmount;
+	float LanternOilAmount = 0;
 	
 	UPROPERTY(EditAnywhere, Category="LanternOil")
 	float LanternOilDecreaseRate;
