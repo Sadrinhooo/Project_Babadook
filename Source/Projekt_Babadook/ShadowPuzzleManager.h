@@ -27,9 +27,9 @@ public:
 	
 	UShadowPuzzleState* PuzzleState;
 	
-	virtual void Interact(ACharacter* Interactor) override; //PuzzleStates Interact funktion är det som anropas i CPP filen
+	virtual void Interact_Implementation(ACharacter* Interactor) override; //PuzzleStates Interact funktion är det som anropas i CPP filen
 	
-	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override; //PuzzleStates GetPrompt funktion är det som anropas i CPP filen
+	virtual const FString GetInteractPrompt_Implementation(ACharacter* Interactor) override; //PuzzleStates GetPrompt funktion är det som anropas i CPP filen
 	
 	FString SIGMA = "LOCKED!";
 

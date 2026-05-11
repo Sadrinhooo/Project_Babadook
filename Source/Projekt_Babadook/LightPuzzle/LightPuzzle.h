@@ -30,9 +30,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	virtual void Interact(ACharacter* Interactor) override;
+	virtual void Interact_Implementation(ACharacter* Interactor) override;
 	
-	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
+	virtual const FString GetInteractPrompt_Implementation(ACharacter* Interactor) override;
 	
 	void PuzzleEnter(ABasePlayerCharacter* Player, APlayerController* PlayerController);
 	

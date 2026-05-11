@@ -25,11 +25,11 @@ void AShadowPuzzleManager::Tick(float DeltaTime)
 
 }
 
-void AShadowPuzzleManager::Interact(ACharacter* Interactor)
+void AShadowPuzzleManager::Interact_Implementation(ACharacter* Interactor)
 {
 }
 
-const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
+const FString AShadowPuzzleManager::GetInteractPrompt_Implementation(ACharacter* Interactor)
 {
 	return SIGMA;
 }
