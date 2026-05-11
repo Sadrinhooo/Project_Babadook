@@ -10,9 +10,10 @@
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Sadra.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleDefaultState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleDefaultState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleDefaultState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleDefaultState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleState.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +180,8 @@
       <workItem from="1778480526041" duration="2451000" />
       <workItem from="1778490252583" duration="323000" />
       <workItem from="1778490625903" duration="7919000" />
-      <workItem from="1778508618687" duration="4440000" />
+      <workItem from="1778508618687" duration="4651000" />
+      <workItem from="1778513347835" duration="3231000" />
     </task>
     <servers />
   </component>

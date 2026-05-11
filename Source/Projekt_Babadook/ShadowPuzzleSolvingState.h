@@ -3,33 +3,30 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Interactable.h"
 #include "ShadowPuzzleState.h"
 #include "UObject/Object.h"
-#include "ShadowPuzzleDefaultState.generated.h"
+#include "ShadowPuzzleSolvingState.generated.h"
 
 class AShadowPuzzleManager;
 
 UCLASS(Blueprintable)
-class PROJEKT_BABADOOK_API UShadowPuzzleDefaultState : public UObject, public IShadowPuzzleState
+class PROJEKT_BABADOOK_API UShadowPuzzleSolvingState : public UObject, public IShadowPuzzleState
 {
 	GENERATED_BODY()
 	
 public:
 	
-	UShadowPuzzleDefaultState();
+	UShadowPuzzleSolvingState();
 	
 	UPROPERTY()
 	AShadowPuzzleManager* Owner;
 	
-	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString NoItemInteractPrompt = "SOMETHING IS MISSING!";
+	FString NoPrompt = "";
 	
 	
 	//Functions
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 	
 	virtual void Interact(ACharacter* Interactor) override;
-	
 };

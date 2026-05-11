@@ -18,6 +18,7 @@ void AShadowPuzzleManager::BeginPlay()
 {
 	Super::BeginPlay();
 	DefaultState = NewObject<UShadowPuzzleDefaultState>(this);
+	SolvingState = NewObject<UShadowPuzzleSolvingState>(this);
 	PuzzleState = DefaultState;
 	
 }
@@ -31,10 +32,16 @@ void AShadowPuzzleManager::Tick(float DeltaTime)
 
 void AShadowPuzzleManager::Interact(ACharacter* Interactor)
 {
+	PuzzleState->Interact(Interactor);
 }
 
 const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
 {
 	return PuzzleState->GetInteractPrompt(Interactor);
+}
+
+void AShadowPuzzleManager::ChangeState(UObject* NewState)
+{
+	PuzzleState = NewState;
 }
 

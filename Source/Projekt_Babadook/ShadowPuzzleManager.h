@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Interactable.h"
 #include "ShadowPuzzleDefaultState.h"
+#include "ShadowPuzzleSolvingState.h"
 #include "ShadowPuzzleState.h"
 #include "GameFramework/Actor.h"
 #include "ShadowPuzzleManager.generated.h"
@@ -34,9 +35,19 @@ public:
 	//State object instances
 	UPROPERTY()
 	UShadowPuzzleDefaultState* DefaultState;
+	UPROPERTY()
+	UShadowPuzzleSolvingState* SolvingState;
+	
+	UPROPERTY(EditAnywhere)
+	AActor* PuzzleCameraActor;
+	
+	UPROPERTY(EditAnywhere)
+	APawn* PuzzlePawn;
 	
 	//Functions
 	virtual void Interact(ACharacter* Interactor) override; //PuzzleStates Interact funktion är det som anropas i CPP filen
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override; //PuzzleStates GetPrompt funktion är det som anropas i CPP filen
+	
+	void ChangeState(UObject* NewState);
 };
