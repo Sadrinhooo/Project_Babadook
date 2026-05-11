@@ -27,14 +27,14 @@ void AOilContainer::Tick(float DeltaTime)
 
 }
 
-void AOilContainer::Interact_Implementation(ACharacter* Interactor)
+void AOilContainer::Interact(ACharacter* Interactor)
 {
 	ABasePlayerCharacter* Player = Cast<ABasePlayerCharacter>(Interactor);
 	Player->LanternOilAmount = Player->MaxLanternOilAmount;
 	
 }
 
-const FString AOilContainer::GetInteractPrompt_Implementation(ACharacter* Interactor)
+const FString& AOilContainer::GetInteractPrompt(ACharacter* Interactor)
 {
 	return InteractPrompt;
 }

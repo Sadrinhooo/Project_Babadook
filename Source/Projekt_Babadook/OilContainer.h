@@ -27,7 +27,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Interaction")
 	FString InteractPrompt = "PRESS ""E"" TO REFILL";
 	
-	virtual void Interact_Implementation(ACharacter* Interactor) override;
+	virtual void Interact(ACharacter* Interactor) override;
 	
-	virtual const FString GetInteractPrompt_Implementation(ACharacter* Interactor) override;
+	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 };

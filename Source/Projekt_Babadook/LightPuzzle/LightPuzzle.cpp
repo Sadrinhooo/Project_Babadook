@@ -27,7 +27,7 @@ void ALightPuzzle::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ALightPuzzle::Interact_Implementation(ACharacter* Interactor)
+void ALightPuzzle::Interact(ACharacter* Interactor)
 {
 	ABasePlayerCharacter* Player = Cast<ABasePlayerCharacter>(Interactor);
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(Player, 0);
@@ -36,7 +36,7 @@ void ALightPuzzle::Interact_Implementation(ACharacter* Interactor)
 	
 }
 
-const FString ALightPuzzle::GetInteractPrompt_Implementation(ACharacter* Interactor)
+const FString& ALightPuzzle::GetInteractPrompt(ACharacter* Interactor)
 {
 	return InteractPrompt;
 }

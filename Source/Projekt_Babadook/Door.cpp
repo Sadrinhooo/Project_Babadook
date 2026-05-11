@@ -44,7 +44,7 @@ void ADoor::Tick(float DeltaTime)
 	}
 }
 
-void ADoor::Interact_Implementation(ACharacter* Interactor)
+void ADoor::Interact(ACharacter* Interactor)
 {
 	GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
 	
@@ -63,7 +63,7 @@ void ADoor::Interact_Implementation(ACharacter* Interactor)
 	
 }
 
-const FString ADoor::GetInteractPrompt_Implementation(ACharacter* Interactor)
+const FString& ADoor::GetInteractPrompt(ACharacter* Interactor)
 {
 	if (bIsUnlocked) return UnlockedInteractPrompt;
 		

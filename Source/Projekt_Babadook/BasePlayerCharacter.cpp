@@ -80,7 +80,7 @@ void ABasePlayerCharacter::LookForInteractable()
 	if (InteractObjectInSight)
 	{
 		//Fixa den här få at den kommer upp på UI och anpassad för controller oxå
-		FString Prompt = InteractObjectInSight->GetInteractPrompt_Implementation(this);
+		FString Prompt = InteractObjectInSight->GetInteractPrompt(this);
 		if (AActor* Actor = Cast<AActor>(InteractObjectInSight))
 		{
 			if (UMeshComponent* MeshComp = Actor->GetComponentByClass<UMeshComponent>())
@@ -100,7 +100,7 @@ void ABasePlayerCharacter::Interact()
 {
 	if (InteractObjectInSight)
 	{
-		InteractObjectInSight->Interact_Implementation(this);
+		InteractObjectInSight->Interact(this);
 		if (!HasInteracted)
 		{
 			ShowInventoryTutorial();

@@ -61,7 +61,7 @@ public:
 	
 	//Functions
 	
-	virtual void Interact_Implementation(ACharacter* Interactor) override;
+	virtual void Interact(ACharacter* Interactor) override;
 	
-	virtual const FString GetInteractPrompt_Implementation(ACharacter* Interactor) override;
+	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 };

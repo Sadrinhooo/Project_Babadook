@@ -7,7 +7,7 @@
 #include "Interactable.generated.h"
 
 // This class does not need to be modified.
-UINTERFACE(MinimalAPI, Blueprintable)
+UINTERFACE(MinimalAPI)
 class UInteractable : public UInterface
 {
 	GENERATED_BODY()
@@ -21,10 +21,8 @@ class PROJEKT_BABADOOK_API IInteractable
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	void Interact(ACharacter* Interactor);
+	virtual void Interact(ACharacter* Interactor);
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	const FString GetInteractPrompt(ACharacter* Interactor);
+	virtual const FString& GetInteractPrompt(ACharacter* Interactor);
 
 };
