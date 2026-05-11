@@ -1,9 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include "MyGameMode.h"
 #include "ShadowPuzzleManager.h"
-
+#include "Kismet/GameplayStatics.h"
+#include "KeyItem.h"
 #include "ShadowPuzzleDefaultState.h"
+
 
 // Sets default values
 AShadowPuzzleManager::AShadowPuzzleManager()
@@ -43,5 +45,19 @@ const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
 void AShadowPuzzleManager::ChangeState(UObject* NewState)
 {
 	PuzzleState = NewState;
+}
+
+bool AShadowPuzzleManager::PlayerHasKeyItem(int32& OutIndex)
+{
+	for (int i = 0; i < Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this))->SharedInventory.Num(); i++)
+	{
+		if (Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this))->SharedInventory[i].ItemTag == RequiredKeyItemTag)
+		{
+			OutIndex = i;
+			return true;
+		}
+	}
+
+	return false;
 }
 

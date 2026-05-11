@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "GameplayTagContainer.h"
 #include "CoreMinimal.h"
 #include "Interactable.h"
 #include "ShadowPuzzleDefaultState.h"
@@ -38,11 +39,20 @@ public:
 	UPROPERTY()
 	UShadowPuzzleSolvingState* SolvingState;
 	
+	
+	
 	UPROPERTY(EditAnywhere)
 	AActor* PuzzleCameraActor;
 	
 	UPROPERTY(EditAnywhere)
-	APawn* PuzzlePawn;
+	APawn* PuzzleItemPawn;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FGameplayTag RequiredKeyItemTag;
+	
+	UPROPERTY(VisibleAnywhere)
+	int32 KeyItemIndex = 0;
+	
 	
 	//Functions
 	virtual void Interact(ACharacter* Interactor) override; //PuzzleStates Interact funktion är det som anropas i CPP filen
@@ -50,4 +60,6 @@ public:
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override; //PuzzleStates GetPrompt funktion är det som anropas i CPP filen
 	
 	void ChangeState(UObject* NewState);
+	
+	bool PlayerHasKeyItem(int32& OutIndex);
 };
