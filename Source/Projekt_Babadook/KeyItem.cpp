@@ -28,7 +28,7 @@ void AKeyItem::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AKeyItem::Interact(ACharacter* Interactor)
+void AKeyItem::Interact_Implementation(ACharacter* Interactor)
 {
 	if (GameMode)
 	{
@@ -39,7 +39,7 @@ void AKeyItem::Interact(ACharacter* Interactor)
 	Destroy();
 }
 
-const FString& AKeyItem::GetInteractPrompt(ACharacter* Interactor)
+const FString AKeyItem::GetInteractPrompt_Implementation(ACharacter* Interactor)
 {
 	return InteractPrompt;
 }
