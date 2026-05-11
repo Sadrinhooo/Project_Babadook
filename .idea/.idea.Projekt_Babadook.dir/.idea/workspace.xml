@@ -9,12 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_BigDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_BigDoor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_SmallDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_SmallDoor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/BP_ShadowPuzzleKeyItem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/BP_ShadowPuzzleKeyItem.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Sadra.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleState.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +179,7 @@
       <workItem from="1778480526041" duration="2451000" />
       <workItem from="1778490252583" duration="323000" />
       <workItem from="1778490625903" duration="7919000" />
+      <workItem from="1778508618687" duration="4440000" />
     </task>
     <servers />
   </component>

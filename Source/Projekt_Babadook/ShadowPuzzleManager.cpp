@@ -3,6 +3,8 @@
 
 #include "ShadowPuzzleManager.h"
 
+#include "ShadowPuzzleDefaultState.h"
+
 // Sets default values
 AShadowPuzzleManager::AShadowPuzzleManager()
 {
@@ -15,6 +17,8 @@ AShadowPuzzleManager::AShadowPuzzleManager()
 void AShadowPuzzleManager::BeginPlay()
 {
 	Super::BeginPlay();
+	DefaultState = NewObject<UShadowPuzzleDefaultState>(this);
+	PuzzleState = DefaultState;
 	
 }
 
@@ -31,6 +35,6 @@ void AShadowPuzzleManager::Interact(ACharacter* Interactor)
 
 const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
 {
-	return SIGMA;
+	return PuzzleState->GetInteractPrompt(Interactor);
 }
 

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Interactable.h"
+#include "ShadowPuzzleDefaultState.h"
 #include "ShadowPuzzleState.h"
 #include "GameFramework/Actor.h"
 #include "ShadowPuzzleManager.generated.h"
@@ -25,12 +26,17 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	UShadowPuzzleState* PuzzleState;
+	UPROPERTY()
+	TScriptInterface<IShadowPuzzleState> PuzzleState;
 	
+	
+	
+	//State object instances
+	UPROPERTY()
+	UShadowPuzzleDefaultState* DefaultState;
+	
+	//Functions
 	virtual void Interact(ACharacter* Interactor) override; //PuzzleStates Interact funktion är det som anropas i CPP filen
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override; //PuzzleStates GetPrompt funktion är det som anropas i CPP filen
-	
-	FString SIGMA = "LOCKED!";
-
 };

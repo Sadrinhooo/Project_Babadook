@@ -4,11 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "Interactable.h"
 #include "ShadowPuzzleState.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class UShadowPuzzleState : public UInterface
+class UShadowPuzzleState : public UInteractable
 {
 	GENERATED_BODY()
 };
@@ -16,7 +17,7 @@ class UShadowPuzzleState : public UInterface
 /**
  * 
  */
-class PROJEKT_BABADOOK_API IShadowPuzzleState
+class PROJEKT_BABADOOK_API IShadowPuzzleState : public IInteractable
 {
 	GENERATED_BODY()
 
