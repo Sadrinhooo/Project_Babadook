@@ -29,10 +29,20 @@ void AShadowPuzzleManager::BeginPlay()
 void AShadowPuzzleManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if ((FVector::DotProduct(PuzzleItemPawn->GetActorForwardVector(), TargetForwardVector)) > 0.99f &&
-		FVector::DotProduct(PuzzleItemPawn->GetActorUpVector(), TargetUpVector) > 0.99f)
+	if ((FVector::DotProduct(PuzzleItemPawn->GetActorForwardVector(), TargetForwardVector)) > 0.95f &&
+		FVector::DotProduct(PuzzleItemPawn->GetActorUpVector(), TargetUpVector) > 0.95f)
 	{
+		
 		OnSuccess(DeltaTime);
+	}
+	
+	if (bSuccessTriggered)
+	{
+		FQuat TargetQuat = TargetRotation.Quaternion();
+		FQuat CurrentQuat = PuzzleItemPawn->GetActorQuat();
+		FQuat NewQuat = FQuat::Slerp(CurrentQuat, TargetQuat, DeltaTime * 3);
+		NewQuat.Normalize();
+		PuzzleItemPawn->SetActorRotation(NewQuat);
 	}
 
 }
@@ -69,25 +79,21 @@ bool AShadowPuzzleManager::PlayerHasKeyItem(int32& OutIndex)
 
 void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 {
+	// Guard so this only runs once
+	if (bSuccessTriggered) return;
+	bSuccessTriggered = true;
+
 	APlayerController* PC = GetWorld()->GetFirstPlayerController();
 	APawn* PlayerPawn = PC->GetPawn();
+	Success();
 
 	PlayerPawn->DisableInput(PC);
-	FQuat TargetQuat = TargetRotation.Quaternion();
-	FQuat CurrentQuat = PuzzleItemPawn->GetActorQuat();
-	FQuat NewQuat = FQuat::Slerp(CurrentQuat, TargetQuat, DeltaTime * 0.05);
-	NewQuat.Normalize();
-	PuzzleItemPawn->SetActorRotation(NewQuat);
+
 	GetWorld()->GetTimerManager().SetTimer(WaitHandle, [this]()
 	{
-		//ALL BS
-		UE_LOG(LogTemp, Warning, TEXT("SIGMA SIGMA ON THE ALL"));
 		EnableInput(GetWorld()->GetFirstPlayerController());
 		Cast<AMyPlayerController>(GetWorld()->GetFirstPlayerController())->UnpossessPuzzlePawn();
 		PrimaryActorTick.bCanEverTick = false;
-		Success();
-    
-	}, 3.0f, false); 
-	
+	}, 4.0f, false);
 }
 
