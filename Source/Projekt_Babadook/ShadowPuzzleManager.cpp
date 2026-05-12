@@ -91,8 +91,20 @@ void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 
 	GetWorld()->GetTimerManager().SetTimer(WaitHandle, [this]()
 	{
-		EnableInput(GetWorld()->GetFirstPlayerController());
-		Cast<AMyPlayerController>(GetWorld()->GetFirstPlayerController())->UnpossessPuzzlePawn();
+		APlayerController* PC = GetWorld()->GetFirstPlayerController();
+		AMyPlayerController* MyPC = Cast<AMyPlayerController>(PC);
+
+		if (MyPC)
+		{
+			MyPC->UnpossessPuzzlePawn(); // This should repossess the player pawn
+		}
+
+		// Get the pawn AFTER unpossess, since possession may have changed
+		APawn* PlayerPawn = PC->GetPawn();
+		if (PlayerPawn)
+		{
+			PlayerPawn->EnableInput(PC); // Called on the PAWN, not 'this'
+		}
 		PrimaryActorTick.bCanEverTick = false;
 	}, 4.0f, false);
 }
