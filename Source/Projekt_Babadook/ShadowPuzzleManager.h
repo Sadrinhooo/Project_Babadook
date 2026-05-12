@@ -50,8 +50,17 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FGameplayTag RequiredKeyItemTag;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector TargetForwardVector = FVector(0.076f, 0.997f, 0.009f);
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector TargetUpVector = FVector(0.01f, 0.009f, 1.0f);
+	
 	UPROPERTY(VisibleAnywhere)
 	int32 KeyItemIndex = 0;
+	
+	UPROPERTY()
+	FTimerHandle WaitHandle;
 	
 	
 	//Functions
@@ -62,4 +71,6 @@ public:
 	void ChangeState(UObject* NewState);
 	
 	bool PlayerHasKeyItem(int32& OutIndex);
+	
+	void OnSuccess(float DeltaTime);
 };

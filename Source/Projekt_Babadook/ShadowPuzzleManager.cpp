@@ -4,6 +4,7 @@
 #include "ShadowPuzzleManager.h"
 #include "Kismet/GameplayStatics.h"
 #include "KeyItem.h"
+#include "MyPlayerController.h"
 #include "ShadowPuzzleDefaultState.h"
 
 
@@ -21,14 +22,18 @@ void AShadowPuzzleManager::BeginPlay()
 	Super::BeginPlay();
 	DefaultState = NewObject<UShadowPuzzleDefaultState>(this);
 	SolvingState = NewObject<UShadowPuzzleSolvingState>(this);
-	PuzzleState = DefaultState;
-	
+	ChangeState(DefaultState);
 }
 
 // Called every frame
 void AShadowPuzzleManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if ((FVector::DotProduct(PuzzleItemPawn->GetActorForwardVector(), TargetForwardVector)) > 0.99f &&
+		FVector::DotProduct(PuzzleItemPawn->GetActorUpVector(), TargetUpVector) > 0.99f)
+	{
+		OnSuccess(DeltaTime);
+	}
 
 }
 
@@ -45,6 +50,7 @@ const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
 void AShadowPuzzleManager::ChangeState(UObject* NewState)
 {
 	PuzzleState = NewState;
+	PuzzleState->InitiateState();
 }
 
 bool AShadowPuzzleManager::PlayerHasKeyItem(int32& OutIndex)
@@ -59,5 +65,25 @@ bool AShadowPuzzleManager::PlayerHasKeyItem(int32& OutIndex)
 	}
 
 	return false;
+}
+
+void AShadowPuzzleManager::OnSuccess(float DeltaTime)
+{
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	APawn* PlayerPawn = PC->GetPawn();
+
+	PlayerPawn->DisableInput(PC);
+	FRotator TargetRotation = FRotationMatrix::MakeFromX(TargetForwardVector.GetSafeNormal()).Rotator();
+	FRotator CurrentRotation = PuzzleItemPawn->GetActorRotation();
+	FRotator NewRotation = FMath::RInterpTo(CurrentRotation, TargetRotation, DeltaTime, 3);
+	PuzzleItemPawn->SetActorRotation(NewRotation);
+	GetWorld()->GetTimerManager().SetTimer(WaitHandle, [this]()
+	{
+		//ALL BS
+		EnableInput(GetWorld()->GetFirstPlayerController());
+		Cast<AMyPlayerController>(GetWorld()->GetFirstPlayerController())->UnpossessPuzzlePawn();
+		PrimaryActorTick.bCanEverTick = false;
+    
+	}, 3.0f, false); 
 }
 

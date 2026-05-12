@@ -29,4 +29,6 @@ public:
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 	
 	virtual void Interact(ACharacter* Interactor) override;
+	
+	virtual void InitiateState() override;
 };

@@ -12,16 +12,33 @@ UShadowPuzzleDefaultState::UShadowPuzzleDefaultState()
 
 const FString& UShadowPuzzleDefaultState::GetInteractPrompt(ACharacter* Interactor)
 {
-	return NoItemInteractPrompt;
+	if (Owner->PlayerHasKeyItem(Owner->KeyItemIndex))
+	{
+		if (bHasPlacedKeyItem)
+		{
+			return MoveItemInteractPrompt;
+		}else
+		{
+			return HasItemInteractPrompt;
+		}
+	} else
+	{
+		return NoItemInteractPrompt;	
+	}
 }
 
 void UShadowPuzzleDefaultState::Interact(ACharacter* Interactor)
 {
-	if (Owner->PuzzleCameraActor)
-	{
-		Cast<AMyPlayerController>(Owner->GetWorld()->GetFirstPlayerController())->PossessPuzzlePawn(Owner->PuzzleItemPawn);
-		Owner->GetWorld()->GetFirstPlayerController()->SetViewTargetWithBlend(Owner->PuzzleCameraActor, 0);
-		Owner->ChangeState(Owner->SolvingState);
-	}
+	if (bHasPlacedKeyItem) Owner->ChangeState(Owner->SolvingState);
 	
+	if (Owner->PlayerHasKeyItem(Owner->KeyItemIndex))
+	{
+		Owner->PuzzleItemPawn->SetActorHiddenInGame(false);
+		bHasPlacedKeyItem = true;
+	}	
+}
+
+void UShadowPuzzleDefaultState::InitiateState()
+{
+	Owner->PuzzleItemPawn->SetActorHiddenInGame(true);
 }

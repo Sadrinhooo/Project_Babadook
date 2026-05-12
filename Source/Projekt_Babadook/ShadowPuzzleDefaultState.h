@@ -26,10 +26,21 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString NoItemInteractPrompt = "SOMETHING IS MISSING!";
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString HasItemInteractPrompt = "PRESS ""E"" TO INSERT";
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString MoveItemInteractPrompt = "PRESS ""E"" TO INTERACT";
+	
+	UPROPERTY()
+	bool bHasPlacedKeyItem = false;
+	
 	
 	//Functions
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 	
 	virtual void Interact(ACharacter* Interactor) override;
+	
+	virtual void InitiateState() override;
 	
 };
