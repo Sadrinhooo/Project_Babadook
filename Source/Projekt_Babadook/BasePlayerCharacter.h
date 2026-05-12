@@ -10,6 +10,9 @@
 #include "FlashlightComponent.h"
 #include "BasePlayerCharacter.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPressedCancel, FString, PressedKey);
+
+
 UCLASS()
 class PROJEKT_BABADOOK_API ABasePlayerCharacter : public ACharacter
 {
@@ -29,6 +32,9 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UPROPERTY(BlueprintAssignable, BlueprintCallable)
+	FPressedCancel OnPressedCancel;
 	
 	UPROPERTY(EditDefaultsOnly, Category="ScreenShake")
 	TSubclassOf<UScreenShakeComponent> ScreenShakeCompRef;
