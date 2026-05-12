@@ -85,7 +85,9 @@ void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 		EnableInput(GetWorld()->GetFirstPlayerController());
 		Cast<AMyPlayerController>(GetWorld()->GetFirstPlayerController())->UnpossessPuzzlePawn();
 		PrimaryActorTick.bCanEverTick = false;
+		Success();
     
 	}, 3.0f, false); 
+	
 }
 

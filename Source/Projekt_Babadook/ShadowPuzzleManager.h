@@ -19,6 +19,8 @@ class PROJEKT_BABADOOK_API AShadowPuzzleManager : public AActor, public IInterac
 public:	
 	// Sets default values for this actor's properties
 	AShadowPuzzleManager();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
+	void Success();
 
 protected:
 	// Called when the game starts or when spawned
