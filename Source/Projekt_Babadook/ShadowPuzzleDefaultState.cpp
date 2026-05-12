@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "ShadowPuzzleDefaultState.h"
 #include "ShadowPuzzleManager.h"
 #include "MyPlayerController.h"
-#include "ShadowPuzzleDefaultState.h"
 
 
 UShadowPuzzleDefaultState::UShadowPuzzleDefaultState()

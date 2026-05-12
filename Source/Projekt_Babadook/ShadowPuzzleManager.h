@@ -46,7 +46,7 @@ public:
 	
 	
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	AActor* PuzzleCameraActor;
 	
 	UPROPERTY(EditAnywhere)

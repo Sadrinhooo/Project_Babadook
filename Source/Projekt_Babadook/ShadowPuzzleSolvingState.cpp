@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "ShadowPuzzleManager.h"
 #include "ShadowPuzzleSolvingState.h"
+#include "ShadowPuzzleManager.h"
 
 #include "MyPlayerController.h"
 

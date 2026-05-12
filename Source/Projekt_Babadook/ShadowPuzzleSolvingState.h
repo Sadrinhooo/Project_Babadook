@@ -18,7 +18,7 @@ public:
 	
 	UShadowPuzzleSolvingState();
 	
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	AShadowPuzzleManager* Owner;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

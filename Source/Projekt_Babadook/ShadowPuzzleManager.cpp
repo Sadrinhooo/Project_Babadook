@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "MyGameMode.h"
 #include "ShadowPuzzleManager.h"
+#include "MyGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "KeyItem.h"
 #include "MyPlayerController.h"
