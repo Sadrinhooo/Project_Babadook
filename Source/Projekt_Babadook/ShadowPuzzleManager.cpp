@@ -73,13 +73,15 @@ void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 	APawn* PlayerPawn = PC->GetPawn();
 
 	PlayerPawn->DisableInput(PC);
-	FRotator TargetRotation = FRotationMatrix::MakeFromX(TargetForwardVector.GetSafeNormal()).Rotator();
-	FRotator CurrentRotation = PuzzleItemPawn->GetActorRotation();
-	FRotator NewRotation = FMath::RInterpTo(CurrentRotation, TargetRotation, DeltaTime, 3);
-	PuzzleItemPawn->SetActorRotation(NewRotation);
+	FQuat TargetQuat = TargetRotation.Quaternion();
+	FQuat CurrentQuat = PuzzleItemPawn->GetActorQuat();
+	FQuat NewQuat = FQuat::Slerp(CurrentQuat, TargetQuat, DeltaTime * 0.05);
+	NewQuat.Normalize();
+	PuzzleItemPawn->SetActorRotation(NewQuat);
 	GetWorld()->GetTimerManager().SetTimer(WaitHandle, [this]()
 	{
 		//ALL BS
+		UE_LOG(LogTemp, Warning, TEXT("SIGMA SIGMA ON THE ALL"));
 		EnableInput(GetWorld()->GetFirstPlayerController());
 		Cast<AMyPlayerController>(GetWorld()->GetFirstPlayerController())->UnpossessPuzzlePawn();
 		PrimaryActorTick.bCanEverTick = false;

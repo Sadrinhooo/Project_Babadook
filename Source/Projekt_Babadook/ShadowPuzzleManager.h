@@ -56,6 +56,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector TargetUpVector = FVector(0.01f, 0.009f, 1.0f);
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FRotator TargetRotation = FRotator(-0.03f, 0.52f, 94.3f);
+	
 	UPROPERTY(VisibleAnywhere)
 	int32 KeyItemIndex = 0;
 	
