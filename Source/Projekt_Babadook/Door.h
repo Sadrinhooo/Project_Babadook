@@ -51,7 +51,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString UnlockedInteractPrompt = "UNLOCKED";
 	
+	UPROPERTY(EditAnywhere)
+	bool bShouldInterpDoor = false;
 	
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* Door;
+	
+	FRotator TargetRotation;
 	
 	//Functions
 	
@@ -60,5 +66,7 @@ public:
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 
 	bool PlayerHasKey(int32& OutIndex);
+	
+	void SlightlyOpenDoor(const FVector& PlayerLocation);
 	
 };

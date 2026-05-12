@@ -20,9 +20,15 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void AddItem(FItemData Item);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ShowInventoryTutorial();
 	
 	UPROPERTY(BlueprintReadWrite, Category= "Inventory")
 	TArray<FItemData> SharedInventory;
-	
-	
+
+private:
+	bool HasAddedItem;
 };

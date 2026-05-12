@@ -101,11 +101,6 @@ void ABasePlayerCharacter::Interact()
 	if (InteractObjectInSight)
 	{
 		InteractObjectInSight->Interact(this);
-		if (!HasInteracted)
-		{
-			ShowInventoryTutorial();
-			HasInteracted = true;
-		}
 	};
 }
 
