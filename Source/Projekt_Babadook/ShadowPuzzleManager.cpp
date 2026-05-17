@@ -100,8 +100,8 @@ void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 
 		if (MyPC)
 		{
-			MyPC->bAutoManageActiveCameraTarget = true;
 			MyPC->UnpossessPuzzlePawn(); // This should repossess the player pawn
+			MyPC->bAutoManageActiveCameraTarget = true;
 		}
 
 		// Get the pawn AFTER unpossess, since possession may have changed
