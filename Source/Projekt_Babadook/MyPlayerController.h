@@ -3,10 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ShadowPuzzleManager.h"
 #include "GameFramework/PlayerController.h"
 #include "MyPlayerController.generated.h"
 
+class AShadowPuzzleManager;
 /**
  * 
  */

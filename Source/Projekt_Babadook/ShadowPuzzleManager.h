@@ -11,6 +11,8 @@
 #include "GameFramework/Actor.h"
 #include "ShadowPuzzleManager.generated.h"
 
+class AMyPlayerController;
+
 UCLASS()
 class PROJEKT_BABADOOK_API AShadowPuzzleManager : public AActor, public IInteractable
 {
@@ -19,8 +21,15 @@ class PROJEKT_BABADOOK_API AShadowPuzzleManager : public AActor, public IInterac
 public:	
 	// Sets default values for this actor's properties
 	AShadowPuzzleManager();
+	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
 	void Success();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
+	void ShowWidget();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
+	void HideWidget();
 
 protected:
 	// Called when the game starts or when spawned
@@ -44,7 +53,8 @@ public:
 	UPROPERTY()
 	UShadowPuzzleSolvingState* SolvingState;
 	
-	
+	UPROPERTY()
+	AMyPlayerController* MyPC;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* PuzzleCameraActor;

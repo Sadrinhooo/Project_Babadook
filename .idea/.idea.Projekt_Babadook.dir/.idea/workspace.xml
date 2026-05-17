@@ -7,7 +7,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="" />
+    <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_2.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_3.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_3.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_MyPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_MyPlayerController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_ShadowPuzzleManager.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_ShadowPuzzleManager.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/IMC_ShadowPuzzle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IMC_ShadowPuzzle.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Models/Sadra/BP_ShadowPuzzlePawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Sadra/BP_ShadowPuzzlePawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Sadra.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/MyPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/MyPlayerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleDefaultState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleDefaultState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleSolvingState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleSolvingState.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,10 +102,10 @@
 }</component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1780039268980" />
-    <option name="spentUsd" value="0.01569" />
+    <option name="spentUsd" value="0.25142124" />
   </component>
   <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="8" />
+    <option name="suspendCountdown" value="5" />
   </component>
   <component name="RunManager">
     <configuration name="Projekt_Babadook" type="Uproject" factoryName="rider.uproject">
@@ -188,7 +211,7 @@
       <workItem from="1778513347835" duration="3864000" />
       <workItem from="1778522640141" duration="13167000" />
       <workItem from="1778568028330" duration="2326000" />
-      <workItem from="1779011856261" duration="4570000" />
+      <workItem from="1779011856261" duration="8818000" />
     </task>
     <servers />
   </component>

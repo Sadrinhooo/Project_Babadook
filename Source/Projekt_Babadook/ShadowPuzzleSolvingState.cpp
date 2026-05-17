@@ -23,6 +23,7 @@ void UShadowPuzzleSolvingState::InitiateState()
 {
 	if (Owner->PuzzleCameraActor)
 	{
+		Owner->ShowWidget();
 		Cast<AMyPlayerController>(Owner->GetWorld()->GetFirstPlayerController())->bAutoManageActiveCameraTarget = false;
 		Cast<AMyPlayerController>(Owner->GetWorld()->GetFirstPlayerController())->PossessPuzzlePawn(Owner);
 		Owner->GetWorld()->GetFirstPlayerController()->SetViewTargetWithBlend(Owner->PuzzleCameraActor, 1.f);

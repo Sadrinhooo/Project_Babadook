@@ -29,7 +29,11 @@ const FString& UShadowPuzzleDefaultState::GetInteractPrompt(ACharacter* Interact
 
 void UShadowPuzzleDefaultState::Interact(ACharacter* Interactor)
 {
-	if (bHasPlacedKeyItem) Owner->ChangeState(Owner->SolvingState);
+	if (bHasPlacedKeyItem)
+	{
+		Owner->ChangeState(Owner->SolvingState);
+		Owner->PuzzleState->InitiateState();
+	}
 	
 	if (Owner->PlayerHasKeyItem(Owner->KeyItemIndex))
 	{

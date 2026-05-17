@@ -5,6 +5,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "KeyItem.h"
 #include "MyPlayerController.h"
+#include "MyPlayerController.h"
 #include "ShadowPuzzleDefaultState.h"
 
 
@@ -20,9 +21,11 @@ AShadowPuzzleManager::AShadowPuzzleManager()
 void AShadowPuzzleManager::BeginPlay()
 {
 	Super::BeginPlay();
+	MyPC = Cast<AMyPlayerController>(GetWorld()->GetFirstPlayerController());
 	DefaultState = NewObject<UShadowPuzzleDefaultState>(this);
 	SolvingState = NewObject<UShadowPuzzleSolvingState>(this);
 	ChangeState(DefaultState);
+	PuzzleState->InitiateState();
 }
 
 // Called every frame
@@ -60,7 +63,6 @@ const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
 void AShadowPuzzleManager::ChangeState(UObject* NewState)
 {
 	PuzzleState = NewState;
-	PuzzleState->InitiateState();
 }
 
 bool AShadowPuzzleManager::PlayerHasKeyItem(int32& OutIndex)
@@ -79,6 +81,13 @@ bool AShadowPuzzleManager::PlayerHasKeyItem(int32& OutIndex)
 
 void AShadowPuzzleManager::ExitPuzzle()
 {
+	if (MyPC)
+	{
+		MyPC->UnpossessPuzzlePawn(); // This should repossess the player pawn
+		MyPC->bAutoManageActiveCameraTarget = true;
+		ChangeState(DefaultState);
+		HideWidget();
+	}
 }
 
 void AShadowPuzzleManager::OnSuccess(float DeltaTime)
@@ -95,20 +104,14 @@ void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 
 	GetWorld()->GetTimerManager().SetTimer(WaitHandle, [this]()
 	{
-		APlayerController* PC = GetWorld()->GetFirstPlayerController();
-		AMyPlayerController* MyPC = Cast<AMyPlayerController>(PC);
 
-		if (MyPC)
-		{
-			MyPC->UnpossessPuzzlePawn(); // This should repossess the player pawn
-			MyPC->bAutoManageActiveCameraTarget = true;
-		}
+		ExitPuzzle();
 
 		// Get the pawn AFTER unpossess, since possession may have changed
-		APawn* PlayerPawn = PC->GetPawn();
+		APawn* PlayerPawn = MyPC->GetPawn();
 		if (PlayerPawn)
 		{
-			PlayerPawn->EnableInput(PC); // Called on the PAWN, not 'this'
+			PlayerPawn->EnableInput(MyPC); // Called on the PAWN, not 'this'
 		}
 		PrimaryActorTick.bCanEverTick = false;
 	}, 4.0f, false);
