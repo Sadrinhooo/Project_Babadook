@@ -46,10 +46,10 @@ public:
 	
 	
 	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* PuzzleCameraActor;
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	APawn* PuzzleItemPawn;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -79,6 +79,9 @@ public:
 	void ChangeState(UObject* NewState);
 	
 	bool PlayerHasKeyItem(int32& OutIndex);
+	
+	UFUNCTION(BlueprintCallable)
+	void ExitPuzzle();
 	
 	void OnSuccess(float DeltaTime);
 };

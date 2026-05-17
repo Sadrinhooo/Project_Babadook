@@ -77,6 +77,10 @@ bool AShadowPuzzleManager::PlayerHasKeyItem(int32& OutIndex)
 	return false;
 }
 
+void AShadowPuzzleManager::ExitPuzzle()
+{
+}
+
 void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 {
 	// Guard so this only runs once
@@ -96,6 +100,7 @@ void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 
 		if (MyPC)
 		{
+			MyPC->bAutoManageActiveCameraTarget = true;
 			MyPC->UnpossessPuzzlePawn(); // This should repossess the player pawn
 		}
 
