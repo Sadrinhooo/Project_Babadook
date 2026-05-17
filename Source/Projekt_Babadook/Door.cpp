@@ -52,7 +52,8 @@ void ADoor::Interact(ACharacter* Interactor)
 	{
 		if (PlayerHasKey(KeyIndex))
 		{
-			//GameMode->SharedInventory.RemoveAt(KeyIndex);
+			GameMode->SharedInventory[KeyIndex].NumberOfUses++;
+			if (GameMode->SharedInventory[KeyIndex].NumberOfUses >= GameMode->SharedInventory[KeyIndex].MaxNumberOfUses) GameMode->SharedInventory.RemoveAt(KeyIndex);
 			bIsUnlocked = true;
 			GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
 			SlightlyOpenDoor(Interactor->GetActorLocation());

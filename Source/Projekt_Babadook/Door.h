@@ -57,6 +57,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Door;
 	
+	UPROPERTY()
 	FRotator TargetRotation;
 	
 	//Functions

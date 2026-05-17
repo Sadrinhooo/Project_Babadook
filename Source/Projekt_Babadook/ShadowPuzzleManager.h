@@ -11,6 +11,7 @@
 #include "GameFramework/Actor.h"
 #include "ShadowPuzzleManager.generated.h"
 
+class AMyGameMode;
 class AMyPlayerController;
 
 UCLASS()
@@ -79,6 +80,12 @@ public:
 	
 	UPROPERTY()
 	FTimerHandle WaitHandle;
+	
+	UPROPERTY(BlueprintReadWrite)
+	AMyGameMode* GameMode;
+	
+	UPROPERTY()
+	bool bHasPlacedKeyItem = false;
 	
 	
 	//Functions

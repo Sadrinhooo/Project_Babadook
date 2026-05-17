@@ -2,6 +2,8 @@
 
 #include "ShadowPuzzleDefaultState.h"
 #include "ShadowPuzzleManager.h"
+#include "MyGameMode.h"	
+#include "KeyItem.h"
 #include "MyPlayerController.h"
 
 
@@ -12,33 +14,35 @@ UShadowPuzzleDefaultState::UShadowPuzzleDefaultState()
 
 const FString& UShadowPuzzleDefaultState::GetInteractPrompt(ACharacter* Interactor)
 {
+	if (Owner->bHasPlacedKeyItem)
+	{
+		return MoveItemInteractPrompt;
+	}
+
 	if (Owner->PlayerHasKeyItem(Owner->KeyItemIndex))
 	{
-		if (bHasPlacedKeyItem)
-		{
-			return MoveItemInteractPrompt;
-		}else
-		{
-			return HasItemInteractPrompt;
-		}
-	} else
-	{
-		return NoItemInteractPrompt;	
+		return HasItemInteractPrompt;
 	}
+
+	return NoItemInteractPrompt;
 }
 
 void UShadowPuzzleDefaultState::Interact(ACharacter* Interactor)
 {
-	if (bHasPlacedKeyItem)
+	if (Owner->bHasPlacedKeyItem)
 	{
 		Owner->ChangeState(Owner->SolvingState);
 		Owner->PuzzleState->InitiateState();
+		return;
 	}
 	
 	if (Owner->PlayerHasKeyItem(Owner->KeyItemIndex))
 	{
+		int Index = Owner->KeyItemIndex;
 		Owner->PuzzleItemPawn->SetActorHiddenInGame(false);
-		bHasPlacedKeyItem = true;
+		Owner->GameMode->SharedInventory[Index].NumberOfUses++;
+		if (Owner->GameMode->SharedInventory[Index].NumberOfUses >= Owner->GameMode->SharedInventory[Index].MaxNumberOfUses) Owner->GameMode->SharedInventory.RemoveAt(Index);
+		Owner->bHasPlacedKeyItem = true;
 	}	
 }
 
