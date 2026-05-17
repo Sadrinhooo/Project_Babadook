@@ -38,7 +38,9 @@ class PROJEKT_BABADOOK_API AKeyItem : public AActor, public IInteractable
 public:	
 	// Sets default values for this actor's propertiess
 	AKeyItem();
-
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
+	void PickupSFX();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
