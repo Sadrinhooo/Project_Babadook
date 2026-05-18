@@ -92,6 +92,20 @@ bool ADoor::PlayerHasKey(int32& OutIndex)
 
 void ADoor::OpenForMonster(const FVector& OpenerLocation)
 {
+	if (bIsUnlocked)
+	{
+		const FRotator CurrentRotation = Door->GetRelativeRotation();
+
+		const float Offset = 50.f * GetOpenerDirectionToDoor(OpenerLocation);
+
+		TargetRotation = FRotator(
+			CurrentRotation.Pitch,
+			CurrentRotation.Yaw + Offset,
+			CurrentRotation.Roll
+		);
+
+		bShouldInterpDoor = true;
+	}
 	
 }
 
