@@ -52,14 +52,14 @@ void ADoor::Interact(ACharacter* Interactor)
 	{
 		if (PlayerHasKey(KeyIndex))
 		{
-			//GameMode->SharedInventory.RemoveAt(KeyIndex);
+			GameMode->SharedInventory[KeyIndex].NumberOfUses++;
+			if (GameMode->SharedInventory[KeyIndex].NumberOfUses >= GameMode->SharedInventory[KeyIndex].MaxNumberOfUses) GameMode->SharedInventory.RemoveAt(KeyIndex);
 			bIsUnlocked = true;
 			GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
 			SlightlyOpenDoor(Interactor->GetActorLocation());
 			ADoor::PlaySFX();	
 		}
 	}
-	
 	
 }
 
@@ -90,17 +90,16 @@ bool ADoor::PlayerHasKey(int32& OutIndex)
 	return false;
 }
 
+void ADoor::OpenForMonster(const FVector& OpenerLocation)
+{
+	
+}
+
 void ADoor::SlightlyOpenDoor(const FVector& PlayerLocation)
 {
-	const FVector ToPlayer = (PlayerLocation - GetActorLocation()).GetSafeNormal();
-
-	const float Side = FVector::DotProduct(GetActorForwardVector(), ToPlayer);
-
-	const float Direction = Side > 0.f ? 1.f : -1.f;
-
 	const FRotator CurrentRotation = Door->GetRelativeRotation();
 
-	const float Offset = 15.f * Direction;
+	const float Offset = 15.f * GetOpenerDirectionToDoor(PlayerLocation);
 
 	TargetRotation = FRotator(
 		CurrentRotation.Pitch,
@@ -110,6 +109,16 @@ void ADoor::SlightlyOpenDoor(const FVector& PlayerLocation)
 
 	bShouldInterpDoor = true;
 }
+
+float ADoor::GetOpenerDirectionToDoor(const FVector& OpenerLocation)
+{
+	const FVector ToPlayer = (OpenerLocation - GetActorLocation()).GetSafeNormal();
+	const float Side = FVector::DotProduct(GetActorForwardVector(), ToPlayer);
+	const float Direction = Side > 0.f ? 1.f : -1.f;
+	return Direction;
+}
+
+
 
 
 

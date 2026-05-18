@@ -22,6 +22,7 @@ void AShadowPuzzleManager::BeginPlay()
 {
 	Super::BeginPlay();
 	MyPC = Cast<AMyPlayerController>(GetWorld()->GetFirstPlayerController());
+	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
 	DefaultState = NewObject<UShadowPuzzleDefaultState>(this);
 	SolvingState = NewObject<UShadowPuzzleSolvingState>(this);
 	ChangeState(DefaultState);
@@ -47,7 +48,11 @@ void AShadowPuzzleManager::Tick(float DeltaTime)
 		NewQuat.Normalize();
 		PuzzleItemPawn->SetActorRotation(NewQuat);
 	}
-
+	
+	for (FItemData& Item : GameMode->SharedInventory)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Item: %s"), *Item.ItemName);
+	}
 }
 
 void AShadowPuzzleManager::Interact(ACharacter* Interactor)

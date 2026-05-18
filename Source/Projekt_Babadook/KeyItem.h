@@ -28,6 +28,12 @@ struct FItemData
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FGameplayTag ItemTag;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+	int MaxNumberOfUses = 1;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+	int NumberOfUses = 0;
+	
 };
 
 UCLASS()

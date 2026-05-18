@@ -57,6 +57,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Door;
 	
+	UPROPERTY()
 	FRotator TargetRotation;
 	
 	//Functions
@@ -65,8 +66,13 @@ public:
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 
-	bool PlayerHasKey(int32& OutIndex);
+	virtual bool PlayerHasKey(int32& OutIndex);
+	
+	virtual void OpenForMonster(const FVector& OpenerLocation);
 	
 	void SlightlyOpenDoor(const FVector& PlayerLocation);
+	
+	UFUNCTION(BlueprintCallable)
+	float GetOpenerDirectionToDoor(const FVector& OpenerLocation);
 	
 };
