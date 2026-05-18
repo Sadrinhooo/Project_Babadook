@@ -67,12 +67,12 @@ public:
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 
 	virtual bool PlayerHasKey(int32& OutIndex);
-	
+
+	UFUNCTION(BlueprintCallable)
 	virtual void OpenForMonster(const FVector& OpenerLocation);
 	
 	void SlightlyOpenDoor(const FVector& PlayerLocation);
 	
-	UFUNCTION(BlueprintCallable)
 	float GetOpenerDirectionToDoor(const FVector& OpenerLocation);
 	
 };
