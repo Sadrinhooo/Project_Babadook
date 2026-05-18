@@ -68,8 +68,8 @@ public:
 
 	virtual bool PlayerHasKey(int32& OutIndex);
 
-	UFUNCTION(BlueprintCallable)
-	virtual void OpenForMonster(const FVector& OpenerLocation);
+	UFUNCTION(BlueprintCallable, Blueprintable)
+	void OpenForMonster(const FVector& OpenerLocation);
 	
 	void SlightlyOpenDoor(const FVector& PlayerLocation);
 	
