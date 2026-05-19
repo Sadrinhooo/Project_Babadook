@@ -71,7 +71,8 @@ void ABasePlayerCharacter::LookForInteractable()
 		{
 			if (UMeshComponent* MeshComp = Actor->GetComponentByClass<UMeshComponent>())
 			{
-				MeshComp->SetOverlayMaterial(nullptr);
+				//MeshComp->SetOverlayMaterial(nullptr);
+				MeshComp->SetRenderCustomDepth(false);
 			}
 		}
 		InteractObjectInSight = nullptr;
@@ -85,7 +86,9 @@ void ABasePlayerCharacter::LookForInteractable()
 		{
 			if (UMeshComponent* MeshComp = Actor->GetComponentByClass<UMeshComponent>())
 			{
-				MeshComp->SetOverlayMaterial(InteractableObjectOverlay);
+				//MeshComp->SetOverlayMaterial(InteractableObjectOverlay);
+				MeshComp->SetRenderCustomDepth(true);
+				MeshComp->CustomDepthStencilValue = 1;
 			}
 		}
 		UE_LOG(LogTemp, Warning, TEXT("%s"), *Prompt);
