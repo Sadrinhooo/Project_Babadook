@@ -27,9 +27,9 @@ void ALever::Tick(float DeltaTime)
 
 void ALever::Interact(ACharacter* Interactor)
 {
-	if (!bIsPulled || bIsReinteractable)
+	if (!bIsPulled)
 	{
-		bIsPulled = !bIsPulled;
+		bIsPulled = true;
 		Pulled();
 	}
 	
@@ -37,7 +37,7 @@ void ALever::Interact(ACharacter* Interactor)
 
 const FString& ALever::GetInteractPrompt(ACharacter* Interactor)
 {
-	if (!bIsPulled || bIsReinteractable)
+	if (!bIsPulled)
 	{
 		return InteractPrompt;
 	}
