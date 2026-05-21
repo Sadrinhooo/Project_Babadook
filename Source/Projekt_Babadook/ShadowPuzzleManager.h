@@ -11,6 +11,9 @@
 #include "GameFramework/Actor.h"
 #include "ShadowPuzzleManager.generated.h"
 
+class AMyGameMode;
+class AMyPlayerController;
+
 UCLASS()
 class PROJEKT_BABADOOK_API AShadowPuzzleManager : public AActor, public IInteractable
 {
@@ -19,8 +22,15 @@ class PROJEKT_BABADOOK_API AShadowPuzzleManager : public AActor, public IInterac
 public:	
 	// Sets default values for this actor's properties
 	AShadowPuzzleManager();
+	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
 	void Success();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
+	void ShowWidget();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
+	void HideWidget();
 
 protected:
 	// Called when the game starts or when spawned
@@ -44,12 +54,13 @@ public:
 	UPROPERTY()
 	UShadowPuzzleSolvingState* SolvingState;
 	
+	UPROPERTY()
+	AMyPlayerController* MyPC;
 	
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* PuzzleCameraActor;
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	APawn* PuzzleItemPawn;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -70,6 +81,12 @@ public:
 	UPROPERTY()
 	FTimerHandle WaitHandle;
 	
+	UPROPERTY(BlueprintReadWrite)
+	AMyGameMode* GameMode;
+	
+	UPROPERTY()
+	bool bHasPlacedKeyItem = false;
+	
 	
 	//Functions
 	virtual void Interact(ACharacter* Interactor) override; //PuzzleStates Interact funktion är det som anropas i CPP filen
@@ -79,6 +96,9 @@ public:
 	void ChangeState(UObject* NewState);
 	
 	bool PlayerHasKeyItem(int32& OutIndex);
+	
+	UFUNCTION(BlueprintCallable)
+	void ExitPuzzle();
 	
 	void OnSuccess(float DeltaTime);
 };

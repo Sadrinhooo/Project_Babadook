@@ -9,8 +9,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Sadra.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +27,10 @@
   <component name="DpaMonitoringSettings">
     <option name="firstShow" value="false" />
   </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="4956" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -28,6 +39,7 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Editor/Blutility/Classes/EditorUtilityActorComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Engine/Brush.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Private/Brush.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/RHI/Public/RHITypes.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/FaceHuggerAIController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/Interactable.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/KeyItem.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -35,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/MyGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/MyGameMode.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/OilContainer.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/OneSidedDoor.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/StalkerCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Projekt_Babadook/StalkerCharacter.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -77,6 +90,13 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecapSpentCounter">
+    <option name="endsOfQuotaMs" value="1780039268980" />
+    <option name="spentUsd" value="0.28717026" />
+  </component>
+  <component name="RecapUselessUpdatesCounter">
+    <option name="suspendCountdown" value="1" />
+  </component>
   <component name="RunManager">
     <configuration name="Projekt_Babadook" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
@@ -181,6 +201,9 @@
       <workItem from="1778513347835" duration="3864000" />
       <workItem from="1778522640141" duration="13167000" />
       <workItem from="1778568028330" duration="2326000" />
+      <workItem from="1779011856261" duration="8818000" />
+      <workItem from="1779026727108" duration="3381000" />
+      <workItem from="1779086869076" duration="4507000" />
     </task>
     <servers />
   </component>
