@@ -10,6 +10,9 @@
 #include "FlashlightComponent.h"
 #include "BasePlayerCharacter.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPressedCancel, FString, PressedKey);
+
+
 UCLASS()
 class PROJEKT_BABADOOK_API ABasePlayerCharacter : public ACharacter
 {
@@ -29,15 +32,18 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UPROPERTY(BlueprintAssignable, BlueprintCallable)
+	FPressedCancel OnPressedCancel;
 	
 	UPROPERTY(EditDefaultsOnly, Category="ScreenShake")
 	TSubclassOf<UScreenShakeComponent> ScreenShakeCompRef;
 	
-	UPROPERTY(EditAnywhere, Category="LanternOil")
-	float MaxLanternOilAmount = 100;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="LanternOil")
+	float MaxLanternOilAmount = 400;
 	
-	UPROPERTY(EditAnywhere, Category="LanternOil")
-	float LanternOilAmount = MaxLanternOilAmount;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="LanternOil")
+	float LanternOilAmount = 0;
 	
 	UPROPERTY(EditAnywhere, Category="LanternOil")
 	float LanternOilDecreaseRate;
@@ -63,5 +69,11 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void DecreaseLanternOil(float DeltaTime) ;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ShowInteractPrompt(const FString& Prompt);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ClearInteractPrompt();
 
 };

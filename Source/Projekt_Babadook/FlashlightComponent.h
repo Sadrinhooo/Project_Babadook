@@ -36,7 +36,7 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	USpotLightComponent* LightComponent;
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bLightIsOn = true;
 	
 	UPROPERTY(EditAnywhere)

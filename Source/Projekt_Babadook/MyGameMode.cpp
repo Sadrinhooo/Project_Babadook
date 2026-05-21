@@ -21,4 +21,14 @@ void AMyGameMode::Tick(float DeltaTime)
 	}
 }
 
+void AMyGameMode::AddItem(FItemData Item)
+{
+	if (!HasAddedItem)
+	{
+		ShowInventoryTutorial();
+		HasAddedItem = true;
+	}
+	SharedInventory.Add(Item);
+}
+
 #include "KeyItem.h"

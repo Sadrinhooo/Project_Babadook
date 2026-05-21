@@ -71,7 +71,8 @@ void ABasePlayerCharacter::LookForInteractable()
 		{
 			if (UMeshComponent* MeshComp = Actor->GetComponentByClass<UMeshComponent>())
 			{
-				MeshComp->SetOverlayMaterial(nullptr);
+				//MeshComp->SetOverlayMaterial(nullptr);
+				MeshComp->SetRenderCustomDepth(false);
 			}
 		}
 		InteractObjectInSight = nullptr;
@@ -80,21 +81,30 @@ void ABasePlayerCharacter::LookForInteractable()
 	if (InteractObjectInSight)
 	{
 		//Fixa den här få at den kommer upp på UI och anpassad för controller oxå
-		const FString Prompt = InteractObjectInSight->GetInteractPrompt(this);
+		FString Prompt = InteractObjectInSight->GetInteractPrompt(this);
 		if (AActor* Actor = Cast<AActor>(InteractObjectInSight))
 		{
 			if (UMeshComponent* MeshComp = Actor->GetComponentByClass<UMeshComponent>())
 			{
-				MeshComp->SetOverlayMaterial(InteractableObjectOverlay);
+				//MeshComp->SetOverlayMaterial(InteractableObjectOverlay);
+				MeshComp->SetRenderCustomDepth(true);
+				MeshComp->CustomDepthStencilValue = 1;
 			}
 		}
 		UE_LOG(LogTemp, Warning, TEXT("%s"), *Prompt);
+		ShowInteractPrompt(Prompt);
+	}else
+	{
+		ClearInteractPrompt();
 	}
 }
 
 void ABasePlayerCharacter::Interact()
 {
-	if (InteractObjectInSight) InteractObjectInSight->Interact(this);
+	if (InteractObjectInSight)
+	{
+		InteractObjectInSight->Interact(this);
+	};
 }
 
 void ABasePlayerCharacter::DecreaseLanternOil(float DeltaTime)

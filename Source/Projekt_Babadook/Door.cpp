@@ -2,6 +2,7 @@
 
 #include "Door.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameFramework/Character.h"
 
 #include "KeyItem.h"
 #include "MyGameMode.h"
@@ -20,6 +21,7 @@ void ADoor::BeginPlay()
 	Super::BeginPlay();
 
 	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
+	Door = GetComponentByClass<UStaticMeshComponent>();
 	
 }
 
@@ -27,21 +29,38 @@ void ADoor::BeginPlay()
 void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	
+	if (bShouldInterpDoor)
+	{
+		FRotator NewRotation =
+			FMath::RInterpTo(
+				Door->GetRelativeRotation(),
+				TargetRotation,
+				DeltaTime,
+				5.f
+			);
+
+		Door->SetRelativeRotation(NewRotation);
+	}
 }
 
 void ADoor::Interact(ACharacter* Interactor)
 {
+	GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
+	
 	if (!bIsUnlocked)
 	{
 		if (PlayerHasKey(KeyIndex))
 		{
-			//GameMode->SharedInventory.RemoveAt(KeyIndex);
+			GameMode->SharedInventory[KeyIndex].NumberOfUses++;
+			if (GameMode->SharedInventory[KeyIndex].NumberOfUses >= GameMode->SharedInventory[KeyIndex].MaxNumberOfUses) GameMode->SharedInventory.RemoveAt(KeyIndex);
 			bIsUnlocked = true;
+			GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
+			SlightlyOpenDoor(Interactor->GetActorLocation());
 			ADoor::PlaySFX();	
 		}
 	}
 	
-	GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
 }
 
 const FString& ADoor::GetInteractPrompt(ACharacter* Interactor)
@@ -70,6 +89,50 @@ bool ADoor::PlayerHasKey(int32& OutIndex)
 
 	return false;
 }
+
+void ADoor::OpenForMonster(const FVector& OpenerLocation)
+{
+	if (bIsUnlocked)
+	{
+		const FRotator CurrentRotation = Door->GetRelativeRotation();
+
+		const float Offset = 50.f * GetOpenerDirectionToDoor(OpenerLocation);
+
+		TargetRotation = FRotator(
+			CurrentRotation.Pitch,
+			CurrentRotation.Yaw + Offset,
+			CurrentRotation.Roll
+		);
+
+		bShouldInterpDoor = true;
+	}
+	
+}
+
+void ADoor::SlightlyOpenDoor(const FVector& PlayerLocation)
+{
+	const FRotator CurrentRotation = Door->GetRelativeRotation();
+
+	const float Offset = 15.f * GetOpenerDirectionToDoor(PlayerLocation);
+
+	TargetRotation = FRotator(
+		CurrentRotation.Pitch,
+		CurrentRotation.Yaw + Offset,
+		CurrentRotation.Roll
+	);
+
+	bShouldInterpDoor = true;
+}
+
+float ADoor::GetOpenerDirectionToDoor(const FVector& OpenerLocation)
+{
+	const FVector ToPlayer = (OpenerLocation - GetActorLocation()).GetSafeNormal();
+	const float Side = FVector::DotProduct(GetActorForwardVector(), ToPlayer);
+	const float Direction = Side > 0.f ? 1.f : -1.f;
+	return Direction;
+}
+
+
 
 
 

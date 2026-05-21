@@ -32,10 +32,10 @@ void AKeyItem::Interact(ACharacter* Interactor)
 {
 	if (GameMode)
 	{
-		GameMode->SharedInventory.Add(ItemData);
+		GameMode->AddItem(ItemData);
 	}
 	
-	//Nåt mer om det behövs
+	PickupSFX();
 	Destroy();
 }
 
