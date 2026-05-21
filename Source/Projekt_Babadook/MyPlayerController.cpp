@@ -3,3 +3,7 @@
 
 #include "MyPlayerController.h"
 
+AMyPlayerController::AMyPlayerController()
+{
+	bAutoManageActiveCameraTarget = true;
+}

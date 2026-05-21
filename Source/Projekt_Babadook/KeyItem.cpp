@@ -35,7 +35,7 @@ void AKeyItem::Interact(ACharacter* Interactor)
 		GameMode->AddItem(ItemData);
 	}
 	
-	//Nåt mer om det behövs
+	PickupSFX();
 	Destroy();
 }
 

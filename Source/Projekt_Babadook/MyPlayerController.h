@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "MyPlayerController.generated.h"
 
+class AShadowPuzzleManager;
 /**
  * 
  */
@@ -14,10 +15,14 @@ class PROJEKT_BABADOOK_API AMyPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+protected:
+	
+	AMyPlayerController();
+	
 public:
 	
 	UFUNCTION(BlueprintImplementableEvent)
-    void PossessPuzzlePawn(APawn* PuzzlePawn);
+    void PossessPuzzlePawn(AShadowPuzzleManager* PuzzleManager);
 	
 	UFUNCTION(BlueprintImplementableEvent)
 	void UnpossessPuzzlePawn();

@@ -1,3 +1,12 @@
+!Plugins\FMODStudio\Binaries
+!Plugins\FMODStudio\Content
+!Plugins\FMODStudio\Source
+!Plugins\FMODStudio\FMODStudio.uplugin
+!Plugins\FMODStudioNiagara\Binaries
+!Plugins\FMODStudioNiagara\Content
+!Plugins\FMODStudioNiagara\Source
+!Plugins\FMODStudioNiagara\FMODStudioNiagara.uplugin
+Binaries
 DerivedDataCache
 Intermediate
 Saved

@@ -5,6 +5,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "KeyItem.h"
 #include "MyPlayerController.h"
+#include "MyPlayerController.h"
 #include "ShadowPuzzleDefaultState.h"
 
 
@@ -20,9 +21,12 @@ AShadowPuzzleManager::AShadowPuzzleManager()
 void AShadowPuzzleManager::BeginPlay()
 {
 	Super::BeginPlay();
+	MyPC = Cast<AMyPlayerController>(GetWorld()->GetFirstPlayerController());
+	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
 	DefaultState = NewObject<UShadowPuzzleDefaultState>(this);
 	SolvingState = NewObject<UShadowPuzzleSolvingState>(this);
 	ChangeState(DefaultState);
+	PuzzleState->InitiateState();
 }
 
 // Called every frame
@@ -44,7 +48,11 @@ void AShadowPuzzleManager::Tick(float DeltaTime)
 		NewQuat.Normalize();
 		PuzzleItemPawn->SetActorRotation(NewQuat);
 	}
-
+	
+	for (FItemData& Item : GameMode->SharedInventory)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Item: %s"), *Item.ItemName);
+	}
 }
 
 void AShadowPuzzleManager::Interact(ACharacter* Interactor)
@@ -60,7 +68,6 @@ const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
 void AShadowPuzzleManager::ChangeState(UObject* NewState)
 {
 	PuzzleState = NewState;
-	PuzzleState->InitiateState();
 }
 
 bool AShadowPuzzleManager::PlayerHasKeyItem(int32& OutIndex)
@@ -77,6 +84,17 @@ bool AShadowPuzzleManager::PlayerHasKeyItem(int32& OutIndex)
 	return false;
 }
 
+void AShadowPuzzleManager::ExitPuzzle()
+{
+	if (MyPC)
+	{
+		MyPC->UnpossessPuzzlePawn(); // This should repossess the player pawn
+		MyPC->bAutoManageActiveCameraTarget = true;
+		ChangeState(DefaultState);
+		HideWidget();
+	}
+}
+
 void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 {
 	// Guard so this only runs once
@@ -91,19 +109,14 @@ void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 
 	GetWorld()->GetTimerManager().SetTimer(WaitHandle, [this]()
 	{
-		APlayerController* PC = GetWorld()->GetFirstPlayerController();
-		AMyPlayerController* MyPC = Cast<AMyPlayerController>(PC);
 
-		if (MyPC)
-		{
-			MyPC->UnpossessPuzzlePawn(); // This should repossess the player pawn
-		}
+		ExitPuzzle();
 
 		// Get the pawn AFTER unpossess, since possession may have changed
-		APawn* PlayerPawn = PC->GetPawn();
+		APawn* PlayerPawn = MyPC->GetPawn();
 		if (PlayerPawn)
 		{
-			PlayerPawn->EnableInput(PC); // Called on the PAWN, not 'this'
+			PlayerPawn->EnableInput(MyPC); // Called on the PAWN, not 'this'
 		}
 		PrimaryActorTick.bCanEverTick = false;
 	}, 4.0f, false);
