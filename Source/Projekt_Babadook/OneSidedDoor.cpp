@@ -14,8 +14,7 @@ void AOneSidedDoor::Interact(ACharacter* Interactor)
 		if (ADoor::GetOpenerDirectionToDoor(Interactor->GetActorLocation()) > 0.f)
 		{
 			bIsUnlocked = true;
-			GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
-			SlightlyOpenDoor(Interactor->GetActorLocation());
+			OpenDoor(Interactor->GetActorLocation());
 			ADoor::PlaySFX();	
 		}
 	}
@@ -26,12 +25,11 @@ const FString& AOneSidedDoor::GetInteractPrompt(ACharacter* Interactor)
 	if (ADoor::GetOpenerDirectionToDoor(Interactor->GetActorLocation()) > 0.f)
 	{
 		if (!bIsUnlocked) return RightSideInteractPrompt;
-		
-		return UnlockedInteractPrompt;
 	}
 	else
 	{
-		return WrongSideInteractPrompt;
+		if (!bIsUnlocked)return WrongSideInteractPrompt;
 	}
 	
+	return UnlockedInteractPrompt;
 }

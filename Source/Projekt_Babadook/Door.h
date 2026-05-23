@@ -71,7 +71,7 @@ public:
 	UFUNCTION(BlueprintCallable, Blueprintable)
 	void OpenForMonster(const FVector& OpenerLocation);
 	
-	void SlightlyOpenDoor(const FVector& PlayerLocation);
+	void OpenDoor(const FVector& PlayerLocation);
 	
 	float GetOpenerDirectionToDoor(const FVector& OpenerLocation);
 	
