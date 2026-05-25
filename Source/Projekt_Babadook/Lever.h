@@ -45,4 +45,9 @@ public:
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 	
+	virtual const FVector GetInteractableLocation() override
+	{
+		return this->GetActorLocation();
+	};
+	
 };

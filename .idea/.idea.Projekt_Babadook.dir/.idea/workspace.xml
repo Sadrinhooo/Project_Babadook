@@ -16,23 +16,19 @@
     <list default="true" id="8194682a-1d39-4d65-84fd-4f9b01396aa5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Projekt_Babadook.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.exp" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.exp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_0.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.exp" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.exp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_2.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.patch_2.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-Projekt_Babadook.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_BigDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_BigDoor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_OneSidedDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_OneSidedDoor.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_SmallDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_SmallDoor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sadra.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sadra.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/BasePlayerCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Door.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/OneSidedDoor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/OneSidedDoor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/GemSocket.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/GemSocket.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Interactable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Interactable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ItemPedestal.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ItemPedestal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/KeyItem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/KeyItem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/Lever.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/Lever.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/OilContainer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/OilContainer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/OneSidedDoor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/OneSidedDoor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/PianoPuzzle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/PianoPuzzle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Projekt_Babadook/ShadowPuzzleManager.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

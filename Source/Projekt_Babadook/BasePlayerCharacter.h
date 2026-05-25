@@ -71,7 +71,7 @@ public:
 	void DecreaseLanternOil(float DeltaTime) ;
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void ShowInteractPrompt(const FString& Prompt);
+	void ShowInteractPrompt(const FString& Prompt, const FVector InteractableLocation);
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void ClearInteractPrompt();
