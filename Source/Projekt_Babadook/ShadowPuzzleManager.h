@@ -86,6 +86,9 @@ public:
 	
 	UPROPERTY()
 	bool bHasPlacedKeyItem = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* PromptImage;
 	
 	
 	//Functions
@@ -100,6 +103,8 @@ public:
 	{
 		return this->GetInteractPromptLocation();
 	};
+
+	virtual UTexture2D* GetWidget() override;
 	
 	void ChangeState(UObject* NewState);
 	

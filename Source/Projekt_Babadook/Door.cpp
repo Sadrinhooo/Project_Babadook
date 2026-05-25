@@ -138,6 +138,17 @@ float ADoor::GetOpenerDirectionToDoor(const FVector& OpenerLocation)
 	return Direction;
 }
 
+UTexture2D* ADoor::GetWidget()
+{
+	if (PlayerHasKey(KeyIndex))
+	{
+		return nullptr;
+	} else
+	{
+		return Widget;
+	}
+}
+
 
 
 

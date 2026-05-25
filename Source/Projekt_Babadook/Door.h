@@ -85,5 +85,7 @@ public:
 	void OpenDoor(const FVector& PlayerLocation);
 	
 	float GetOpenerDirectionToDoor(const FVector& OpenerLocation);
+
+	virtual UTexture2D* GetWidget() override;
 	
 };
