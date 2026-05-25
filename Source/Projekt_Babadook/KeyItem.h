@@ -34,6 +34,9 @@ struct FItemData
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
 	int NumberOfUses = 0;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+	bool bIsPickedUp = false;
+	
 };
 
 UCLASS()
@@ -66,6 +69,7 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
 	FItemData ItemData;
+	
 	
 	//Functions
 	

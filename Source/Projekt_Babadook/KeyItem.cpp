@@ -33,6 +33,7 @@ void AKeyItem::Interact(ACharacter* Interactor)
 	if (GameMode)
 	{
 		GameMode->AddItem(ItemData);
+		ItemData.bIsPickedUp = true;
 	}
 	
 	PickupSFX();
