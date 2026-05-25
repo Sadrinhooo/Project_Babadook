@@ -34,6 +34,11 @@ public:
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 	
+	virtual const FVector GetInteractableLocation() override
+	{
+		return this->GetActorLocation();
+	};
+	
 	void PuzzleEnter(ABasePlayerCharacter* Player, APlayerController* PlayerController);
 	
 	UFUNCTION(BlueprintCallable, Category = "LightPuzzle")

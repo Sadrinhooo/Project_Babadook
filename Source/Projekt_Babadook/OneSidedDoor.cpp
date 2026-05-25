@@ -7,7 +7,6 @@
 
 void AOneSidedDoor::Interact(ACharacter* Interactor)
 {
-	GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
 	
 	if (!bIsUnlocked)
 	{

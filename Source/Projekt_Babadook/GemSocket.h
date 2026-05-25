@@ -53,6 +53,11 @@ public:
 	virtual void Interact(ACharacter* Interactor) override;
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
+	
+	virtual const FVector GetInteractableLocation() override
+	{
+		return this->GetActorLocation();
+	};
 
 	bool PlayerHasItem(int32& OutIndex);
 	

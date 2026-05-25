@@ -38,6 +38,11 @@ public:
 	
 	virtual void Interact(ACharacter* Interactor) override;
 	
+	virtual const FVector GetInteractableLocation() override
+	{
+		return FVector::ZeroVector;
+	};
+	
 	virtual void InitiateState() override;
 	
 };
