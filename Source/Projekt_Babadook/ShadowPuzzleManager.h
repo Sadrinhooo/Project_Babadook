@@ -93,9 +93,12 @@ public:
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override; //PuzzleStates GetPrompt funktion är det som anropas i CPP filen
 	
+	UFUNCTION(BlueprintCallable, Blueprintable)
+	virtual FVector GetInteractPromptLocation();
+	
 	virtual const FVector GetInteractableLocation() override
 	{
-		return this->GetActorLocation();
+		return this->GetInteractPromptLocation();
 	};
 	
 	void ChangeState(UObject* NewState);
