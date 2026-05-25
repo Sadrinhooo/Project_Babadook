@@ -59,6 +59,9 @@ public:
 	
 	UPROPERTY()
 	FRotator TargetRotation;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* Widget;
 	
 	//Functions
 	

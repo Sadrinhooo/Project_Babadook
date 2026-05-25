@@ -5,12 +5,14 @@
 
 // Add default functionality here for any IInteractable functions that are not pure virtual.
 
-bool IInteractable::IsLocked()
+UTexture2D* IInteractable::GetWidget()
 {
-	return false;
+	return nullptr;
 }
 
 const FVector IInteractable::GetInteractableLocation()
 {
 	return FVector::ZeroVector; // all classes get this unless they override
 }
+
+

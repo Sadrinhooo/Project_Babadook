@@ -26,5 +26,5 @@ public:
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) = 0;
 	//Behöver location och specifik interact UI icon
 	virtual const FVector GetInteractableLocation();
-	virtual bool IsLocked();
+	virtual UTexture2D* GetWidget();
 };
