@@ -3,9 +3,9 @@
 #include "Door.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/Character.h"
-
 #include "KeyItem.h"
 #include "MyGameMode.h"
+#include "Components/BoxComponent.h"
 
 // Sets default values
 ADoor::ADoor()
@@ -37,7 +37,7 @@ void ADoor::Tick(float DeltaTime)
 				Door->GetRelativeRotation(),
 				TargetRotation,
 				DeltaTime,
-				5.f
+				3.f
 			);
 
 		Door->SetRelativeRotation(NewRotation);
@@ -46,8 +46,6 @@ void ADoor::Tick(float DeltaTime)
 
 void ADoor::Interact(ACharacter* Interactor)
 {
-	GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
-	
 	if (!bIsUnlocked)
 	{
 		if (PlayerHasKey(KeyIndex))
@@ -55,8 +53,7 @@ void ADoor::Interact(ACharacter* Interactor)
 			GameMode->SharedInventory[KeyIndex].NumberOfUses++;
 			if (GameMode->SharedInventory[KeyIndex].NumberOfUses >= GameMode->SharedInventory[KeyIndex].MaxNumberOfUses) GameMode->SharedInventory.RemoveAt(KeyIndex);
 			bIsUnlocked = true;
-			GetComponentByClass<UMeshComponent>()->SetSimulatePhysics(bIsUnlocked);
-			SlightlyOpenDoor(Interactor->GetActorLocation());
+			OpenDoor(Interactor->GetActorLocation());
 			ADoor::PlaySFX();	
 		}
 	}
@@ -92,7 +89,10 @@ bool ADoor::PlayerHasKey(int32& OutIndex)
 
 void ADoor::OpenForMonster(const FVector& OpenerLocation)
 {
-	if (bIsUnlocked)
+	
+	//Gör inget för nu vi ska göra om hela dörr beteendet
+	
+	/*if (bIsUnlocked)
 	{
 		const FRotator CurrentRotation = Door->GetRelativeRotation();
 
@@ -105,15 +105,15 @@ void ADoor::OpenForMonster(const FVector& OpenerLocation)
 		);
 
 		bShouldInterpDoor = true;
-	}
+	}*/
 	
 }
 
-void ADoor::SlightlyOpenDoor(const FVector& PlayerLocation)
+void ADoor::OpenDoor(const FVector& PlayerLocation)
 {
 	const FRotator CurrentRotation = Door->GetRelativeRotation();
 
-	const float Offset = 15.f * GetOpenerDirectionToDoor(PlayerLocation);
+	const float Offset = 90.f * GetOpenerDirectionToDoor(PlayerLocation);
 
 	TargetRotation = FRotator(
 		CurrentRotation.Pitch,
@@ -122,6 +122,12 @@ void ADoor::SlightlyOpenDoor(const FVector& PlayerLocation)
 	);
 
 	bShouldInterpDoor = true;
+	
+	UBoxComponent* Collider = FindComponentByClass<UBoxComponent>();
+	if (Collider)
+	{
+		Collider->SetCollisionResponseToChannel(ECC_GameTraceChannel2, ECR_Ignore);
+	}
 }
 
 float ADoor::GetOpenerDirectionToDoor(const FVector& OpenerLocation)
@@ -130,6 +136,17 @@ float ADoor::GetOpenerDirectionToDoor(const FVector& OpenerLocation)
 	const float Side = FVector::DotProduct(GetActorForwardVector(), ToPlayer);
 	const float Direction = Side > 0.f ? 1.f : -1.f;
 	return Direction;
+}
+
+UTexture2D* ADoor::GetWidget()
+{
+	if (PlayerHasKey(KeyIndex))
+	{
+		return nullptr;
+	} else
+	{
+		return Widget;
+	}
 }
 
 

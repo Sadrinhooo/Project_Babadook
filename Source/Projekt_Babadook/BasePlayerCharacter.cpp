@@ -82,6 +82,7 @@ void ABasePlayerCharacter::LookForInteractable()
 	{
 		//Fixa den här få at den kommer upp på UI och anpassad för controller oxå
 		FString Prompt = InteractObjectInSight->GetInteractPrompt(this);
+		FVector Location = InteractObjectInSight->GetInteractableLocation();
 		if (AActor* Actor = Cast<AActor>(InteractObjectInSight))
 		{
 			if (UMeshComponent* MeshComp = Actor->GetComponentByClass<UMeshComponent>())
@@ -91,8 +92,7 @@ void ABasePlayerCharacter::LookForInteractable()
 				MeshComp->CustomDepthStencilValue = 1;
 			}
 		}
-		UE_LOG(LogTemp, Warning, TEXT("%s"), *Prompt);
-		ShowInteractPrompt(Prompt);
+		ShowInteractPrompt(Prompt, Location, InteractObjectInSight->GetWidget());
 	}else
 	{
 		ClearInteractPrompt();
