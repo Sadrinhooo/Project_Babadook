@@ -17,8 +17,8 @@ public:
 	virtual void Interact(ACharacter* Interactor) override;
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 
-	UFUNCTION(BlueprintCallable, Blueprintable)
-	virtual FVector GetInteractPromptLocation();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	FVector GetInteractPromptLocation();
 	
 	virtual const FVector GetInteractableLocation() override
 	{
