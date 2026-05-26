@@ -32,16 +32,43 @@ void AWeepingAngelAIController::OnPossess(APawn* InPawn)
 
 	FreezeKeyID = BlackboardComponent->GetKeyID(TEXT("bFreezeLocked"));
 	UE_LOG(LogTemp, Warning, TEXT("FreezeKeyID = %d"), (int32)FreezeKeyID);
+	HomeLocation = InPawn->GetActorLocation();
+	BlackboardComponent->SetValueAsVector(TEXT("HomeLocation"), HomeLocation);
+	BlackboardComponent->SetValueAsBool(TEXT("bGoHome"), false);
 
 	RunBehaviorTree(BehaviorTreeAsset);
 }
+void AWeepingAngelAIController::GoHomeNow()
+{
+	if (!BlackboardComponent)
+	{
+		return;
+	}
 
+	CurrentTargetActor = nullptr;
+	BlackboardComponent->SetValueAsObject(TEXT("TargetActor"), nullptr);
+	BlackboardComponent->SetValueAsBool(TEXT("bHasTarget"), false);
+	BlackboardComponent->ClearValue(TEXT("LastKnownTargetLocation"));
+	BlackboardComponent->SetValueAsVector(TEXT("HomeLocation"), HomeLocation);
+	BlackboardComponent->SetValueAsBool(TEXT("bGoHome"), true);
+}
 void AWeepingAngelAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	
+	if (BlackboardComponent && BlackboardComponent->GetValueAsBool(TEXT("bGoHome")))
+	{
+		CurrentTargetActor = nullptr;
+		BlackboardComponent->SetValueAsObject(TEXT("TargetActor"), nullptr);
+		BlackboardComponent->SetValueAsBool(TEXT("bHasTarget"), false);
+		return;
+	}
+	
+	AActor* OldTarget = CurrentTargetActor;
 	// Update which player the angel is currently targeting
 	FindCurrentTarget();
+	
 
 	if (BlackboardComponent)
 	{
@@ -51,10 +78,10 @@ void AWeepingAngelAIController::Tick(float DeltaTime)
 		// Store whether the angel currently has a valid target
 		BlackboardComponent->SetValueAsBool(TEXT("bHasTarget"), CurrentTargetActor != nullptr);
 
-		if (CurrentTargetActor)
+		if (OldTarget && !CurrentTargetActor)
 		{
-			// Update the last known target location while a target is visible/valid
-			BlackboardComponent->SetValueAsVector(TEXT("LastKnownTargetLocation"),CurrentTargetActor->GetActorLocation());
+			//ändrade här
+			BlackboardComponent->SetValueAsVector(TEXT("LastKnownTargetLocation"),OldTarget->GetActorLocation());
 		}
 	}
 
