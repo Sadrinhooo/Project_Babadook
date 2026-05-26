@@ -65,6 +65,17 @@ const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
 	return PuzzleState->GetInteractPrompt(Interactor);
 }
 
+UTexture2D* AShadowPuzzleManager::GetWidget()
+{
+	if (PlayerHasKeyItem(KeyItemIndex))
+	{
+		return nullptr;
+	}else
+	{
+		return PromptImage;
+	}
+}
+
 void AShadowPuzzleManager::ChangeState(UObject* NewState)
 {
 	PuzzleState = NewState;

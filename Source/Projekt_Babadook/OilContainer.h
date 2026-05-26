@@ -31,8 +31,11 @@ public:
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	FVector GetInteractPromptLocation();
+	
 	virtual const FVector GetInteractableLocation() override
 	{
-		return this->GetActorLocation();
+		return this->GetInteractPromptLocation();
 	};
 };

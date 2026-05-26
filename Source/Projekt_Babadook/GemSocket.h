@@ -47,16 +47,27 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString UnlockedInteractPrompt = "";
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* Widget;
 	
 	//Functions	
 	
 	virtual void Interact(ACharacter* Interactor) override;
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	FVector GetInteractPromptLocation();
 	
 	virtual const FVector GetInteractableLocation() override
 	{
-		return this->GetActorLocation();
+		return this->GetInteractPromptLocation();
+	};
+
+	virtual UTexture2D* GetWidget() override
+	{
+		return Widget;
 	};
 
 	bool PlayerHasItem(int32& OutIndex);

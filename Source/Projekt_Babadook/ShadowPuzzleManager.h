@@ -86,6 +86,9 @@ public:
 	
 	UPROPERTY()
 	bool bHasPlacedKeyItem = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* PromptImage;
 	
 	
 	//Functions
@@ -93,10 +96,15 @@ public:
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override; //PuzzleStates GetPrompt funktion är det som anropas i CPP filen
 	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	FVector GetInteractPromptLocation();
+	
 	virtual const FVector GetInteractableLocation() override
 	{
-		return this->GetActorLocation();
+		return this->GetInteractPromptLocation();
 	};
+
+	virtual UTexture2D* GetWidget() override;
 	
 	void ChangeState(UObject* NewState);
 	

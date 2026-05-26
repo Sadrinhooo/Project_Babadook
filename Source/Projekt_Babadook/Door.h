@@ -59,6 +59,9 @@ public:
 	
 	UPROPERTY()
 	FRotator TargetRotation;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* Widget;
 	
 	//Functions
 	
@@ -66,9 +69,12 @@ public:
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
 	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	FVector GetInteractPromptLocation();
+	
 	virtual const FVector GetInteractableLocation() override
 	{
-		return this->GetActorLocation();
+		return this->GetInteractPromptLocation();
 	};
 
 	virtual bool PlayerHasKey(int32& OutIndex);
@@ -79,5 +85,7 @@ public:
 	void OpenDoor(const FVector& PlayerLocation);
 	
 	float GetOpenerDirectionToDoor(const FVector& OpenerLocation);
+
+	virtual UTexture2D* GetWidget() override;
 	
 };

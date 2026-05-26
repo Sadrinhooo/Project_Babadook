@@ -92,7 +92,7 @@ void ABasePlayerCharacter::LookForInteractable()
 				MeshComp->CustomDepthStencilValue = 1;
 			}
 		}
-		ShowInteractPrompt(Prompt, Location);
+		ShowInteractPrompt(Prompt, Location, InteractObjectInSight->GetWidget());
 	}else
 	{
 		ClearInteractPrompt();
