@@ -26,27 +26,28 @@ const FString& AOneSidedDoor::GetInteractPrompt(ACharacter* Interactor)
 	PlayerLocation = Interactor->GetActorLocation();
 	if (ADoor::GetOpenerDirectionToDoor(PlayerLocation) > 0.f)
 	{
-		if (!bIsUnlocked) return RightSideInteractPrompt;
+		if (!bIsUnlocked) return UnlockedInteractPrompt;
 	}
 	else
 	{
-		if (!bIsUnlocked)return WrongSideInteractPrompt;
+		if (!bIsUnlocked) return WrongSideInteractPrompt;
 	}
-	
-	return UnlockedInteractPrompt;
+
+	return WrongSideInteractPrompt;
 }
 
 UTexture2D* AOneSidedDoor::GetWidget()
 {
 	if (ADoor::GetOpenerDirectionToDoor(PlayerLocation) > 0.f)
 	{
-		return nullptr;
+		if (!bIsUnlocked) return nullptr;
 	}
 	else
 	{
-		return Widget;
+		if (!bIsUnlocked) return Widget;
 	}
-	
+
+	return nullptr;
 }
 
 

@@ -7,6 +7,7 @@
 #include "MyPlayerController.h"
 #include "MyPlayerController.h"
 #include "ShadowPuzzleDefaultState.h"
+#include "Components/BoxComponent.h"
 
 
 // Sets default values
@@ -103,6 +104,7 @@ void AShadowPuzzleManager::ExitPuzzle()
 		MyPC->bAutoManageActiveCameraTarget = true;
 		ChangeState(DefaultState);
 		HideWidget();
+		SetInteractable(true);
 	}
 }
 
@@ -131,5 +133,23 @@ void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 		}
 		PrimaryActorTick.bCanEverTick = false;
 	}, 4.0f, false);
+
+	SetInteractable(false);
+}
+
+void AShadowPuzzleManager::SetInteractable(bool Interactable)
+{
+	UBoxComponent* Collider = FindComponentByClass<UBoxComponent>();
+	if (Collider)
+	{
+		if (Interactable)
+		{
+			Collider->SetCollisionResponseToChannel(ECC_GameTraceChannel2, ECR_Block);
+		}
+		else
+		{
+			Collider->SetCollisionResponseToChannel(ECC_GameTraceChannel2, ECR_Ignore);
+		}
+	}
 }
 
