@@ -62,11 +62,9 @@ void ADoor::Interact(ACharacter* Interactor)
 
 const FString& ADoor::GetInteractPrompt(ACharacter* Interactor)
 {
-	if (bIsUnlocked) return UnlockedInteractPrompt;
-		
 	if (PlayerHasKey(KeyIndex))
 	{
-		return WithKeyInteractPrompt;
+		return UnlockedInteractPrompt;
 	} else
 	{
 		return NoKeyInteractPrompt;
