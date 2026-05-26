@@ -27,7 +27,8 @@ public:
 	virtual void Interact(ACharacter* Interactor) override;
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
-	
+
+	virtual UTexture2D* GetWidget() override;
 };
 
 

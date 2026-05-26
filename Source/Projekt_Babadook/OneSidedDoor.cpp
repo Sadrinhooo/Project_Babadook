@@ -5,6 +5,8 @@
 #include "GameFramework/Character.h"
 
 
+FVector PlayerLocation;
+
 void AOneSidedDoor::Interact(ACharacter* Interactor)
 {
 	
@@ -21,7 +23,8 @@ void AOneSidedDoor::Interact(ACharacter* Interactor)
 
 const FString& AOneSidedDoor::GetInteractPrompt(ACharacter* Interactor)
 {
-	if (ADoor::GetOpenerDirectionToDoor(Interactor->GetActorLocation()) > 0.f)
+	PlayerLocation = Interactor->GetActorLocation();
+	if (ADoor::GetOpenerDirectionToDoor(PlayerLocation) > 0.f)
 	{
 		if (!bIsUnlocked) return RightSideInteractPrompt;
 	}
@@ -32,3 +35,18 @@ const FString& AOneSidedDoor::GetInteractPrompt(ACharacter* Interactor)
 	
 	return UnlockedInteractPrompt;
 }
+
+UTexture2D* AOneSidedDoor::GetWidget()
+{
+	if (ADoor::GetOpenerDirectionToDoor(PlayerLocation) > 0.f)
+	{
+		return nullptr;
+	}
+	else
+	{
+		return Widget;
+	}
+	
+}
+
+
