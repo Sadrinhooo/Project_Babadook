@@ -49,6 +49,7 @@ void ABasePlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 
 void ABasePlayerCharacter::LookForInteractable()
 {
+	if (!CanInteract) return;
 	if (!Camera) return;
 	
 	FVector Start = Camera->GetComponentLocation();
