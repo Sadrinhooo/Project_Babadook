@@ -2,8 +2,6 @@
 
 
 #include "PossessionComponent.h"
-
-#include "BasePlayerCharacter.h"
 #include "GameFramework/Character.h"
 
 // Sets default values for this component's properties
@@ -42,7 +40,6 @@ void UPossessionComponent::PossessPlayer()
 
 	PlayerController = Cast<APlayerController>(Cast<APawn>(GetOwner())->GetController());
 	if (PlayerFlashlightComponent) PlayerFlashlightComponent->DeactivateFlashlight();
-	Cast<ABasePlayerCharacter>(GetOwner())->CanInteract = false;
 	SetComponentTickEnabled(true);
 	SetActive(true);
 	PickNewDirection();
@@ -59,7 +56,6 @@ void UPossessionComponent::PossessPlayer()
 void UPossessionComponent::DispossessPlayer()
 {
 	PlayerFlashlightComponent->ActivateFlashlight();
-	Cast<ABasePlayerCharacter>(GetOwner())->CanInteract = true;
 	SetComponentTickEnabled(false);
 	SetActive(false);
 	GetWorld()->GetTimerManager().ClearTimer(DirectionTimer);
