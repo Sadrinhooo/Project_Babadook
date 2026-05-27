@@ -51,4 +51,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Vision")
 	float VisionDotThreshold = -0.7f; 
 
+	UFUNCTION(BlueprintCallable, Category = "AI")
+	void GoHomeNow();
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+	FVector HomeLocation = FVector::ZeroVector;
 };
