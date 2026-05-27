@@ -114,4 +114,7 @@ public:
 	void ExitPuzzle();
 	
 	void OnSuccess(float DeltaTime);
+
+	UFUNCTION()
+	void SetInteractable(bool Interactable);
 };

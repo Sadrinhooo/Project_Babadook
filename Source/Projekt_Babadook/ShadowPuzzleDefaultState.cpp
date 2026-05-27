@@ -7,6 +7,7 @@
 #include "MyPlayerController.h"
 
 
+
 UShadowPuzzleDefaultState::UShadowPuzzleDefaultState()
 {
 	Owner = Cast<AShadowPuzzleManager>(GetOuter());
@@ -33,6 +34,7 @@ void UShadowPuzzleDefaultState::Interact(ACharacter* Interactor)
 	{
 		Owner->ChangeState(Owner->SolvingState);
 		Owner->PuzzleState->InitiateState();
+		Owner->SetInteractable(false);
 		return;
 	}
 	
