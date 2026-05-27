@@ -40,6 +40,7 @@ void AKeyItem::Interact(ACharacter* Interactor)
 	{
 		GameMode->AddItem(ItemData);
 		ItemData.bIsPickedUp = true;
+		Aaa();
 	}
 	
 	PickupSFX();

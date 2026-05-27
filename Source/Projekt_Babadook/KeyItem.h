@@ -73,6 +73,9 @@ public:
 	
 	//Functions
 	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void Aaa();
+	
 	virtual void Interact(ACharacter* Interactor) override;
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
