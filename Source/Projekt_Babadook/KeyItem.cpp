@@ -20,12 +20,6 @@ void AKeyItem::BeginPlay()
 	Super::BeginPlay();
 
 	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
-	
-	if (ItemData.bIsPickedUp == true)
-	{
-		StaticMesh->SetVisibility(false);
-	}
-	
 }
 
 // Called every frame
@@ -39,8 +33,6 @@ void AKeyItem::Interact(ACharacter* Interactor)
 	if (GameMode)
 	{
 		GameMode->AddItem(ItemData);
-		ItemData.bIsPickedUp = true;
-		Aaa();
 	}
 	
 	PickupSFX();
