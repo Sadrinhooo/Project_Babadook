@@ -9,6 +9,7 @@
 #include "GameplayTags.h"
 #include "KeyItem.generated.h"
 
+class UMyGameInstance;
 class AMyGameMode;
 
 USTRUCT(BlueprintType)
@@ -66,6 +67,9 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite)
 	AMyGameMode* GameMode;
+	
+	UPROPERTY(BlueprintReadWrite)
+	UMyGameInstance* GameInstance;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
 	FItemData ItemData;

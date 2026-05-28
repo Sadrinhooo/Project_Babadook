@@ -2,6 +2,7 @@
 
 
 #include "KeyItem.h"
+#include "MyGameInstance.h"
 #include "MyGameMode.h"
 
 // Sets default values
@@ -20,6 +21,17 @@ void AKeyItem::BeginPlay()
 	Super::BeginPlay();
 
 	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
+	GameInstance = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(this));
+	
+	if (GameInstance)
+	{
+		if (GameInstance->IsItemCollected(ItemData.ItemTag))
+		{
+			SetActorHiddenInGame(true);
+			SetActorEnableCollision(false);
+			SetActorTickEnabled(false);
+		}
+	}
 }
 
 // Called every frame
@@ -33,6 +45,11 @@ void AKeyItem::Interact(ACharacter* Interactor)
 	if (GameMode)
 	{
 		GameMode->AddItem(ItemData);
+	}
+	
+	if (GameInstance)
+	{
+		GameInstance->CollectItem(ItemData.ItemTag);
 	}
 	
 	PickupSFX();
