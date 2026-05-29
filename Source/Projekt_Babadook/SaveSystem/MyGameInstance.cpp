@@ -2,6 +2,8 @@
 
 
 #include "MyGameInstance.h"
+#include "MySaveGame.h"
+#include "Kismet/GameplayStatics.h"
 
 bool UMyGameInstance::IsItemCollected(FGameplayTag ItemTag) const
 {
@@ -11,4 +13,41 @@ bool UMyGameInstance::IsItemCollected(FGameplayTag ItemTag) const
 void UMyGameInstance::CollectItem(FGameplayTag ItemTag)
 {
 	CollectedItems.AddTag(ItemTag);
+}
+
+
+void UMyGameInstance::SaveGameData()
+{
+	UGameplayStatics::SaveGameToSlot(SaveGame, GameSlotName,0);
+	SaveGame->CollectedItems = CollectedItems;
+}
+
+void UMyGameInstance::LoadGameData()
+{
+	
+	if (UGameplayStatics::DoesSaveGameExist(GameSlotName, 0))
+	{
+		bShouldLoad = true;
+		
+		if (UMySaveGame* SaveGameRef = Cast<UMySaveGame>(UGameplayStatics::LoadGameFromSlot(GameSlotName, 0)))
+		{
+			SaveGame = SaveGameRef;
+			CollectedItems = SaveGame->CollectedItems;
+		}
+	}
+	else
+	{
+		if (UMySaveGame* SaveGameRef = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass())))
+		{
+			SaveGame = SaveGameRef;
+		}
+	}
+	
+}
+
+void UMyGameInstance::Init()
+{
+	Super::Init();
+	
+	LoadGameData();
 }

@@ -22,12 +22,28 @@ void ABasePlayerCharacter::BeginPlay()
 	
 	Camera = FindComponentByClass<UCameraComponent>();
 	
+	//Yasna
+	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
+	GameInstance = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(this));
+	
 	if (ScreenShakeCompRef)
 	{
 		UScreenShakeComponent* Comp = NewObject<UScreenShakeComponent>(this, ScreenShakeCompRef);
 		if (IsValid(Comp))
 		Comp->RegisterComponent();
 		
+	}
+	
+	//Yasna - Load
+	if (GameInstance && GameInstance->bShouldLoad)
+	{
+		LanternOilAmount = GameInstance->SaveGame->PlayerInfo.LanternOilAmount;
+		SetActorTransform(GameInstance->SaveGame->PlayerInfo.PlayerPos);
+		
+		if(GameMode)
+		{
+			GameMode->SharedInventory = GameInstance->SaveGame->PlayerInfo.Inventory;
+		}
 	}
 	
 }
@@ -120,5 +136,25 @@ void ABasePlayerCharacter::DecreaseLanternOil(float DeltaTime)
 		Flashlight->bLightIsOn = false;
 		Flashlight->ForceOff();
 	}
+}
+
+//Yasna - Save
+void ABasePlayerCharacter::SendOutSave_Implementation()
+{
+	ISaveInterface::SendOutSave_Implementation();
+	
+	if (GameInstance)
+	{
+		GameInstance->SaveGame->PlayerInfo.LanternOilAmount = LanternOilAmount;
+		GameInstance->SaveGame->PlayerInfo.PlayerPos = GetActorTransform();
+		
+		if (GameMode)
+		{
+			GameInstance->SaveGame->PlayerInfo.Inventory = GameMode->SharedInventory;
+		}
+		
+		GameInstance->SaveGameData();
+	}
+	
 }
 

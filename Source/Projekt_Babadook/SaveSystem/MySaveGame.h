@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
+#include "Saveables.h"
 #include "GameFramework/SaveGame.h"
 #include "MySaveGame.generated.h"
 
@@ -18,4 +19,7 @@ class PROJEKT_BABADOOK_API UMySaveGame : public USaveGame
 public:
 	UPROPERTY(BlueprintReadWrite)
 	FGameplayTagContainer CollectedItems;
+	
+	UPROPERTY(BlueprintReadWrite)
+	FPlayerInfo PlayerInfo;
 };
