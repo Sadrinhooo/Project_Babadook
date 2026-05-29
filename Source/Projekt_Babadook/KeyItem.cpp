@@ -2,8 +2,8 @@
 
 
 #include "KeyItem.h"
-#include "MyGameInstance.h"
 #include "MyGameMode.h"
+#include "SaveSystem/MyGameInstance.h"
 
 // Sets default values
 AKeyItem::AKeyItem()
@@ -21,6 +21,7 @@ void AKeyItem::BeginPlay()
 	Super::BeginPlay();
 
 	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
+	//Yasna
 	GameInstance = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(this));
 	
 	if (GameInstance)
@@ -31,7 +32,7 @@ void AKeyItem::BeginPlay()
 			SetActorEnableCollision(false);
 			SetActorTickEnabled(false);
 		}
-	}
+	}//
 }
 
 // Called every frame
@@ -47,13 +48,17 @@ void AKeyItem::Interact(ACharacter* Interactor)
 		GameMode->AddItem(ItemData);
 	}
 	
+	//Yasna
 	if (GameInstance)
 	{
 		GameInstance->CollectItem(ItemData.ItemTag);
 	}
 	
 	PickupSFX();
-	StaticMesh->SetVisibility(false);
+	//Yasna
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
+	SetActorTickEnabled(false);
 	//Destroy();
 }
 
