@@ -15,14 +15,9 @@ UShadowPuzzleDefaultState::UShadowPuzzleDefaultState()
 
 const FString& UShadowPuzzleDefaultState::GetInteractPrompt(ACharacter* Interactor)
 {
-	if (Owner->bHasPlacedKeyItem)
+	if (Owner->bHasPlacedKeyItem || Owner->PlayerHasKeyItem(Owner->KeyItemIndex))
 	{
-		return MoveItemInteractPrompt;
-	}
-
-	if (Owner->PlayerHasKeyItem(Owner->KeyItemIndex))
-	{
-		return HasItemInteractPrompt;
+		return NoPrompt;
 	}
 
 	return NoItemInteractPrompt;
