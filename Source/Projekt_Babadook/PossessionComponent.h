@@ -48,6 +48,9 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float ScreenShakeIntensity = 5.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USkeletalMeshComponent* SkeletalMesh;
 	
 	FVector CurrentDirection;
 	FTimerHandle DirectionTimer;
@@ -64,5 +67,4 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void Mash();
-		
 };
