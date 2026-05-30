@@ -104,7 +104,10 @@ void AShadowPuzzleManager::ExitPuzzle()
 		MyPC->bAutoManageActiveCameraTarget = true;
 		ChangeState(DefaultState);
 		HideWidget();
-		SetInteractable(true);
+		if (!bSuccessTriggered)
+		{
+			SetInteractable(true);
+		}
 	}
 }
 
