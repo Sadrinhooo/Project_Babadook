@@ -15,11 +15,23 @@ void UMyGameInstance::CollectItem(FGameplayTag ItemTag)
 	CollectedItems.AddTag(ItemTag);
 }
 
+/*
+FDoorInfo UMyGameInstance::GetDoorInfo(int32 DoorID)
+{
+	if (FDoorInfo* FindDoor = DoorInfo.Find(DoorID))
+	{
+		FDoorInfo& Door = *FindDoor;
+	}
+	
+	return FDoorInfo{false, FRotator(0,0,0)};
+}
+*/
 
 void UMyGameInstance::SaveGameData()
 {
 	UGameplayStatics::SaveGameToSlot(SaveGame, GameSlotName,0);
 	SaveGame->CollectedItems = CollectedItems;
+	SaveGame->Doors = Doors;
 }
 
 void UMyGameInstance::LoadGameData()
@@ -33,6 +45,7 @@ void UMyGameInstance::LoadGameData()
 		{
 			SaveGame = SaveGameRef;
 			CollectedItems = SaveGame->CollectedItems;
+			Doors = SaveGame->Doors;
 		}
 	}
 	else

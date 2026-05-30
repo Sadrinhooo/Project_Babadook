@@ -20,3 +20,16 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FItemData> Inventory;
 };
+
+USTRUCT(BlueprintType)
+struct FDoorInfo
+{
+	GENERATED_BODY()
+	
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsUnlocked;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FRotator DoorRotation;
+};

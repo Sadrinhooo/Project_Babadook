@@ -6,6 +6,7 @@
 #include "GameplayTagContainer.h"
 #include "MySaveGame.h"
 #include "Engine/GameInstance.h"
+#include "Projekt_Babadook/Door.h"
 #include "MyGameInstance.generated.h"
 
 /**
@@ -29,6 +30,10 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	UMySaveGame* SaveGame;
 	
+	UPROPERTY(BlueprintReadWrite)
+	TArray<FVector> Doors;
+	//TMap<int32, FDoorInfo> DoorInfo;
+	
 public:
 	
 	UFUNCTION(BlueprintCallable)
@@ -36,7 +41,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void CollectItem(FGameplayTag ItemTag);
-	
+	/*
+	UFUNCTION(BlueprintCallable)
+	FDoorInfo GetDoorInfo(int32 DoorID);
+	*/
 	
 	UFUNCTION(BlueprintCallable)
 	void SaveGameData() ;

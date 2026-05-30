@@ -22,4 +22,8 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite)
 	FPlayerInfo PlayerInfo;
+	
+	UPROPERTY(BlueprintReadWrite)
+	TArray<FVector> Doors;
+	//TMap<int32, FDoorInfo> DoorInfo;
 };

@@ -6,6 +6,7 @@
 #include "KeyItem.h"
 #include "MyGameMode.h"
 #include "Components/BoxComponent.h"
+#include "SaveSystem/MyGameInstance.h"
 
 // Sets default values
 ADoor::ADoor()
@@ -21,7 +22,20 @@ void ADoor::BeginPlay()
 	Super::BeginPlay();
 
 	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
+	GameInstance = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(this));
 	Door = GetComponentByClass<UStaticMeshComponent>();
+	
+	if (GameInstance && GameInstance->bShouldLoad)
+	{
+		for (FVector e : GameInstance->Doors)
+		{
+			if (e == GetActorLocation())
+			{
+				bIsUnlocked = true;
+				Door->SetRelativeRotation(FRotator(0, 90.f, 0));
+			}
+		}
+	}
 	
 }
 
@@ -54,8 +68,20 @@ void ADoor::Interact(ACharacter* Interactor)
 			if (GameMode->SharedInventory[KeyIndex].NumberOfUses >= GameMode->SharedInventory[KeyIndex].MaxNumberOfUses) GameMode->SharedInventory.RemoveAt(KeyIndex);
 			bIsUnlocked = true;
 			OpenDoor(Interactor->GetActorLocation());
-			ADoor::PlaySFX();	
+			ADoor::PlaySFX();
+			
+			
+			
+			if (GameInstance)
+			{
+				GameInstance->Doors.Add(GetActorLocation());
+				
+			}
+			
 		}
+		
+		
+		
 	}
 	
 }

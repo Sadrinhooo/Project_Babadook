@@ -7,6 +7,7 @@
 #include "Interactable.h"
 #include "KeyItem.h"
 #include "GameFramework/Actor.h"
+#include "SaveSystem/Saveables.h"
 #include "Door.generated.h"
 
 UCLASS()
@@ -31,9 +32,16 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsUnlocked = false;
-
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 DoorID;
+	
 	UPROPERTY(BlueprintReadWrite)
 	AMyGameMode* GameMode;
+	
+	//Yasna
+	UPROPERTY(BlueprintReadWrite)
+	UMyGameInstance* GameInstance;
 	
 	UPROPERTY(VisibleAnywhere)
 	int32 KeyIndex = 0; //Used for caching the index of the keyitem in the bombaclat inventory array
