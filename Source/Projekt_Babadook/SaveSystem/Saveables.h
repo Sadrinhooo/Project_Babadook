@@ -27,6 +27,10 @@ struct FDoorInfo
 	GENERATED_BODY()
 	
 public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FGuid Guid;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsUnlocked;
 	

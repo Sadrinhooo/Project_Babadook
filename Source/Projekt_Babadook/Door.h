@@ -21,6 +21,8 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
 	void PlaySFX();
+	
+	virtual void OnConstruction(const FTransform& Transform) override;
 
 protected:
 	// Called when the game starts or when spawned
@@ -35,6 +37,9 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 DoorID;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FGuid PersistentGuid;
 	
 	UPROPERTY(BlueprintReadWrite)
 	AMyGameMode* GameMode;

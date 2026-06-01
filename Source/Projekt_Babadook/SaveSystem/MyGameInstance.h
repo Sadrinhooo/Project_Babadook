@@ -31,7 +31,10 @@ public:
 	UMySaveGame* SaveGame;
 	
 	UPROPERTY(BlueprintReadWrite)
-	TArray<FVector> Doors;
+	TMap<FGuid, FDoorInfo> SavedDoors;
+	
+	//UPROPERTY(BlueprintReadWrite)
+	//TArray<FVector> Doors;
 	//TMap<int32, FDoorInfo> DoorInfo;
 	
 public:
@@ -41,6 +44,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void CollectItem(FGameplayTag ItemTag);
+	
+	UFUNCTION(BlueprintCallable)
+	FDoorInfo GetDoorInfo(FGuid Guid);
+	
 	/*
 	UFUNCTION(BlueprintCallable)
 	FDoorInfo GetDoorInfo(int32 DoorID);

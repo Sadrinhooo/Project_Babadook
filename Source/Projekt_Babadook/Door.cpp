@@ -16,6 +16,18 @@ ADoor::ADoor()
 
 }
 
+void ADoor::OnConstruction(const FTransform& Transform)
+{
+	Super::OnConstruction(Transform);
+	
+#if WITH_EDITOR
+	if (!PersistentGuid.IsValid())
+	{
+		PersistentGuid = FGuid::NewGuid();
+	}
+#endif
+}
+
 // Called when the game starts or when spawned
 void ADoor::BeginPlay()
 {
@@ -27,6 +39,16 @@ void ADoor::BeginPlay()
 	
 	if (GameInstance && GameInstance->bShouldLoad)
 	{
+		FDoorInfo Data = GameInstance->GetDoorInfo(PersistentGuid);
+		
+		bIsUnlocked = Data.bIsUnlocked;
+		Door->SetRelativeRotation(Data.DoorRotation);
+		
+	}
+	
+	/*
+	if (GameInstance && GameInstance->bShouldLoad)
+	{
 		for (FVector e : GameInstance->Doors)
 		{
 			if (e == GetActorLocation())
@@ -36,6 +58,7 @@ void ADoor::BeginPlay()
 			}
 		}
 	}
+	*/
 	
 }
 
@@ -71,16 +94,30 @@ void ADoor::Interact(ACharacter* Interactor)
 			ADoor::PlaySFX();
 			
 			
+			if (GameInstance)
+			{
+				FDoorInfo Data;
+				Data.bIsUnlocked = bIsUnlocked;
+				Data.DoorRotation = Door->GetRelativeRotation();
+				
+				GameInstance->SavedDoors.Add(PersistentGuid, Data);
+				
+			}
 			
+			/*
 			if (GameInstance)
 			{
 				GameInstance->Doors.Add(GetActorLocation());
 				
 			}
+			*/
 			
 		}
 		
 		
+		UE_LOG(LogTemp, Warning, TEXT("%s : %s"),
+		*GetName(),
+		*PersistentGuid.ToString());
 		
 	}
 	

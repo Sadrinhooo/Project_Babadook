@@ -24,6 +24,9 @@ public:
 	FPlayerInfo PlayerInfo;
 	
 	UPROPERTY(BlueprintReadWrite)
-	TArray<FVector> Doors;
+	TMap<FGuid, FDoorInfo> SavedDoors;
+	
+	//UPROPERTY(BlueprintReadWrite)
+	//TArray<FVector> Doors;
 	//TMap<int32, FDoorInfo> DoorInfo;
 };
