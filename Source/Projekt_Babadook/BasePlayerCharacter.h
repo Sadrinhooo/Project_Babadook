@@ -59,6 +59,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UMaterialInterface* InteractableObjectOverlay;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool CanInteract = true;
+	
 	//Functions
 	
 	UFUNCTION(BlueprintCallable)
