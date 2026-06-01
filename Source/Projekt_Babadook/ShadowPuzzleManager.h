@@ -8,6 +8,7 @@
 #include "ShadowPuzzleDefaultState.h"
 #include "ShadowPuzzleSolvingState.h"
 #include "ShadowPuzzleState.h"
+#include "Camera/CameraComponent.h"
 #include "GameFramework/Actor.h"
 #include "ShadowPuzzleManager.generated.h"
 
@@ -57,10 +58,10 @@ public:
 	UPROPERTY()
 	AMyPlayerController* MyPC;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	AActor* PuzzleCameraActor;
+	UPROPERTY(BlueprintReadWrite)
+	UCameraComponent* PuzzleCameraComponent;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite)
 	APawn* PuzzleItemPawn;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

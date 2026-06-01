@@ -33,6 +33,9 @@ void AShadowPuzzleManager::BeginPlay()
 // Called every frame
 void AShadowPuzzleManager::Tick(float DeltaTime)
 {
+
+	if (!PuzzleItemPawn) return;
+	
 	Super::Tick(DeltaTime);
 	if ((FVector::DotProduct(PuzzleItemPawn->GetActorForwardVector(), TargetForwardVector)) > 0.95f &&
 		FVector::DotProduct(PuzzleItemPawn->GetActorUpVector(), TargetUpVector) > 0.95f)
@@ -48,11 +51,6 @@ void AShadowPuzzleManager::Tick(float DeltaTime)
 		FQuat NewQuat = FQuat::Slerp(CurrentQuat, TargetQuat, DeltaTime * 3);
 		NewQuat.Normalize();
 		PuzzleItemPawn->SetActorRotation(NewQuat);
-	}
-	
-	for (FItemData& Item : GameMode->SharedInventory)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Item: %s"), *Item.ItemName);
 	}
 }
 
