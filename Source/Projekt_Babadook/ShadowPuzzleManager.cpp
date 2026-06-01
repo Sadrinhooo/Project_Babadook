@@ -64,6 +64,8 @@ const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
 	return PuzzleState->GetInteractPrompt(Interactor);
 }
 
+//William de Try was here
+
 UTexture2D* AShadowPuzzleManager::GetWidget()
 {
 	if (PlayerHasKeyItem(KeyItemIndex))
