@@ -26,6 +26,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	TMap<FGuid, FDoorInfo> SavedDoors;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString LevelName;
+	
 	//UPROPERTY(BlueprintReadWrite)
 	//TArray<FVector> Doors;
 	//TMap<int32, FDoorInfo> DoorInfo;

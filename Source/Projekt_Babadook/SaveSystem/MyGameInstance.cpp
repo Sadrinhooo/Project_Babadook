@@ -43,6 +43,7 @@ void UMyGameInstance::SaveGameData()
 	UGameplayStatics::SaveGameToSlot(SaveGame, GameSlotName,0);
 	SaveGame->CollectedItems = CollectedItems;
 	SaveGame->SavedDoors = SavedDoors;
+	SaveGame->LevelName = LevelName = UGameplayStatics::GetCurrentLevelName(this,true);
 	//SaveGame->Doors = Doors;
 }
 
@@ -58,6 +59,9 @@ void UMyGameInstance::LoadGameData()
 			SaveGame = SaveGameRef;
 			CollectedItems = SaveGame->CollectedItems;
 			SavedDoors = SaveGame->SavedDoors;
+			
+			FString SavedLevel = SaveGame->LevelName;
+			UGameplayStatics::OpenLevel(this, FName(*SavedLevel));
 			//Doors = SaveGame->Doors;
 		}
 	}
