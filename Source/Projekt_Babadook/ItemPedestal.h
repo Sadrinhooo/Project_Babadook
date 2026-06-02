@@ -56,6 +56,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString PickupInteractPrompt = "UNLOCKED";
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UTexture2D* Icon;
+	
 	virtual void Interact(ACharacter* Interactor) override;
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
@@ -69,5 +72,7 @@ public:
 	};
 
 	virtual bool PlayerHasKey(int32& OutIndex);
+	
+	virtual UTexture2D* GetWidget() override;
 
 };
