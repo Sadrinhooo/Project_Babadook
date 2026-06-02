@@ -58,6 +58,17 @@ const FString& AItemPedestal::GetInteractPrompt(ACharacter* Interactor)
 	}
 }
 
+UTexture2D* AItemPedestal::GetWidget()
+{
+	if (PlayerHasKey(KeyIndex))
+	{
+		return nullptr;
+	}else
+	{
+		return Icon;
+	}
+}
+
 bool AItemPedestal::PlayerHasKey(int32& OutIndex)
 {
 	for (int i = 0; i < GameMode->SharedInventory.Num(); i++)
