@@ -22,6 +22,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "LightPuzzle");
 	float BlendTime = 0.5f;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LightPuzzle")
+	bool bCanEnterPuzzle = true;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
