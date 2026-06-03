@@ -33,6 +33,9 @@ void AShadowPuzzleManager::BeginPlay()
 // Called every frame
 void AShadowPuzzleManager::Tick(float DeltaTime)
 {
+
+	if (!PuzzleItemPawn) return;
+	
 	Super::Tick(DeltaTime);
 	if ((FVector::DotProduct(PuzzleItemPawn->GetActorForwardVector(), TargetForwardVector)) > 0.95f &&
 		FVector::DotProduct(PuzzleItemPawn->GetActorUpVector(), TargetUpVector) > 0.95f)
@@ -49,11 +52,6 @@ void AShadowPuzzleManager::Tick(float DeltaTime)
 		NewQuat.Normalize();
 		PuzzleItemPawn->SetActorRotation(NewQuat);
 	}
-	
-	for (FItemData& Item : GameMode->SharedInventory)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Item: %s"), *Item.ItemName);
-	}
 }
 
 void AShadowPuzzleManager::Interact(ACharacter* Interactor)
@@ -65,6 +63,8 @@ const FString& AShadowPuzzleManager::GetInteractPrompt(ACharacter* Interactor)
 {
 	return PuzzleState->GetInteractPrompt(Interactor);
 }
+
+//William de Try was here
 
 UTexture2D* AShadowPuzzleManager::GetWidget()
 {
@@ -104,7 +104,10 @@ void AShadowPuzzleManager::ExitPuzzle()
 		MyPC->bAutoManageActiveCameraTarget = true;
 		ChangeState(DefaultState);
 		HideWidget();
-		SetInteractable(true);
+		if (!bSuccessTriggered)
+		{
+			SetInteractable(true);
+		}
 	}
 }
 

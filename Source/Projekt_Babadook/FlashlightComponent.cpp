@@ -11,12 +11,6 @@ UFlashlightComponent::UFlashlightComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 	
-	FlashlightMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
-	FlashlightMesh->SetupAttachment(this);
-	
-	LightComponent = CreateDefaultSubobject<USpotLightComponent>(TEXT("Spotlight"));
-	LightComponent->SetupAttachment(FlashlightMesh);
-
 	// ...
 }
 
@@ -64,13 +58,13 @@ void UFlashlightComponent::SwitchFlashlight()
 	if (!bLightIsOn && Player->LanternOilAmount <= 0.f) return;
 
 	bLightIsOn = !bLightIsOn;
-	LightComponent->SetVisibility(bLightIsOn);
+	//LightComponent->SetVisibility(bLightIsOn);
 }
 
 void UFlashlightComponent::ForceOff()
 {
 	bLightIsOn = false;
-	LightComponent->SetVisibility(false);
+	//LightComponent->SetVisibility(false);
 }
 
 

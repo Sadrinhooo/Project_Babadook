@@ -29,12 +29,6 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, 
 		FActorComponentTickFunction* ThisTickFunction) override;
-
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* FlashlightMesh;
-	
-	UPROPERTY(VisibleAnywhere)
-	USpotLightComponent* LightComponent;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bLightIsOn = true;
