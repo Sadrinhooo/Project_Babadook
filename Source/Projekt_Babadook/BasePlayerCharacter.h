@@ -8,13 +8,15 @@
 #include "Camera/CameraComponent.h"
 #include "Interactable.h"
 #include "FlashlightComponent.h"
+#include "SaveSystem/MyGameInstance.h"
+#include "SaveSystem/SaveInterface.h"
 #include "BasePlayerCharacter.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPressedCancel, FString, PressedKey);
 
 
 UCLASS()
-class PROJEKT_BABADOOK_API ABasePlayerCharacter : public ACharacter
+class PROJEKT_BABADOOK_API ABasePlayerCharacter : public ACharacter, public ISaveInterface
 {
 	GENERATED_BODY()
 
@@ -58,11 +60,20 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UMaterialInterface* InteractableObjectOverlay;
+		
+	//Yasna
+	UPROPERTY(BlueprintReadWrite)
+	AMyGameMode* GameMode;
+	
+	UPROPERTY(BlueprintReadWrite)
+	UMyGameInstance* GameInstance;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool CanInteract = true;
 	
 	//Functions
+	
+	virtual void SendOutSave_Implementation() override;
 	
 	UFUNCTION(BlueprintCallable)
 	void LookForInteractable();

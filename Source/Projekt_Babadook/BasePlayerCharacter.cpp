@@ -4,6 +4,7 @@
 #include "BasePlayerCharacter.h"
 
 #include "Interactable.h"
+#include "MyGameMode.h"
 #include "ScreenShakeComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
