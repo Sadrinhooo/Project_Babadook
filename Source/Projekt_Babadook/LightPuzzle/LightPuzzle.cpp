@@ -56,6 +56,8 @@ void ALightPuzzle::PuzzleEnter(ABasePlayerCharacter* Player, APlayerController* 
 	PlayerController->SetIgnoreLookInput(true);
 	EnableInput(PlayerController);
 	
+	bInPuzzle = true;
+	StartPuzzle();
 	
 }
 
@@ -71,5 +73,6 @@ void ALightPuzzle::PuzzleExit(ABasePlayerCharacter* Player, APlayerController* P
 	PlayerController->ResetIgnoreLookInput();
 	Player->GetCharacterMovement()->SetMovementMode(MOVE_Walking);
 	
+	bInPuzzle = false;
 }
 
