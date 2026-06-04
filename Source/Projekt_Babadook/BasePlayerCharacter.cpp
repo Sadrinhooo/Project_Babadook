@@ -5,6 +5,7 @@
 
 #include "Interactable.h"
 #include "MyGameMode.h"
+#include "SaveSystem/SaveInterface.h"
 #include "ScreenShakeComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"

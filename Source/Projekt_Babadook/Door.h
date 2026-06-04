@@ -8,10 +8,11 @@
 #include "KeyItem.h"
 #include "GameFramework/Actor.h"
 #include "SaveSystem/Saveables.h"
+#include "SaveSystem/SaveInterface.h"
 #include "Door.generated.h"
 
 UCLASS()
-class PROJEKT_BABADOOK_API ADoor : public AActor, public IInteractable
+class PROJEKT_BABADOOK_API ADoor : public AActor, public IInteractable, public ISaveInterface
 {
 	GENERATED_BODY()
 	
@@ -77,6 +78,8 @@ public:
 	UTexture2D* Widget;
 	
 	//Functions
+	
+	virtual void SendOutSave_Implementation() override;
 	
 	virtual void Interact(ACharacter* Interactor) override;
 	

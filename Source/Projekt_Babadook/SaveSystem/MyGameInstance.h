@@ -30,8 +30,8 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	UMySaveGame* SaveGame;
 	
-	UPROPERTY(BlueprintReadWrite)
-	TMap<FGuid, FDoorInfo> SavedDoors;
+	//UPROPERTY(BlueprintReadWrite)
+	//TMap<FGuid, FDoorInfo> SavedDoors;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString LevelName;
@@ -48,10 +48,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void CollectItem(FGameplayTag ItemTag);
 	
+	/*
 	UFUNCTION(BlueprintCallable)
 	FDoorInfo GetDoorInfo(FGuid Guid);
 	
-	/*
 	UFUNCTION(BlueprintCallable)
 	FDoorInfo GetDoorInfo(int32 DoorID);
 	*/

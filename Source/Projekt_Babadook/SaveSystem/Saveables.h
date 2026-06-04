@@ -28,8 +28,8 @@ struct FDoorInfo
 	
 public:
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FGuid Guid;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//FGuid Guid;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsUnlocked;

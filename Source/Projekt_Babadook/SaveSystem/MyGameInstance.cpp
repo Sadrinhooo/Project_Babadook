@@ -15,6 +15,7 @@ void UMyGameInstance::CollectItem(FGameplayTag ItemTag)
 	CollectedItems.AddTag(ItemTag);
 }
 
+/*
 FDoorInfo UMyGameInstance::GetDoorInfo(FGuid Guid)
 {
 	if (FDoorInfo* CurrentDoor = SavedDoors.Find(Guid))
@@ -25,7 +26,7 @@ FDoorInfo UMyGameInstance::GetDoorInfo(FGuid Guid)
 	
 	return FDoorInfo{Guid, false, FRotator::ZeroRotator};
 }
-
+*/
 /*
 FDoorInfo UMyGameInstance::GetDoorInfo(int32 DoorID)
 {
@@ -42,7 +43,7 @@ void UMyGameInstance::SaveGameData()
 {
 	UGameplayStatics::SaveGameToSlot(SaveGame, GameSlotName,0);
 	SaveGame->CollectedItems = CollectedItems;
-	SaveGame->SavedDoors = SavedDoors;
+	//SaveGame->SavedDoors = SavedDoors;
 	SaveGame->LevelName = LevelName = UGameplayStatics::GetCurrentLevelName(this,true);
 	//SaveGame->Doors = Doors;
 }
@@ -58,7 +59,7 @@ void UMyGameInstance::LoadGameData()
 		{
 			SaveGame = SaveGameRef;
 			CollectedItems = SaveGame->CollectedItems;
-			SavedDoors = SaveGame->SavedDoors;
+			//SavedDoors = SaveGame->SavedDoors;
 			
 			FString SavedLevel = SaveGame->LevelName;
 			UGameplayStatics::OpenLevel(this, FName(*SavedLevel));

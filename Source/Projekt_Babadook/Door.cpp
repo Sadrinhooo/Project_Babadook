@@ -39,26 +39,13 @@ void ADoor::BeginPlay()
 	
 	if (GameInstance && GameInstance->bShouldLoad)
 	{
-		FDoorInfo Data = GameInstance->GetDoorInfo(PersistentGuid);
-		
-		bIsUnlocked = Data.bIsUnlocked;
-		Door->SetRelativeRotation(Data.DoorRotation);
-		
-	}
-	
-	/*
-	if (GameInstance && GameInstance->bShouldLoad)
-	{
-		for (FVector e : GameInstance->Doors)
+		if (FDoorInfo* d = GameInstance->SaveGame->SavedDoors.Find(PersistentGuid))
 		{
-			if (e == GetActorLocation())
-			{
-				bIsUnlocked = true;
-				Door->SetRelativeRotation(FRotator(0, 90.f, 0));
-			}
+			bIsUnlocked = d->bIsUnlocked;
+			Door->SetRelativeRotation(d->DoorRotation);
 		}
+		
 	}
-	*/
 	
 }
 
@@ -81,6 +68,20 @@ void ADoor::Tick(float DeltaTime)
 	}
 }
 
+void ADoor::SendOutSave_Implementation()
+{
+	ISaveInterface::SendOutSave_Implementation();
+	
+	if (GameInstance)
+	{
+		if (GEngine)
+			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, bIsUnlocked ? "True" : "False");
+		GameInstance->SaveGame->SavedDoors.Add(PersistentGuid, FDoorInfo{bIsUnlocked, Door->GetRelativeRotation()});
+	}
+	
+	GameInstance->SaveGameData();
+}
+
 void ADoor::Interact(ACharacter* Interactor)
 {
 	if (!bIsUnlocked)
@@ -92,32 +93,7 @@ void ADoor::Interact(ACharacter* Interactor)
 			bIsUnlocked = true;
 			OpenDoor(Interactor->GetActorLocation());
 			ADoor::PlaySFX();
-			
-			
-			if (GameInstance)
-			{
-				FDoorInfo Data;
-				Data.bIsUnlocked = bIsUnlocked;
-				Data.DoorRotation = Door->GetRelativeRotation();
-				
-				GameInstance->SavedDoors.Add(PersistentGuid, Data);
-				
-			}
-			
-			/*
-			if (GameInstance)
-			{
-				GameInstance->Doors.Add(GetActorLocation());
-				
-			}
-			*/
-			
 		}
-		
-		
-		UE_LOG(LogTemp, Warning, TEXT("%s : %s"),
-		*GetName(),
-		*PersistentGuid.ToString());
 		
 	}
 	
