@@ -37,3 +37,47 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FRotator DoorRotation;
 };
+
+USTRUCT(BlueprintType)
+struct FBarDoorInfo
+{
+	GENERATED_BODY()
+	
+public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bVisibility;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector DoorRotation;
+};
+
+
+USTRUCT(BlueprintType)
+struct FLeverInfo
+{
+	GENERATED_BODY()
+	
+public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsPulled;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FRotator LeverRotation;
+};
+
+
+USTRUCT(BlueprintType)
+struct FPianoInfo
+{
+	GENERATED_BODY()
+	
+public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 NoteIndex;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FTransform DoorTransform;
+};

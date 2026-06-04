@@ -62,5 +62,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void LoadGameData() ;
 
+	UFUNCTION(BLueprintCallable, BlueprintImplementableEvent)
+	void OnLoad(USaveGame* SaveGameRef);
+	
 	virtual void Init() override;
 };

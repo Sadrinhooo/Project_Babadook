@@ -55,7 +55,10 @@ void UMyGameInstance::LoadGameData()
 	{
 		bShouldLoad = true;
 		
-		if (UMySaveGame* SaveGameRef = Cast<UMySaveGame>(UGameplayStatics::LoadGameFromSlot(GameSlotName, 0)))
+		USaveGame* Save = UGameplayStatics::LoadGameFromSlot(GameSlotName, 0);
+		OnLoad(Save);
+		
+		if (UMySaveGame* SaveGameRef = Cast<UMySaveGame>(Save))
 		{
 			SaveGame = SaveGameRef;
 			CollectedItems = SaveGame->CollectedItems;
