@@ -11,6 +11,7 @@
 #include "WeepingAngelAIController.h"
 #include "FlashlightComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFlashlightOff);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PROJEKT_BABADOOK_API UFlashlightComponent : public USceneComponent
@@ -25,7 +26,10 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
+public:
+	UPROPERTY(BlueprintAssignable, Category = "Events")
+	FOnFlashlightOff FlashlightOff;
+	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, 
 		FActorComponentTickFunction* ThisTickFunction) override;
