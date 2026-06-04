@@ -65,6 +65,7 @@ void UFlashlightComponent::ForceOff()
 {
 	bLightIsOn = false;
 	//LightComponent->SetVisibility(false);
+	FlashlightOff.Broadcast();
 }
 
 
