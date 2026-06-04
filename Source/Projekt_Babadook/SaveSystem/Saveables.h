@@ -102,4 +102,7 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bCanEnterPuzzle;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString KeyWord;
 };
