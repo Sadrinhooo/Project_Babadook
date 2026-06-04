@@ -97,6 +97,9 @@ public:
 	
 	void OpenDoor(const FVector& PlayerLocation);
 	
+	UFUNCTION(BlueprintCallable)
+	void OpenOnLightPuzzle(const FVector& PlayerLocation);
+	
 	float GetOpenerDirectionToDoor(const FVector& OpenerLocation);
 
 	virtual UTexture2D* GetWidget() override;

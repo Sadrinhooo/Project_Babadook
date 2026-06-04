@@ -191,6 +191,11 @@ void ADoor::OpenDoor(const FVector& PlayerLocation)
 	}
 }
 
+void ADoor::OpenOnLightPuzzle(const FVector& PlayerLocation)
+{
+	OpenDoor(PlayerLocation);
+}
+
 float ADoor::GetOpenerDirectionToDoor(const FVector& OpenerLocation)
 {
 	const FVector ToPlayer = (OpenerLocation - GetActorLocation()).GetSafeNormal();
