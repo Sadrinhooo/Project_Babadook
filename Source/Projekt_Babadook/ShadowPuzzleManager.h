@@ -47,7 +47,8 @@ public:
 	UPROPERTY()
 	TScriptInterface<IShadowPuzzleState> PuzzleState;
 	
-	
+	UPROPERTY(BlueprintReadWrite)
+	bool bHasSucceeded = false;
 	
 	//State object instances
 	UPROPERTY()

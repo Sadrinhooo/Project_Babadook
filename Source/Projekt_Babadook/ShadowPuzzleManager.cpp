@@ -44,7 +44,7 @@ void AShadowPuzzleManager::Tick(float DeltaTime)
 		OnSuccess(DeltaTime);
 	}
 	
-	if (bSuccessTriggered)
+	if (bSuccessTriggered || bHasSucceeded)
 	{
 		FQuat TargetQuat = TargetRotation.Quaternion();
 		FQuat CurrentQuat = PuzzleItemPawn->GetActorQuat();
@@ -104,7 +104,7 @@ void AShadowPuzzleManager::ExitPuzzle()
 		MyPC->bAutoManageActiveCameraTarget = true;
 		ChangeState(DefaultState);
 		HideWidget();
-		if (!bSuccessTriggered)
+		if (!bSuccessTriggered || bHasSucceeded)
 		{
 			SetInteractable(true);
 		}
@@ -114,8 +114,9 @@ void AShadowPuzzleManager::ExitPuzzle()
 void AShadowPuzzleManager::OnSuccess(float DeltaTime)
 {
 	// Guard so this only runs once
-	if (bSuccessTriggered) return;
+	if (bSuccessTriggered || bHasSucceeded) return;
 	bSuccessTriggered = true;
+	bHasSucceeded = true;
 
 	APlayerController* PC = GetWorld()->GetFirstPlayerController();
 	APawn* PlayerPawn = PC->GetPawn();

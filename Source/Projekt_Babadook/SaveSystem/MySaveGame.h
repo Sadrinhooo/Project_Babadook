@@ -26,12 +26,18 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	FPianoInfo PianoInfo;
 	
+	UPROPERTY(BlueprintReadWrite)
+	FLightPuzzleInfo LightPuzzleInfo;
+	
 	//UPROPERTY(BlueprintReadWrite)
 	//TArray<FDoorInfo> DoorInfo;
 	//TMap<int32, FDoorInfo> DoorInfo;
 	
 	UPROPERTY(BlueprintReadWrite)
 	TArray<FLeverInfo> LeverInfo;
+	
+	UPROPERTY(BlueprintReadWrite)
+	TArray<FShadowPuzzleInfo> ShadowPuzzleInfo;
 	
 	UPROPERTY(BlueprintReadWrite)
 	TArray<FBarDoorInfo> BarDoorInfo;

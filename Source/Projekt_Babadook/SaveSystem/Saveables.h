@@ -81,3 +81,25 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FTransform DoorTransform;
 };
+
+USTRUCT(BlueprintType)
+struct FShadowPuzzleInfo
+{
+	GENERATED_BODY()
+	
+public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bHasSucceeded;
+};
+
+USTRUCT(BlueprintType)
+struct FLightPuzzleInfo
+{
+	GENERATED_BODY()
+	
+public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bCanEnterPuzzle;
+};
