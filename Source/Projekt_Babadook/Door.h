@@ -79,7 +79,7 @@ public:
 	
 	//Functions
 	
-	virtual void SendOutSave_Implementation() override;
+	//virtual void SendOutSave_Implementation() override;
 	
 	virtual void Interact(ACharacter* Interactor) override;
 	

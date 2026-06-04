@@ -29,9 +29,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	FLightPuzzleInfo LightPuzzleInfo;
 	
-	//UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite)
 	//TArray<FDoorInfo> DoorInfo;
-	//TMap<int32, FDoorInfo> DoorInfo;
+	TMap<int32, FDoorInfo> DoorInfo;
 	
 	UPROPERTY(BlueprintReadWrite)
 	TArray<FLeverInfo> LeverInfo;
@@ -42,8 +42,8 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	TArray<FBarDoorInfo> BarDoorInfo;
 	
-	UPROPERTY(BlueprintReadWrite)
-	TMap<FGuid, FDoorInfo> SavedDoors;
+	//UPROPERTY(BlueprintReadWrite)
+	//TMap<int32, FDoorInfo> SavedDoors;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString LevelName;

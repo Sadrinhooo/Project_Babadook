@@ -37,16 +37,17 @@ void ADoor::BeginPlay()
 	GameInstance = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(this));
 	Door = GetComponentByClass<UStaticMeshComponent>();
 	
+	/*
 	if (GameInstance && GameInstance->bShouldLoad)
 	{
-		if (FDoorInfo* d = GameInstance->SaveGame->SavedDoors.Find(PersistentGuid))
+		if (FDoorInfo* d = GameInstance->SaveGame->SavedDoors.Find(DoorID))
 		{
 			bIsUnlocked = d->bIsUnlocked;
 			Door->SetRelativeRotation(d->DoorRotation);
 		}
 		
 	}
-	
+	*/
 }
 
 // Called every frame
@@ -68,6 +69,7 @@ void ADoor::Tick(float DeltaTime)
 	}
 }
 
+/*
 void ADoor::SendOutSave_Implementation()
 {
 	ISaveInterface::SendOutSave_Implementation();
@@ -76,12 +78,12 @@ void ADoor::SendOutSave_Implementation()
 	{
 		if (GEngine)
 			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, bIsUnlocked ? "True" : "False");
-		GameInstance->SaveGame->SavedDoors.Add(PersistentGuid, FDoorInfo{bIsUnlocked, Door->GetRelativeRotation()});
+		GameInstance->SaveGame->SavedDoors.Add(DoorID, FDoorInfo{bIsUnlocked, Door->GetRelativeRotation()});
 	}
 	
 	GameInstance->SaveGameData();
 }
-
+*/
 void ADoor::Interact(ACharacter* Interactor)
 {
 	if (!bIsUnlocked)
