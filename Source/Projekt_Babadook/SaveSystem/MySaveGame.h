@@ -41,6 +41,9 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite)
 	TArray<FBarDoorInfo> BarDoorInfo;
+
+	UPROPERTY(BlueprintReadWrite)
+	TArray<FString> MapInfo;
 	
 	//UPROPERTY(BlueprintReadWrite)
 	//TMap<int32, FDoorInfo> SavedDoors;
