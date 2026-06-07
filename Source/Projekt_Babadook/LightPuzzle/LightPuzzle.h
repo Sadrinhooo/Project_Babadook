@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Camera/CameraComponent.h"
 #include "GameFramework/Actor.h"
 #include "Projekt_Babadook/Interactable.h"
 #include "LightPuzzle.generated.h"
@@ -16,11 +17,17 @@ public:
 	// Sets default values for this actor's properties
 	ALightPuzzle();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LightPuzzle");
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LightPuzzle")
 	FString InteractPrompt = "PRESS ""E"" TO ENTER PUZZLE";
 	
-	UPROPERTY(BlueprintReadWrite, Category = "LightPuzzle");
+	UPROPERTY(BlueprintReadWrite, Category = "LightPuzzle")
 	float BlendTime = 0.5f;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LightPuzzle")
+	bool bCanEnterPuzzle = true;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LightPuzzle")
+	bool bInPuzzle = false;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -43,6 +50,9 @@ public:
 	};
 	
 	void PuzzleEnter(ABasePlayerCharacter* Player, APlayerController* PlayerController);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void StartPuzzle();
 	
 	UFUNCTION(BlueprintCallable, Category = "LightPuzzle")
 	void PuzzleExit(ABasePlayerCharacter* Player, APlayerController* PlayerController);

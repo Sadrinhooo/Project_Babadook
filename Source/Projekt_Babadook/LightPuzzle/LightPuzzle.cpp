@@ -32,7 +32,10 @@ void ALightPuzzle::Interact(ACharacter* Interactor)
 	ABasePlayerCharacter* Player = Cast<ABasePlayerCharacter>(Interactor);
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(Player, 0);
 	
-	PuzzleEnter(Player, PlayerController);
+	if (bCanEnterPuzzle == true)
+	{
+		PuzzleEnter(Player, PlayerController);
+	}
 	
 }
 
@@ -53,6 +56,8 @@ void ALightPuzzle::PuzzleEnter(ABasePlayerCharacter* Player, APlayerController* 
 	PlayerController->SetIgnoreLookInput(true);
 	EnableInput(PlayerController);
 	
+	bInPuzzle = true;
+	StartPuzzle();
 	
 }
 
@@ -64,9 +69,10 @@ void ALightPuzzle::PuzzleExit(ABasePlayerCharacter* Player, APlayerController* P
 	}
 	
 	PlayerController->SetViewTargetWithBlend(Player, BlendTime);
-	PlayerController->DisableInput(PlayerController);
+	DisableInput(PlayerController);
 	PlayerController->ResetIgnoreLookInput();
 	Player->GetCharacterMovement()->SetMovementMode(MOVE_Walking);
 	
+	bInPuzzle = false;
 }
 

@@ -6,6 +6,7 @@
 #include "KeyItem.h"
 #include "MyGameMode.h"
 #include "Components/BoxComponent.h"
+#include "SaveSystem/MyGameInstance.h"
 
 // Sets default values
 ADoor::ADoor()
@@ -15,14 +16,38 @@ ADoor::ADoor()
 
 }
 
+void ADoor::OnConstruction(const FTransform& Transform)
+{
+	Super::OnConstruction(Transform);
+	
+#if WITH_EDITOR
+	if (!PersistentGuid.IsValid())
+	{
+		PersistentGuid = FGuid::NewGuid();
+	}
+#endif
+}
+
 // Called when the game starts or when spawned
 void ADoor::BeginPlay()
 {
 	Super::BeginPlay();
 
 	GameMode = Cast<AMyGameMode>(UGameplayStatics::GetGameMode(this));
+	GameInstance = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(this));
 	Door = GetComponentByClass<UStaticMeshComponent>();
 	
+	/*
+	if (GameInstance && GameInstance->bShouldLoad)
+	{
+		if (FDoorInfo* d = GameInstance->SaveGame->SavedDoors.Find(DoorID))
+		{
+			bIsUnlocked = d->bIsUnlocked;
+			Door->SetRelativeRotation(d->DoorRotation);
+		}
+		
+	}
+	*/
 }
 
 // Called every frame
@@ -44,6 +69,21 @@ void ADoor::Tick(float DeltaTime)
 	}
 }
 
+/*
+void ADoor::SendOutSave_Implementation()
+{
+	ISaveInterface::SendOutSave_Implementation();
+	
+	if (GameInstance)
+	{
+		if (GEngine)
+			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, bIsUnlocked ? "True" : "False");
+		GameInstance->SaveGame->SavedDoors.Add(DoorID, FDoorInfo{bIsUnlocked, Door->GetRelativeRotation()});
+	}
+	
+	GameInstance->SaveGameData();
+}
+*/
 void ADoor::Interact(ACharacter* Interactor)
 {
 	if (!bIsUnlocked)
@@ -54,8 +94,9 @@ void ADoor::Interact(ACharacter* Interactor)
 			if (GameMode->SharedInventory[KeyIndex].NumberOfUses >= GameMode->SharedInventory[KeyIndex].MaxNumberOfUses) GameMode->SharedInventory.RemoveAt(KeyIndex);
 			bIsUnlocked = true;
 			OpenDoor(Interactor->GetActorLocation());
-			ADoor::PlaySFX();	
+			ADoor::PlaySFX();
 		}
+		
 	}
 	
 }
@@ -126,6 +167,11 @@ void ADoor::OpenDoor(const FVector& PlayerLocation)
 	{
 		Collider->SetCollisionResponseToChannel(ECC_GameTraceChannel2, ECR_Ignore);
 	}
+}
+
+void ADoor::OpenOnLightPuzzle(const FVector& PlayerLocation)
+{
+	OpenDoor(PlayerLocation);
 }
 
 float ADoor::GetOpenerDirectionToDoor(const FVector& OpenerLocation)

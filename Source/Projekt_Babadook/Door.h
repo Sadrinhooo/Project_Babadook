@@ -7,10 +7,12 @@
 #include "Interactable.h"
 #include "KeyItem.h"
 #include "GameFramework/Actor.h"
+#include "SaveSystem/Saveables.h"
+#include "SaveSystem/SaveInterface.h"
 #include "Door.generated.h"
 
 UCLASS()
-class PROJEKT_BABADOOK_API ADoor : public AActor, public IInteractable
+class PROJEKT_BABADOOK_API ADoor : public AActor, public IInteractable, public ISaveInterface
 {
 	GENERATED_BODY()
 	
@@ -20,6 +22,8 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Event on interact")
 	void PlaySFX();
+	
+	virtual void OnConstruction(const FTransform& Transform) override;
 
 protected:
 	// Called when the game starts or when spawned
@@ -31,9 +35,19 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsUnlocked = false;
-
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 DoorID;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FGuid PersistentGuid;
+	
 	UPROPERTY(BlueprintReadWrite)
 	AMyGameMode* GameMode;
+	
+	//Yasna
+	UPROPERTY(BlueprintReadWrite)
+	UMyGameInstance* GameInstance;
 	
 	UPROPERTY(VisibleAnywhere)
 	int32 KeyIndex = 0; //Used for caching the index of the keyitem in the bombaclat inventory array
@@ -65,6 +79,8 @@ public:
 	
 	//Functions
 	
+	//virtual void SendOutSave_Implementation() override;
+	
 	virtual void Interact(ACharacter* Interactor) override;
 	
 	virtual const FString& GetInteractPrompt(ACharacter* Interactor) override;
@@ -83,6 +99,9 @@ public:
 	void OpenForMonster(const FVector& OpenerLocation);
 	
 	void OpenDoor(const FVector& PlayerLocation);
+	
+	UFUNCTION(BlueprintCallable)
+	void OpenOnLightPuzzle(const FVector& PlayerLocation);
 	
 	float GetOpenerDirectionToDoor(const FVector& OpenerLocation);
 
